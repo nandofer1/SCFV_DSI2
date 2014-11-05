@@ -1,7 +1,6 @@
 <<<<<<< HEAD
 # User specific & automatically generated files #
 #################################################
-/app/Config/database.php
 /app/tmp
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins
@@ -35,3 +34,5 @@ app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
 !empty
 >>>>>>> origin/master
+!/app/Config/core.php
+!/app/Config/database.php
