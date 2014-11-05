@@ -5,11 +5,11 @@ App::uses('UserType', 'Model');
 class UsersController extends AppController {
   public $components = array('Paginator');
 
- /* public function beforeFilter() {
+  public function beforeFilter() {
     parent::beforeFilter();
 
     $this->Auth->allow('logout'); // Allow Usuarios to logout.
-  }*/
+  }
 
   public function login() {
     $this->layout = false;
