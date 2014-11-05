@@ -402,6 +402,10 @@ CREATE TABLE IF NOT EXISTS users (
   KEY tipo_usuario (tipo_usuario)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+INSERT INTO users VALUES (id, 'OBC', '$2a$10$6oxs0R/GtlnxXR8fskQUAOw51oyxu5Xwx2z.95G5yJh/GvSMMI9iS', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
+INSERT INTO users VALUES (id, 'fernando', '$2a$10$xE5FxE8sZmVCgYtB1fwO0eIGOLKruHfSY1DRUi/w44sCDdZGNvZtm', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
+
+
 -- --------------------------------------------------------
 
 --
