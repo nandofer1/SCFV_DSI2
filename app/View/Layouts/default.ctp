@@ -37,7 +37,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
 			<div id="header">
 				<img src=<?php echo "$imgdir/cove-logo.png" ?>>
 				<h1>CoVE: Control de Flota de Vehiculos</h1>
-				<span>Hola, <?php echo $this->Session->read("username") ?>.  (<a href="/usuarios/logout">Salir</a>)<img src=<?php echo "$imgdir/avatar.png" ?>></span>
+				<span>Hola, <?php echo $this->Session->read("username") ?>.  (<a href="/users/logout">Salir</a>)<img src=<?php echo "$imgdir/avatar.png" ?>></span>
                                 <h1><?php echo $webroot ?></h1>
                         </div>
 		</div>
