@@ -360,6 +360,7 @@ class AuthComponent extends Component {
 
 		if (!$controller->request->is('ajax')) {
 			$this->flash($this->authError);
+			$this->Session->setFlash($this->authError, 'flash_notification');			
 			$this->Session->write('Auth.redirect', $controller->request->here(false));
 			$controller->redirect($this->loginAction);
 			return false;
