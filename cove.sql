@@ -1,33 +1,58 @@
--- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 05-11-2014 a las 03:32:26
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.4.3
-
 /*SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";*/
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Base de datos: 'scfv'
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla 'allocations'
---
 DROP DATABASE IF EXISTS `scfv`;
 CREATE DATABASE `scfv`;
 USE `scfv`;
+
+CREATE TABLE IF NOT EXISTS user_types (
+  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tipo_usuario varchar(50) UNIQUE,
+  created datetime DEFAULT NULL,
+  modified datetime DEFAULT NULL
+);
+
+INSERT INTO user_types values (id, 'Administrador del Sistema', NOW(), NOW());
+INSERT INTO user_types values (id, 'Gerente General', NOW(), NOW());
+INSERT INTO user_types values (id, 'Gerente de Servicios', NOW(), NOW());
+INSERT INTO user_types values (id, 'Supervisor de desechos solidos', NOW(), NOW());
+INSERT INTO user_types values (id, 'Jefe del Taller', NOW(), NOW());
+INSERT INTO user_types values (id, 'Gestor de prestamos de vehiculos', NOW(), NOW());
+
+CREATE TABLE IF NOT EXISTS users (
+  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username varchar(50) UNIQUE,
+  password varchar(255) DEFAULT NULL,
+  tipo_usuario int(11) DEFAULT NULL,
+  dui varchar(10) DEFAULT NULL,
+  telefono varchar(14) DEFAULT NULL,
+  correo varchar(50) DEFAULT NULL,
+  direccion varchar(250) DEFAULT NULL,
+  created datetime DEFAULT NULL,
+  modified datetime DEFAULT NULL,
+  FOREIGN KEY (tipo_usuario) REFERENCES user_types(id)
+);
+
+INSERT INTO users VALUES (id, 'OBC', '$2a$10$6oxs0R/GtlnxXR8fskQUAOw51oyxu5Xwx2z.95G5yJh/GvSMMI9iS', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
+INSERT INTO users VALUES (id, 'fernando', '$2a$10$xE5FxE8sZmVCgYtB1fwO0eIGOLKruHfSY1DRUi/w44sCDdZGNvZtm', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE TABLE IF NOT EXISTS allocations (
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -386,53 +411,6 @@ CREATE TABLE IF NOT EXISTS units (
 -- --------------------------------------------------------
 
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla 'user_types'
---
-
-CREATE TABLE IF NOT EXISTS user_types (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  tipo_usuario varchar(50) DEFAULT NULL,
-  created datetime DEFAULT NULL,
-  modified datetime DEFAULT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY tipo_usuario (tipo_usuario)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
-INSERT INTO user_types values (id, 'Administrador del Sistema', NOW(), NOW());
-INSERT INTO user_types values (id, 'Gerente General', NOW(), NOW());
-INSERT INTO user_types values (id, 'Gerente de Servicios', NOW(), NOW());
-INSERT INTO user_types values (id, 'Supervisor de desechos solidos', NOW(), NOW());
-INSERT INTO user_types values (id, 'Jefe del Taller', NOW(), NOW());
-INSERT INTO user_types values (id, 'Gestor de prestamos de vehiculos', NOW(), NOW());
-
-
-
---
--- Estructura de tabla para la tabla 'users'
---
-
-CREATE TABLE IF NOT EXISTS users (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  username varchar(50) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  tipo_usuario int(11) DEFAULT NULL,
-  dui varchar(10) DEFAULT NULL,
-  telefono varchar(14) DEFAULT NULL,
-  correo varchar(50) DEFAULT NULL,
-  direccion varchar(250) DEFAULT NULL,
-  created datetime DEFAULT NULL,
-  modified datetime DEFAULT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY username (username),
-  KEY tipo_usuario (tipo_usuario)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
-INSERT INTO users VALUES (id, 'OBC', '$2a$10$6oxs0R/GtlnxXR8fskQUAOw51oyxu5Xwx2z.95G5yJh/GvSMMI9iS', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
-INSERT INTO users VALUES (id, 'fernando', '$2a$10$xE5FxE8sZmVCgYtB1fwO0eIGOLKruHfSY1DRUi/w44sCDdZGNvZtm', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
-
 
 -- --------------------------------------------------------
 
@@ -481,12 +459,3 @@ CREATE TABLE IF NOT EXISTS vouchers (
 ALTER TABLE `modells`
   ADD CONSTRAINT modells_ibfk_1 FOREIGN KEY (brand_id) REFERENCES brands (id) ON DELETE NO ACTION ON UPDATE CASCADE;
 
---
--- Filtros para la tabla `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT users_ibfk_1 FOREIGN KEY (tipo_usuario) REFERENCES user_types (id);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
