@@ -9,6 +9,7 @@ Cosas por hacer:
 7. 
 
 Cosas que esta haciendo actualmente:
+
 1. Fernando
 
 2. Santiago Colato
