@@ -7,7 +7,7 @@
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+/*SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";*/
 SET time_zone = "+00:00";
 
 
@@ -385,6 +385,31 @@ CREATE TABLE IF NOT EXISTS units (
 
 -- --------------------------------------------------------
 
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla 'user_types'
+--
+
+CREATE TABLE IF NOT EXISTS user_types (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  tipo_usuario varchar(50) DEFAULT NULL,
+  created datetime DEFAULT NULL,
+  modified datetime DEFAULT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY tipo_usuario (tipo_usuario)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+INSERT INTO user_types values (id, 'Administrador del Sistema', NOW(), NOW());
+INSERT INTO user_types values (id, 'Gerente General', NOW(), NOW());
+INSERT INTO user_types values (id, 'Gerente de Servicios', NOW(), NOW());
+INSERT INTO user_types values (id, 'Supervisor de desechos solidos', NOW(), NOW());
+INSERT INTO user_types values (id, 'Jefe del Taller', NOW(), NOW());
+INSERT INTO user_types values (id, 'Gestor de prestamos de vehiculos', NOW(), NOW());
+
+
+
 --
 -- Estructura de tabla para la tabla 'users'
 --
@@ -408,21 +433,6 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO users VALUES (id, 'OBC', '$2a$10$6oxs0R/GtlnxXR8fskQUAOw51oyxu5Xwx2z.95G5yJh/GvSMMI9iS', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
 INSERT INTO users VALUES (id, 'fernando', '$2a$10$xE5FxE8sZmVCgYtB1fwO0eIGOLKruHfSY1DRUi/w44sCDdZGNvZtm', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
 
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla 'user_types'
---
-
-CREATE TABLE IF NOT EXISTS user_types (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  tipo_usuario varchar(50) DEFAULT NULL,
-  created datetime DEFAULT NULL,
-  modified datetime DEFAULT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY tipo_usuario (tipo_usuario)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
