@@ -25,6 +25,9 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla 'allocations'
 --
+DROP DATABASE IF EXISTS `scfv`;
+CREATE DATABASE `scfv`;
+USE `scfv`;
 
 CREATE TABLE IF NOT EXISTS allocations (
   id int(11) NOT NULL AUTO_INCREMENT,
