@@ -3,7 +3,6 @@
   <table class="list">
     <tr><td>id</td>           	<td><?php echo $usuario['User']['id']; ?></td></tr>
     <tr><td>username</td>     	<td><?php echo $usuario['User']['username']; ?></td></tr>
-    <tr><td>password</td>     	<td><?php echo $usuario['User']['password']; ?></td></tr>
     <tr><td>Tipo de Usuario</td><td><?php echo $usuario['User']['tipo_usuario']; ?></td></tr>
     <tr><td>DUI</td>          	<td><?php echo $usuario['User']['dui']; ?></td></tr>
     <tr><td>Telefono</td>       <td><?php echo $usuario['User']['telefono']; ?></td></tr>
