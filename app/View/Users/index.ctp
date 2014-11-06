@@ -31,9 +31,9 @@
       <td><?php echo $usuario['User']['username']; ?></td>
       <td><?php echo $usuario['UserType']['tipo_usuario']; ?></td>
       <td><?php echo $usuario['User']['correo']; ?></td>      
-      <td><a class="eliminar" href="/SCFV_DSI2/Users/eliminar/<?php  echo $usuario['User']['id'] ?>">Eliminar</a></td>
-      <td><a class="editar"   href="/SCFV_DSI2/UserTypes/editar/<?php    echo $usuario['User']['id'] ?>">Editar</a></td>
-      <td><a class="ver"      href="/SCFV_DSI2/UserTypes/ver/<?php       echo $usuario['User']['id'] ?>">Ver</a></td>    
+      <td><a class="eliminar" href="../users/eliminar/<?php  echo $usuario['User']['id'] ?>">Eliminar</a></td>
+      <td><a class="editar"   href="../users/editar/<?php    echo $usuario['User']['id'] ?>">Editar</a></td>
+      <td><a class="ver"      href="../users/ver/<?php       echo $usuario['User']['id'] ?>">Ver</a></td>    
     </tr>
     <?php 
       endforeach; 
