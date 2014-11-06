@@ -1,7 +1,7 @@
 <h1 class="list-title">Usuarios</h1>
 <div class="list-container">
   <div class="list-search">
-    <form action="/SCFV_DSI2/Users/buscar" id="UsuarioForm" method="post" accept-charset="utf-8">
+    <form action="../users/buscar" id="UsuarioForm" method="post" accept-charset="utf-8">
       <div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>
       <input name="data[User][query]" type="text" id="BuscarQuery" placeholder="Palabras clave" value="<?php echo  isset($query)? $query: "" 
       ?>"/>
