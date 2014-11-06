@@ -1,5 +1,6 @@
+<?php //pr($this->validationErrors); ?>
 <div class="users form">
-<?php echo $this->Form->create('Usuario'); ?>
+<?php echo $this->Form->create('User'); ?>
     <fieldset>
         <legend><?php echo __('Agregar Usuario'); ?></legend>
         <?php 
@@ -11,7 +12,6 @@
             'options' => $tipo_usuario,
             'empty'   => false
         ));        
-
         echo $this->Form->input('dui', array('label' => 'DUI: '));
         echo $this->Form->input('telefono', array('label' => 'Telefono: '));
         echo $this->Form->input('correo', array('label' => 'Correo: '));
