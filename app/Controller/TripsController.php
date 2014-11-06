@@ -51,28 +51,31 @@ endif;
 
 public function edit($id=null)
 {
-    $this->loadModel('Modell'); //cargamos el modelo Modelos
-$this->loadModel('Type'); //cargamos el modelo
-$this->set('Modelos',$this->Modell->find('list', array(       
-                  'fields' => array('Modell.id', 'Modell.modelo')
+    $this->loadModel('Dossier'); //cargamos el modelo Expediente
+
+$this->set('Expedientes',$this->Dossier->find('list', array(       
+                  'fields' => array('Dossier.id', 'Dossier.vehicle_id')
             )));
-$this->set('Tipos',$this->Type->find('list', array(       
-                  'fields' => array('Type.id', 'Type.tipo')
+
+$this->loadModel('Employee'); //cargamos el modelo Expediente
+
+$this->set('Empleados',$this->Employee->find('list', array(       
+                  'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
             )));
     
     
-    $this->Vehicle->id=$id;
+    $this->Trip->id=$id;
     if($this->request->is('get')):
         
-        $this->request->data=$this->Vehicle->read();
+        $this->request->data=$this->Trip->read();
     
     else: //si la peteicion no es get
         
-        if($this->Vehicle->save($this->request->data)):
-            $this->Session->setFlash('Vehículo Modificado');
+        if($this->Trip->save($this->request->data)):
+            $this->Session->setFlash('Regreso de Camión Registrado ');
             $this->redirect(array('action'=>'index'));
             else:
-                $this->Session->setFlash('No se pudo Registrar la salida del viaje');
+                $this->Session->setFlash('No se pudo Registrar la entrada del viaje');
             
         endif;
         
@@ -85,8 +88,8 @@ public function delete($id)
     if($this->request->is('get')):
         throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
-        if($this->Vehicle->delete($id)):
-            $this->Session->setFlash("Vehículo  Eliminado");
+        if($this->Trip->delete($id)):
+            $this->Session->setFlash("Viaje Eliminado");
         $this->redirect(array('action'=>'index'));
         endif;
 
@@ -94,4 +97,51 @@ public function delete($id)
     endif;
     
         }
+        
+        
+
+public function mod($id=null)
+{
+    $this->loadModel('Dossier'); //cargamos el modelo Expediente
+
+$this->set('Expedientes',$this->Dossier->find('list', array(       
+                  'fields' => array('Dossier.id', 'Dossier.vehicle_id')
+            )));
+
+$this->loadModel('Employee'); //cargamos el modelo Expediente
+
+$this->set('Empleados',$this->Employee->find('list', array(       
+                  'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
+            )));
+    
+    
+    $this->Trip->id=$id;
+    if($this->request->is('get')):
+        
+        $this->request->data=$this->Trip->read();
+    
+    else: //si la peteicion no es get
+        
+        if($this->Trip->save($this->request->data)):
+            $this->Session->setFlash('Modificación de viaje Realizado ');
+            $this->redirect(array('action'=>'index'));
+            else:
+                $this->Session->setFlash('No se pudo Modificar los datos  del viaje');
+            
+        endif;
+        
+    endif;
+    
+}     
+
+    public function find(){
+     $this->set('Viajes',$this->paginate());
+     
+    $field = "{$this->request->data['Trip']['campo']} LIKE ";
+    $data = $this->Paginator->paginate('Trip', array("{$field}" => "%{$this->request->data['Trip']['query']}%"));
+    $this->set('Viajes', $data);
+    $this->set('query', $this->request->data['Trip']['query']);
+    $this->set('campo', $this->request->data['Trip']['campo']);
+    $this->render('index');    
+  }
 }

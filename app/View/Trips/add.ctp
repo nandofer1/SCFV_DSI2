@@ -1,8 +1,11 @@
 
-<center>
-    <h1>NUEVO VIAJE</h1>
+<div class="users form">
+    <fieldset>
+
+    <legend><?php echo __('Reportar Salida de Camión Recolector'); ?></legend>
    
     <?php
+   
  //UTILIZAMOS EL HELPER FORM , generar un formulario de forma mas rapido
 echo $this->Form->create('Trip'); // se le pone el nombre del modelo para el que se quiere generar el formulario
 echo $this->Form->input('dossier_id', array(
@@ -62,12 +65,15 @@ echo $this->Form->input('Dui5', array(
     'options' => $Empleados,
     'empty'   => ('Seleccione una opcion')
 ));
-echo $this->Form->label('Comentario de Salida');
+echo $this->Form->label('Comentario de Salida');echo'<br>';
 echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; height:200px;'));
 
 //echo $this->Form->label('Comentario de Entrada');
 //echo $this->Form->textarea('comentario_entrada',array('value'=>'No Disponible','style'=>'width: 300px; height:200px;'));
+echo '<div class="input"><br>';
 echo $this->Form->end('Registrar Salida de Vehículo');
+echo '</div>';
 ?>
-        </table>
-</center>
+     
+</fieldset>
+</div>
