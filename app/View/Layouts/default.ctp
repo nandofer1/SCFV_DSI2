@@ -37,7 +37,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
 			<div id="header">
 				<img src=<?php echo "$imgdir/cove-logo.png" ?>>
 				<h1>CoVE: Control de Flota de Vehiculos</h1>
-				<span class="user-info">Hola, <?php echo $this->Session->read("username") ?>
+				<span class="user-info">Hola, <?php echo $this->Session->read("username") ?> &nbsp;
 						<div class="btn-group">
 						  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 						    Opciones <span class="caret"></span>
