@@ -48,7 +48,7 @@ body{
 		font-size: 19px
 	}
 
-	#header span{
+	#header span.user-info{
 		color: white;
 		margin-right: 0px;
 		margin-top: 0px;
