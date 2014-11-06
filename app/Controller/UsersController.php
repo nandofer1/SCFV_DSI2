@@ -72,7 +72,7 @@ class UsersController extends AppController {
       $this->User->create();
       if ($this->User->save($this->request->data)) {
         $this->Session->setFlash("El usuario se ha agregado al sistema.", 'flash_notification');
-        $this->redirect('/SCFV_DSI2/Users/index');
+        $this->redirect('/users/index');
         return;
       }
       $this->Session->setFlash(__('El usuario no ha podido ser guardado por favor intente de nuevo.'), 'flash_notification');
