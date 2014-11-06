@@ -56,7 +56,9 @@ $imgdir = "{$this->webroot}app/webroot/img";
 		<div id="menu-content-row">
 			<div id="menu">
 				<ul id="first-level">
-					<li style="vertical-align: middle"><a href="../users"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
+
+
+					<li><a href="../users"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
 						<ul id="second-level">
 							<li><a href="../users/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="../users/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
@@ -64,7 +66,8 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="../users/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 
 							<li><a href="../user_types"><img src="<?php echo "$imgdir/list.png"?>">Tipos</a>
-								<li><a href="../user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario<span style="float: right; padding-top: 6px;" class="glyphicon glyphicon-play"></span></a>
+								<li><a href="../user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario
+									<span class="glyphicon glyphicon-play"></span></a>
 
 									<ul id="second-level">
 										<li><a href="../user_types/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
@@ -74,55 +77,39 @@ $imgdir = "{$this->webroot}app/webroot/img";
 									</ul>
 								</li>
 							</li>
+						</ul>
+					</li>
 
-						</ul>
-					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Unidades</a>
+
+					<li><a href="../users"><img src=<?php echo "$imgdir/org.png" ?>> Organizacion </a>
 						<ul id="second-level">
-							<li><a href="../Units/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Gerencias</a>
-						<ul id="second-level">
-							<li><a href="../Managements/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Departamentos</a>
-						<ul id="second-level">
-							<li><a href="../Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Marca de Vehiculo</a>
-						<ul id="second-level">
-							<li><a href="../Brands/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/marcas/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/marcas/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../Brands/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Tipo de Vehiculo</a>
-						<ul id="second-level">
-							<li><a href="../Types/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../Types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
-						</ul>
-					</li>	
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo</a>
-						<ul id="second-level">
-							<li><a href="../Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Unidades
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="../Units/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="../Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
+							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Gerencias
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="../Managements/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="../Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
+							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Departamentos
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="../Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="../Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li><a href="/Vehicles/"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos</a>
@@ -131,9 +118,36 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
 							<li><a href="../Vehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Marca de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="../Brands/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/marcas/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/marcas/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Brands/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Herramientas</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Tipo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="../Types/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+						</ul>
+					</li>	
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="../Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+						</ul>
+					</li>
+
+
+						</ul>
+					</li>
+					<li><a href="#"><img src=<?php echo "$imgdir/tools.png" ?>> Herramientas</a>
 						<ul id="second-level">
 							<li><a href="../Tools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
@@ -143,11 +157,11 @@ $imgdir = "{$this->webroot}app/webroot/img";
 					</li>
 					<li><a href="/camiones"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a></li>
 					<li><a href="/mantenimientos"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a></li>
-					<li><a href="/expedientes"><img src=<?php echo "$imgdir/calendar.png" ?>> Expedientes</a></li>
-					<li><a href="/prestamos"><img src=<?php echo "$imgdir/calendar.png" ?>> Prestamos</a></li>
-					<li><a href="/reportes"><img src=<?php echo "$imgdir/calendar.png" ?>> Reportes</a></li>
-					<li><a href="/combustible"><img src=<?php echo "$imgdir/calendar.png" ?>> Combustible</a></li>
-					<li><a href="/ayuda"><img src=<?php echo "$imgdir/calendar.png" ?>> Ayuda</a></li>
+					<li><a href="/expedientes"><img src=<?php echo "$imgdir/reg.png" ?>> Expedientes</a></li>
+					<li><a href="/prestamos"><img src=<?php echo "$imgdir/prestamo.png" ?>> Prestamos</a></li>
+					<li><a href="/reportes"><img src=<?php echo "$imgdir/reports.png" ?>> Reportes</a></li>
+					<li><a href="/combustible"><img src=<?php echo "$imgdir/gas.png" ?>> Combustible</a></li>
+					<li><a href="/ayuda"><img src=<?php echo "$imgdir/help.png" ?>> Ayuda</a></li>
 				</ul>
 			</div>
 
