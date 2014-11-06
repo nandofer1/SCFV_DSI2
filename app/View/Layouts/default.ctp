@@ -39,8 +39,8 @@ $imgdir = "{$this->webroot}app/webroot/img";
 				<h1>CoVE: Control de Flota de Vehiculos</h1>
 				<span class="user-info">Hola, <?php echo $this->Session->read("username") ?> &nbsp;
 						<div class="btn-group">
-						  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						    Opciones <span class="caret"></span>
+						  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+						    Opciones &nbsp;<span class="caret"></span>
 						  </button>
 						  <ul class="dropdown-menu dropdown-menu-right" role="menu">
 						    <li><a href="#">Ver Perfil</a></li>
@@ -56,20 +56,25 @@ $imgdir = "{$this->webroot}app/webroot/img";
 		<div id="menu-content-row">
 			<div id="menu">
 				<ul id="first-level">
-					<li><a href="../users"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
+					<li style="vertical-align: middle"><a href="../users"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
 						<ul id="second-level">
 							<li><a href="../users/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="../users/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="../users/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
 							<li><a href="../users/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
-						</ul>
-					</li>
-					<li><a href="../user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario</a>
-						<ul id="second-level">
-							<li><a href="../UserTypes/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="../UserTypes/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="../UserTypes/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="../UserTypes/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+
+							<li><a href="../user_types"><img src="<?php echo "$imgdir/list.png"?>">Tipos</a>
+								<li><a href="../user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario<span style="float: right; padding-top: 6px;" class="glyphicon glyphicon-play"></span></a>
+
+									<ul id="second-level">
+										<li><a href="../user_types/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+										<li><a href="../user_types/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+										<li><a href="../user_types/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+										<li><a href="../user_types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+									</ul>
+								</li>
+							</li>
+
 						</ul>
 					</li>
 					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Unidades</a>
@@ -88,7 +93,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="../Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>>Departamentos</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Departamentos</a>
 						<ul id="second-level">
 							<li><a href="../Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
@@ -120,7 +125,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="../Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos</a>
+					<li><a href="/Vehicles/"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos</a>
 						<ul id="second-level">
 							<li><a href="../Vehicles/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
@@ -170,7 +175,6 @@ $imgdir = "{$this->webroot}app/webroot/img";
 					}
 					echo $this->fetch('content'); 
 				?>
-				&nbsp;
 			</div>
 		</div>
 	</div>
