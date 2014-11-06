@@ -37,91 +37,103 @@ $imgdir = "{$this->webroot}app/webroot/img";
 			<div id="header">
 				<img src=<?php echo "$imgdir/cove-logo.png" ?>>
 				<h1>CoVE: Control de Flota de Vehiculos</h1>
-				<span>Hola, <?php echo $this->Session->read("username") ?>.  (<a href="/users/logout">Salir</a>)<img src=<?php echo "$imgdir/avatar.png" ?>></span>
-                        </div>
+				<span class="user-info">Hola, <?php echo $this->Session->read("username") ?>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						    Opciones <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu dropdown-menu-right" role="menu">
+						    <li><a href="#">Ver Perfil</a></li>
+						    <li><a href="#">Cambiar contraseña</a></li>
+						    <li class="divider"></li>
+						    <li><a href="/users/logout">Cerrar sesion</a></li>
+						  </ul>
+						</div>						
+				</span>
+			</div>
 		</div>
 
 		<div id="menu-content-row">
 			<div id="menu">
 				<ul id="first-level">
-					<li><a href="#"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
+					<li><a href="../users"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/users/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/SCFV_DSI2/users/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/SCFV_DSI2/users/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/users/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../users/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../users/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="../users/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../users/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario</a>
+					<li><a href="../user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/UserTypes/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/SCFV_DSI2/UserTypes/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-							<li><a href="/SCFV_DSI2/UserTypes/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/UserTypes/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../UserTypes/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../UserTypes/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="../UserTypes/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../UserTypes/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-                                        <li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Unidades</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Unidades</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Units/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Units/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-                                        <li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Gerencias</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Gerencias</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Managements/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Managements/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-                                        <li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>>Departamentos</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>>Departamentos</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Marca de Vehiculo</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Brands/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Brands/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/marcas/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/marcas/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Brands/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Brands/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Tipo de Vehiculo</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Types/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Types/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>	
-                                        	<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Vehicles/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Vehicles/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Vehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Vehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-                                        <li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Herramientas</a>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Herramientas</a>
 						<ul id="second-level">
-							<li><a href="/SCFV_DSI2/Tools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../Tools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
-							<li><a href="/SCFV_DSI2/Tools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+							<li><a href="../Tools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
 					<li><a href="/camiones"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a></li>
