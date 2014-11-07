@@ -43,8 +43,8 @@ $imgdir = "{$this->webroot}app/webroot/img";
 						    Opciones &nbsp;<span class="caret"></span>
 						  </button>
 						  <ul class="dropdown-menu dropdown-menu-right" role="menu">
-						    <li><a href="#">Ver Perfil</a></li>
-						    <li><a href="#">Cambiar contraseña</a></li>
+						    <li><a href="/users/ver/<?php echo $this->Session->read("id"); ?>">Ver Perfil</a></li>
+						    <li><a href="/users/cambiar_clave/<?php echo $this->Session->read("id"); ?>">Cambiar contraseña</a></li>
 						    <li class="divider"></li>
 						    <li><a href="/users/logout">Cerrar sesion</a></li>
 						  </ul>
@@ -63,6 +63,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="/users/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/users/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
 							<li><a href="/users/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="/users/cambiar_clave"><img src="<?php echo "$imgdir/mod.png"?>">Cambiar Contraseña</a></li>
 							<li><a href="/users/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 
 								<li><a href="/user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario
