@@ -1,443 +1,196 @@
-/*
- * Layout
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-body{
-	position:fixed; 
-	top:0px; 
-	left:0px;
-	bottom:0px; 
-	right:0px;  
-	margin:0px;
-	font-family: sans;
-}
+$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version());
+$webroot = "{$this->webroot}app/webroot";
+$imgdir = "{$this->webroot}app/webroot/img";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cove - <?php echo $this->fetch('title'); ?></title>
+	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/css/cove.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/js/bootstrap/css/bootstrap.min.css">
+	<script type='text/javascript' src="<?php echo $webroot ?>/js/jquery-2.1.1.min.js"></script>
+	<script type='text/javascript' src="<?php echo $webroot ?>/js/bootstrap/js/bootstrap.min.js"></script>
+	<script type='text/javascript' src="<?php echo $webroot ?>/js/bootbox.min.js"></script>
+      
+</head>
+<body>
+	<div id="container">
 
-#container{
-	display:table; 
-	width: 100%; 
-	height: 100%;
-}
+		<div id="header-row">
+			<div id="header">
+				<img src=<?php echo "$imgdir/cove-logo.png" ?>>
+				<h1>CoVE: Control de Flota de Vehiculos</h1>
+				<span class="user-info">Hola, <?php echo $this->Session->read("username") ?> &nbsp;
+						<div class="btn-group">
+						  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+						    Opciones &nbsp;<span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu dropdown-menu-right" role="menu">
+						    <li><a href="#">Ver Perfil</a></li>
+						    <li><a href="#">Cambiar contraseña</a></li>
+						    <li class="divider"></li>
+						    <li><a href="/users/logout">Cerrar sesion</a></li>
+						  </ul>
+						</div>						
+				</span>
+			</div>
+		</div>
 
-#header-row{
-	display:table-row; 
-	height: 45px;	
-	background: #313131;
-	border-bottom: 1px solid black;
-}
-
-#header {
-	display: table-cell;
-	padding: 5px;
-	padding-top: 7px;
-}
-
-	#header img{
-		display:inline;
-		vertical-align: middle;
-		width: 40px;
-		height: 40px;
-		margin-left: 5px;	
-	}
-
-	#header h1{
-		display:inline;
-		font-size: medium;
-		vertical-align: middle;
-		margin-left: 5px;
-		color: lightgray; 
-		font-size: 19px
-	}
-
-	#header span.user-info{
-		color: white;
-		margin-right: 0px;
-		margin-top: 0px;
-		float: right;
-		vertical-align: middle;
-	}
+		<div id="menu-content-row">
+			<div id="menu">
+				<ul id="first-level">
 
 
-#menu-content-row{
-	display: table;
-	height: 100%;
-}
-	
-#content {
-	display: table-cell;
-	border: 1px solid black;
-	width: 100%;
-	height: 100%;
-	padding:0;
-	margin:0;
-	background: url('../img/lightgray-noise.png');
-	position: relative;
-}
+					<li><a href="../users"><img src=<?php echo "$imgdir/user.png" ?>> Usuarios</a>
+						<ul id="second-level">
+							<li><a href="../users/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="../users/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="../users/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../users/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 
-#menu{
-	display: table-cell;
-	min-width: 260px;
-	height: 100%;	
-	padding-top: 0px;
-	border-top: 1px solid black;
-	background: url('../img/gray-noise.png') #414141;
-	position: relative;
-}
+							<li><a href="../user_types"><img src="<?php echo "$imgdir/list.png"?>">Tipos</a>
+								<li><a href="../user_types"><img src=<?php echo "$imgdir/user-type.png" ?>> Tipos de Usuario
+									<span class="glyphicon glyphicon-play"></span></a>
 
-	#menu a{
-		color: lightgray;
-		font-weight: bold;
-		font-size: 15px;
-		text-decoration: none;	
-		display: block;		
-		letter-spacing: 0.1px;
-	}
-
-	#menu ul{
-		position: relative;
-	}
-
-	ul#first-level img{
-		width:30px;
-		height:25px;
-		margin-right: 4px;
-		vertical-align: middle;
-	}	
-
-ul#first-level{
-	list-style: none;
-	margin:0;
-	padding:0;
-	position: absolute;
-	top:0;	
-	right:0;
-	left: 0;
-	z-index: 99;
-}
-
-	ul#first-level>li{
-		position: relative;
-		padding-top: 8px;
-		padding-bottom: 8px;
-		padding-left: 8px;
-	}
-
-	ul#first-level>li:hover{
-		background:#FF8000;
-		color: #ddd;
-	}
-
-ul#second-level{
-	display:none;
-	list-style: none;
-	width: 260px;
-	padding:0px;
-	color: white;
-	background: #444;
-	position: absolute;
-	top: 0px;
-	left: 258px;
-	border-radius: 0px 5px 5px 0px; 
-	-moz-border-radius: 0px 5px 5px 0px; 
-	-webkit-border-radius: 0px 5px 5px 0px; 
-	border: 1px solid #333333;
-}
-	/*ul#first-level>li:hover>ul{
-		display: block;	
-	}*/
-	#menu ul>li:hover>ul{
-		display: block;
-	}
-
-	ul#second-level>li{
-		position: relative;
-		padding: 4px;
-	}
-
-	ul#second-level>li>a>img{
-		width:23px;
-		height:23px;
-		margin-right: 5px;
-		vertical-align: bottom;
-	}
-
-	ul#second-level>li>a{
-		vertical-align: bottom;
-		padding-left: 7px;
-		color: inherit;
-		display: block;
-	}
-
-	ul#second-level>li:hover{
-		background:orange;
-		color: #333;
-	}	
-
-/*
- * Content Styles
- */
+									<ul id="second-level">
+										<li><a href="../user_types/agregar"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+										<li><a href="../user_types/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+										<li><a href="../user_types/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+										<li><a href="../user_types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+									</ul>
+								</li>
+							</li>
+						</ul>
+					</li>
 
 
+					<li><a href="../users"><img src=<?php echo "$imgdir/org.png" ?>> Organizacion </a>
+						<ul id="second-level">
+							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Unidades
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="../Units/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="../Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
+							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Gerencias
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="../Managements/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="../Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
+							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Departamentos
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="../Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="../Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="/Vehicles/"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos</a>
+						<ul id="second-level">
+							<li><a href="../Vehicles/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Vehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 
-.error, .message{
-	background: white;	
-	border: 1px solid red;
-	color: black;
-	font-weight: bold;
-	text-align: center;
-	width: 90%;
-	margin: auto;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-bottom: 15px;
-}
-
-div.form{
-	margin: 0;
-	/*height: 99%;*/
-	overflow: auto;
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-}
-
-.form fieldset{
-
-	background: white;
-	border: 1px solid black;
-	color: black;
-	text-align: center;
-	width: 90%;
-	margin: auto;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-bottom: 15px;
-}
-
-div.input{
-	width: 90%;
-	margin: auto;
-	text-align: left;
-	margin-bottom: 10px;
-}
-
-div.input label{
-	display: inline-block;
-	width: 250px;
-	text-align: right;
-	padding-right: 3px;
-
-}
-.form div.submit{
-	padding-left: 250px;
-}
-
-.form legend{
-	background: white;
-	border: 1px solid black;
-	border-bottom: 0px;
-	text-align: left;
-	display: inline-block;
-	width: auto;
-	font-size: 17px;
-	padding: 5px;
-}
-
-table.list{
-	width: 100%;
-	margin: auto;
-	background: white;
-	border-collapse: collapse;
-}
-table.list td{
-	border: 1px solid lightgray;
-	padding: 5px;
-}
-table.list th{
-	padding-left: 4px;
-}
-
-table.list a{
-	color: #5E62D3;
-}
-
-.list-container{
-	background: white;
-	border-radius: 6px; 
-	-moz-border-radius: 6px; 
-	-webkit-border-radius: 6px; 
-	border: 1px solid gray;
-	margin: 0;
-	padding: 2px;
-	width: 90%;
-	margin: auto	
-}
-
-div.list-search{
-	width: 100%;
-	text-align: right;
-	padding: 7px;
-	padding-bottom: 20px;
-}
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Marca de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="../Brands/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/marcas/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/marcas/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Brands/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Tipo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="../Types/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Types/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+						</ul>
+					</li>	
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="../Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/tipos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/tipos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+						</ul>
+					</li>
 
 
-.error-message{
-	padding-left: 250px;
-}
+						</ul>
+					</li>
+					<li><a href="#"><img src=<?php echo "$imgdir/tools.png" ?>> Herramientas</a>
+						<ul id="second-level">
+							<li><a href="../Tools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+							<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+							<li><a href="../Tools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+						</ul>
+					</li>
+					<li><a href="/camiones"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a></li>
+					<li><a href="/mantenimientos"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a></li>
+					<li><a href="/expedientes"><img src=<?php echo "$imgdir/reg.png" ?>> Expedientes</a></li>
+					<li><a href="/prestamos"><img src=<?php echo "$imgdir/prestamo.png" ?>> Prestamos</a></li>
+					<li><a href="/reportes"><img src=<?php echo "$imgdir/reports.png" ?>> Reportes</a></li>
+					<li><a href="/combustible"><img src=<?php echo "$imgdir/gas.png" ?>> Combustible</a></li>
+					<li><a href="/ayuda"><img src=<?php echo "$imgdir/help.png" ?>> Ayuda</a></li>
+				</ul>
+			</div>
 
-a{
-	text-decoration: none;
-	color: inherit;
-}
-
-h1.list-title{
-	color: gray;
-	font-size: 23px;
-	width: 90%;
-	margin: auto;
-	padding-bottom: 15px;
-}
-
-/*
-* Login Styles
-*/
-.login-outer {
-    display: table;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #333;
-	background: rgba(85,85,85,1);
-	background: -moz-radial-gradient(center, ellipse cover, rgba(85,85,85,1) 0%, rgba(34,34,34,1) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(85,85,85,1)), color-stop(100%, rgba(34,34,34,1)));
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(85,85,85,1) 0%, rgba(34,34,34,1) 100%);
-	background: -o-radial-gradient(center, ellipse cover, rgba(85,85,85,1) 0%, rgba(34,34,34,1) 100%);
-	background: -ms-radial-gradient(center, ellipse cover, rgba(85,85,85,1) 0%, rgba(34,34,34,1) 100%);
-	background: radial-gradient(ellipse at center, rgba(85,85,85,1) 0%, rgba(34,34,34,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#222222', GradientType=1 );
-}
-
-.login-middle {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.login-inner {
-    margin-left: auto;
-    margin-right: auto; 
-    margin-bottom: 50px;
-    width: 50%;/*whatever width you want*/;
-    /*border: 1px solid black;*/
-}
-
-.login-title{
-  text-align: center;
-}
-
-.login-title>img{
-	width: 85px;
-	height: 85px;
-	padding: 3px;
-	vertical-align: middle;
-
-}
-
-.login-title>span{
-	font-size: 20px;
-	font-weight: bold;
-	color: #BBB;
-	vertical-align: middle;
-}
-
-.login-inner label{
-	color: #dddddd;
-}
-
-.login-inner input[type=text], .login-inner input[type=password] 
-{
-	padding:2px; 
-}
-
-#authMessage{
-  display: none;
-}
-
-input[type=text], input[type=password]  
-{
-	margin: 0;
-	padding:1px; 
-	-webkit-border-radius: 4px;
-  border-radius: 4px;
-  font-weight: bold;
-	border:1px solid #ccc; 
-}
-input[type=text]:focus, input[type=password]:focus {
-	border-color:#333; 
-}
-
-input[type=submit] {
-	padding:5px 15px; 
-	background:#ccc; 
-	border:0 none;
-  cursor:pointer;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; 
-  font-weight: bold;
-  color: #333;
-}
-
-input[type=submit]:active{
-	background: #ddd;
-}
-//PAGINADOR
-.paging {
-	background:#fff;
-	color: #ccc;
-	margin-top: 1em;
-	clear:both;
-}
-
-.paging .current,
-.paging .disabled,
-.paging a {
-	text-decoration: none;
-	padding: 5px 8px;
-	display: inline-block
-}
-.paging > span {
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-left: 0;
-}
-.paging > span:hover {
-	background: #efefef;
-}
-.paging .prev {
-	border-left: 1px solid #ccc;
-	-moz-border-radius: 4px 0 0 4px;
-	-webkit-border-radius: 4px 0 0 4px;
-	border-radius: 4px 0 0 4px;
-}
-.paging .next {
-	-moz-border-radius: 0 4px 4px 0;
-	-webkit-border-radius: 0 4px 4px 0;
-	border-radius: 0 4px 4px 0;
-}
-.paging .disabled {
-	color: #ddd;
-}
-.paging .disabled:hover {
-	background: transparent;
-}
-.paging .current {
-	background: #efefef;
-	color: #c73e14;
-}
-
-
-span.glyphicon{
-	float: right; 
-	padding-top: 6px; 
-	font-size: x-small
-} 
+			<div id="content">
+				<?php
+					if ($this->Session->check('Message.flash')){
+						$msg = "{$this->Session->flash()}";					
+						print "<noscript>{$msg}</noscript>";
+						?>
+						<script>
+						bootbox.dialog({
+							message: <?php echo "\"{$msg}\"" ?>,
+							title: "CoVE",
+							buttons: {
+								main: {
+									label: "Aceptar",
+									className: "btn-primary",
+									callback: function() {
+									}
+								}
+							}
+						});
+						</script>
+						<?php
+					}
+					echo $this->fetch('content'); 
+				?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
