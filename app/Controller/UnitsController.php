@@ -2,7 +2,7 @@
 class UnitsController extends AppController
 {
 public $helpers=array('Html','Form'); // helper para hacer formularios
-public $components=array('Session');
+public $components = array('Paginator');
 
 public function index()
 {
@@ -24,36 +24,33 @@ public function add()
     endif;
 }
 
+
 public function edit($id=null)
 {
-    
-    
+    if($id==null){
+        $this->redirect(array('action'=>'index'));
+        return;
+    }
     $this->Unit->id=$id;
     if($this->request->is('get')):
-        
         $this->request->data=$this->Unit->read();
-    
     else: //si la peteicion no es get
-        
         if($this->Unit->save($this->request->data)):
-            $this->Session->setFlash('Unidad Modificada');
+            $this->Session->setFlash('Unidad Modificada', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
-                $this->Session->setFlash('No se pudo Modificar la Unidad');
-            
+                $this->Session->setFlash('No se pudo Modificar la Unidad', 'flash_notification');
         endif;
-        
     endif;
-    
 }
 
-public function delete($id)
-        {
+public function delete($id){
     if($this->request->is('get')):
-        throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
+        $this->redirect(array('action'=>'index'));
+        //throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
         if($this->Unit->delete($id)):
-            $this->Session->setFlash("Unidad  Eliminada");
+            $this->Session->setFlash("Unidad  Eliminada", 'flash_notification');
         $this->redirect(array('action'=>'index'));
         endif;
 
