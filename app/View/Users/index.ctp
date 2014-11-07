@@ -33,6 +33,7 @@
       <td><?php echo $usuario['User']['correo']; ?></td>      
       <td><a class="eliminar" href="../users/eliminar/<?php  echo $usuario['User']['id'] ?>">Eliminar</a></td>
       <td><a class="editar"   href="../users/editar/<?php    echo $usuario['User']['id'] ?>">Editar</a></td>
+      <td nowrap><a class="editar"   href="../users/cambiar_clave/<?php    echo $usuario['User']['id'] ?>">Cambiar Clave</a></td>      
       <td><a class="ver"      href="../users/ver/<?php       echo $usuario['User']['id'] ?>">Ver</a></td>    
     </tr>
     <?php 
