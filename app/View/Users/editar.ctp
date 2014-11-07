@@ -12,10 +12,10 @@
             'empty'   => false
         ));        
 
-        echo $this->Form->input('dui', array('label' => 'DUI: '));
-        echo $this->Form->input('telefono', array('label' => 'Telefono: '));
+        echo $this->Form->input('dui', array('label' => 'DUI: ', 'size'=>10));
+        echo $this->Form->input('telefono', array('label' => 'Telefono: ', 'size'=>9));
         echo $this->Form->input('correo', array('label' => 'Correo: '));
-        echo $this->Form->input('direccion', array('label' => 'Direccion: '));
+        echo $this->Form->input('direccion', array('label' => 'Direccion: ', 'size'=>50));
 
         echo '<div class="input">';
         echo $this->Form->end(__('Editar'));
