@@ -87,8 +87,8 @@ $imgdir = "{$this->webroot}app/webroot/img";
 								<span class="glyphicon glyphicon-play"></span></a>
 								<ul id="second-level">
 									<li><a href="/Units/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-									<li><a href="/Units/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-									<li><a href="/Units/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="/Units/delete"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/Units/edit"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
 									<li><a href="/Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 								</ul>
 							</li>
