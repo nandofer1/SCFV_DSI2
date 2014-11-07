@@ -447,3 +447,8 @@ span.glyphicon{
 	padding-top: 6px; 
 	font-size: x-small
 } 
+
+
+option[value=""]{
+	display: none;
+}
