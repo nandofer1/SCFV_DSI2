@@ -16,6 +16,11 @@ class UsersController extends AppController {
     if ($this->request->is('post')) {
       if ($this->Auth->login()) {
         $this->Session->write('username', $this->request->data['User']['username']);
+
+        $Usuario = new User();
+        $datos_usuario = $Usuario->find('first', array('conditions' => array('User.username' => $this->request->data['User']['username'])));
+        $this->Session->write('id', $datos_usuario['User']['id']);
+        $this->Session->write('tipo_usuario', $datos_usuario['User']['tipo_usuario']);
         return $this->redirect($this->Auth->redirect());
       }
       $this->Session->setFlash(__('Usuario o Password invalido por favor intente de nuevo'), 'flash_notification');
@@ -106,6 +111,31 @@ class UsersController extends AppController {
       $this->render('index');
     }
   }
+
+  public function cambiar_clave($id = null) {
+    if($id != null){
+      $this->User->id = $id;
+      if (!$this->User->exists()) {
+        throw new NotFoundException(__('Usuario invalido'));
+      }
+      if ($this->request->is('post') || $this->request->is('put')) {
+        if ($this->User->save($this->request->data)) {
+          $this->Session->setFlash(__('La nueva contraseña ha sido guardada'), 'flash_notification');
+          return $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('La nueva contraseña no pudo ser guardada. Por favor intente de nuevo.'), 'flash_notification');
+      }
+      else{
+        $this->request->data = $this->User->read(null, $id);
+        unset($this->request->data['User']['password']);
+      }
+    }
+    else{ //No se ha proporcionado un id
+      $this->index();
+      $this->render('index');
+    }
+  }
+
 
   public function eliminar($id = null) {
     $this->User->id = $id;
