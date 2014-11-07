@@ -1,7 +1,7 @@
 <h1 class="list-title">Tipos de Usuario</h1>
 <div class="list-container">
   <div class="list-search">
-    <form action="/SCFV_DSI2/UserTypes/buscar" id="UsuarioForm" method="post" accept-charset="utf-8">
+    <form action="/UserTypes/buscar" id="UsuarioForm" method="post" accept-charset="utf-8">
       <div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>
       <input name="data[UserType][query]" type="text" id="BuscarQuery" placeholder="Palabras clave" value="<?php echo  isset($query)? $query: "" 
       ?>"/>
@@ -26,9 +26,9 @@
     <tr>
       <td><?php echo $usuario['UserType']['id']; ?></td>
       <td><?php echo $usuario['UserType']['tipo_usuario']; ?></td>
-      <td><a class="eliminar" href="/SCFV_DSI2/UserTypes/eliminar/<?php  echo $usuario['UserType']['id'] ?>">Eliminar</a></td>
-      <td><a class="editar"   href="/SCFV_DSI2/UserTypes/editar/<?php    echo $usuario['UserType']['id'] ?>">Editar</a></td>
-      <td><a class="ver"      href="/SCFV_DSI2/UserTypes/ver/<?php       echo $usuario['UserType']['id'] ?>">Ver</a></td>    
+      <td><a class="eliminar" href="/UserTypes/eliminar/<?php  echo $usuario['UserType']['id'] ?>">Eliminar</a></td>
+      <td><a class="editar"   href="/UserTypes/editar/<?php    echo $usuario['UserType']['id'] ?>">Editar</a></td>
+      <td><a class="ver"      href="/UserTypes/ver/<?php       echo $usuario['UserType']['id'] ?>">Ver</a></td>    
     </tr>
     <?php 
       endforeach; 
