@@ -47,7 +47,7 @@ class UserTypesController extends AppController {
       $this->UserType->create();
       if ($this->UserType->save($this->request->data)) {
         $this->Session->setFlash("El tipo de usuario se ha agregado al sistema.", 'flash_notification');
-        $this->redirect('/SCFV_DSI2/UserTypes/index');
+        $this->redirect('/UserTypes/index');
         return;
       }
       $this->Session->setFlash(__('El tipo de usuario no ha podido ser guardado por favor intente de nuevo.'), 'flash_notification');
