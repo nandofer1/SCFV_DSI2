@@ -34,8 +34,12 @@ CREATE TABLE IF NOT EXISTS users (
   FOREIGN KEY (tipo_usuario) REFERENCES user_types(id)
 );
 
-INSERT INTO users VALUES (id, 'OBC', '$2a$10$6oxs0R/GtlnxXR8fskQUAOw51oyxu5Xwx2z.95G5yJh/GvSMMI9iS', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
-INSERT INTO users VALUES (id, 'fernando', '$2a$10$xE5FxE8sZmVCgYtB1fwO0eIGOLKruHfSY1DRUi/w44sCDdZGNvZtm', 1, 'a', 'b', 'c', 'd', NOW(), NOW());
+
+INSERT INTO `users` VALUES (1,'juan','$2a$10$v7NW0coYFFg0gNiOq1fiKeNycMl/dlQoKSfCqaLFkO.4CYJGAOBPy',1,'82845678-8','7154-6839','juan@ues.edu.sv','Urb. Universitaria norte, Poligono #3, San Salvador','2014-11-07 02:37:24','2014-11-06 20:50:01');
+INSERT INTO `users` VALUES (2,'fernando','$2a$10$UqXi1iWMAL5BYH19pPdB5O8llithygL1a9uCMq3eTOHtyEB2AzHku',1,'45679812-3','7892-4524','fernando@ues.edu.sv','Col. Atlacatl, pje. principal #4A, Mejicanos. San Salvador','2014-11-07 02:37:24','2014-11-06 20:47:36');
+INSERT INTO `users` VALUES (3,'santiago','$2a$10$Y6.xZ/4lPz3VizCo3/PTDOUGFoXL..SggepKciWbT9p2mOb4SRBXu',1,'98765432-1','7816-1838','santiago@ues.edu.sv','Urb. Monserrat, #3. San Marcos. San Salvador','2014-11-06 20:37:57','2014-11-06 20:45:54');
+INSERT INTO `users` VALUES (4,'enrique','$2a$10$OtyUSAQ4xV5PzIIEg5fsfOnknZ4vNU2kwKC43p5cc2e3DdPAhti4e',1,'12345678-9','7841-4568','enrique@ues.edu.sv','Col. Maquilishuat #1. San Martin, San Salvador','2014-11-06 20:44:17','2014-11-06 20:44:17');
+INSERT INTO `users` VALUES (5,'rebeca','$2a$10$noygLzkwKKEJUHDiysg7QOTuJAKKrd98QjR9Xkg6Nt.q6KWFlMp9O',1,'65498135-8','7862-6565','rebeca@ues.edu.sv','Col. La Paz #4, Santa Ana, San Salvador','2014-11-06 20:51:59','2014-11-06 20:51:59');
 
 
 
