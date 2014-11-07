@@ -6,28 +6,23 @@ public $components=array('Session');
 
 public function index()
 {
-    //para mostrar los estudiantes en el index
-    // ORM query explicito
-   
-$this->set('Unidades',$this->Unit->find('all'));
-
+    $this->Paginator->settings = array(
+      'fields' => array('Unit.id', 'Unit.unidad', 'Unit.descripcion'), 'limit' => 5, 'order' => array('Unit.id' => 'desc')
+    );
+    $data = $this->Paginator->paginate('Unit');
+    $this->set('Unidad', $data);
 }
-//Funcion Agregar
+
 public function add()
 {
-if($this->request->is('post')): // si la consulta es de tipo post
-    // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
-    
-    if($this->Unit->Save($this->request->data)): 
-        $this->Session->setFlash('Unidad Guardada');
-        $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
-        
+    if($this->request->is('post')): // si la consulta es de tipo post
+        // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
+        if($this->Unit->Save($this->request->data)): 
+            $this->Session->setFlash('Unidad Guardada', 'flash_notification');
+            $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
+        endif;
     endif;
-  
-endif;
-
 }
-
 
 public function edit($id=null)
 {
