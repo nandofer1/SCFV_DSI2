@@ -92,12 +92,12 @@ $imgdir = "{$this->webroot}app/webroot/img";
 									<li><a href="/Units/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 								</ul>
 							</li>
-							<li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Gerencias
+							<li><a href="/Managements"><img src=<?php echo "$imgdir/org.png" ?>> Gerencias
 								<span class="glyphicon glyphicon-play"></span></a>
 								<ul id="second-level">
 									<li><a href="/Managements/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="/Managements/delete"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/Managements/edit"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
 									<li><a href="/Managements/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 								</ul>
 							</li>
@@ -105,8 +105,8 @@ $imgdir = "{$this->webroot}app/webroot/img";
 								<span class="glyphicon glyphicon-play"></span></a>
 								<ul id="second-level">
 									<li><a href="/Departaments/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-									<li><a href="/vehiculos/eliminar"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
-									<li><a href="/vehiculos/editar"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="/vehiculos/delete"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/vehiculos/edit"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
 									<li><a href="/Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 								</ul>
 							</li>
