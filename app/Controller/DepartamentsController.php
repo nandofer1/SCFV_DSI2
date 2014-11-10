@@ -38,6 +38,10 @@ endif;
 
 public function edit($id=null)
 {
+    if($id==null){
+        $this->redirect(array('action'=>'index'));
+        return;
+    }    
     $this->loadModel('Management'); //cargamos el modelo Gerencia
 
 $this->set('Gerencias',$this->Management->find('list', array(       
@@ -67,7 +71,8 @@ $this->set('Gerencias',$this->Management->find('list', array(
 public function delete($id)
         {
     if($this->request->is('get')):
-        throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
+        $this->redirect(array('action'=>'index'));
+        //throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
         if($this->Departament->delete($id)):
             $this->Session->setFlash("Departamento  Eliminado");
