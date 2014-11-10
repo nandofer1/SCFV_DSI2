@@ -1,6 +1,7 @@
 <?php
 class Departament extends AppModel
 {
+    public $belongsTo = array('Management' => array('foreignKey'=>'management_id')); //belongsTo: the current model contains the foreign key.     
      public $validate=array( //INICIO VALIDACION
         
          'management_id'=>array(
