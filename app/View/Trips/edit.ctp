@@ -71,6 +71,56 @@ echo $this->Form->input('Dui5', array(
 
 echo $this->Form->label('Comentario de Entrada');echo '<br>';
 echo $this->Form->textarea('comentario_entrada',array('style'=>'width: 300px; height:200px;'));
+echo'<br><br>'
+?>
+    
+     <table class="list" >
+        <tr>
+            <td colspan="5">
+                <b> <?php echo 'Herramientas Utilizadas'; ?></b>
+            </td>
+        </tr>
+        
+        
+        <tr>
+             
+      <?php
+   $n=0;
+   $i=0;
+      foreach ($Herramientas as $Herramienta):?>
+    
+
+    
+    <?php
+    if($n!=5):
+        echo '<td>';
+         echo $Herramienta['Tool']['herramienta'];
+         echo $n;
+       echo $this->Form->checkbox($i, array('value'=>$Herramienta['Tool']['id']));
+               echo'<br><br>';
+               echo '</td>';
+               
+               
+               else:
+                   echo '</tr> <tr>';
+               $n=0;
+             
+    endif;
+    $n=$n+1;
+    $i=$i+1;
+   
+         
+               ?>
+    
+    
+    
+    
+   <?php endforeach; ?>
+
+    
+    </table>
+    
+<?php
 echo '<div class="input"><br>';
 echo $this->Form->end('Registrar Entrada de Vehículo');
 echo '</div>';

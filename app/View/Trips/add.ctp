@@ -74,6 +74,7 @@ echo '<div class="input"><br>';
 echo $this->Form->end('Registrar Salida de Vehículo');
 echo '</div>';
 ?>
-     
+   
+
 </fieldset>
 </div>

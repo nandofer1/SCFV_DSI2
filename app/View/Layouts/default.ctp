@@ -155,7 +155,13 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="/Tools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 						</ul>
 					</li>
-					<li><a href="/camiones"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a></li>
+					<li><a href="/camiones"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a>
+                                        <ul id="second-level">
+							<li><a href="/Trips/add"><img src="<?php echo "$imgdir/add.png"?>">Reportar Salida</a></li>
+							<li><a href="/Trips/index"><img src="<?php echo "$imgdir/list.png"?>">Ver Viajes</a></li>
+							
+						</ul>
+                                        </li>
 					<li><a href="/mantenimientos"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a></li>
 					<li><a href="/expedientes"><img src=<?php echo "$imgdir/reg.png" ?>> Expedientes</a></li>
 					<li><a href="/prestamos"><img src=<?php echo "$imgdir/prestamo.png" ?>> Prestamos</a></li>

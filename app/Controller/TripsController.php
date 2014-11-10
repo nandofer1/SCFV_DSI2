@@ -57,11 +57,18 @@ $this->set('Expedientes',$this->Dossier->find('list', array(
                   'fields' => array('Dossier.id', 'Dossier.vehicle_id')
             )));
 
-$this->loadModel('Employee'); //cargamos el modelo Expediente
+$this->loadModel('Employee'); //cargamos el modelo Empleado
 
 $this->set('Empleados',$this->Employee->find('list', array(       
                   'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
             )));
+
+$this->loadModel('Tool'); //cargamos el modelo Herramienta
+
+/*$this->set('Herramientas',$this->Tool->find('list', array(       
+                  'fields' => array('Tool.id', 'Tool.herramienta')
+            )));*/
+$this->set('Herramientas',$this->Tool->find('all'));
     
     
     $this->Trip->id=$id;
