@@ -17,8 +17,7 @@ echo $this->Form->input('management_id', array(
 ));
 
 echo $this->Form->input('departamento',array('label'=>'Nombre del Departamento','style'=>'width: 300px; '));
-echo $this->Form->label('Descripción');echo '<br>';
-echo $this->Form->textarea('descripcion',array('style'=>'width: 300px; height:200px;'));
+echo $this->Form->input('descripcion', array('label'=>'Descripcion de la Unidad: ', 'type' => 'textarea', 'style'=>'width: 300px; height:200px;'));
 echo '<div class="input"><br>';
 echo $this->Form->end('Guardar Departamento');
 echo '</div>';
