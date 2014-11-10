@@ -1,7 +1,3 @@
-/*SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";*/
-SET time_zone = "+00:00";
-
-
 DROP DATABASE IF EXISTS `scfv`;
 CREATE DATABASE `scfv`;
 USE `scfv`;
@@ -34,7 +30,6 @@ CREATE TABLE IF NOT EXISTS users (
   FOREIGN KEY (tipo_usuario) REFERENCES user_types(id)
 );
 
-
 INSERT INTO `users` VALUES (1,'juan','$2a$10$v7NW0coYFFg0gNiOq1fiKeNycMl/dlQoKSfCqaLFkO.4CYJGAOBPy',1,'82845678-8','7154-6839','juan@ues.edu.sv','Urb. Universitaria norte, Poligono #3, San Salvador','2014-11-07 02:37:24','2014-11-06 20:50:01');
 INSERT INTO `users` VALUES (2,'fernando','$2a$10$UqXi1iWMAL5BYH19pPdB5O8llithygL1a9uCMq3eTOHtyEB2AzHku',1,'45679812-3','7892-4524','fernando@ues.edu.sv','Col. Atlacatl, pje. principal #4A, Mejicanos. San Salvador','2014-11-07 02:37:24','2014-11-06 20:47:36');
 INSERT INTO `users` VALUES (3,'santiago','$2a$10$Y6.xZ/4lPz3VizCo3/PTDOUGFoXL..SggepKciWbT9p2mOb4SRBXu',1,'98765432-1','7816-1838','santiago@ues.edu.sv','Urb. Monserrat, #3. San Marcos. San Salvador','2014-11-06 20:37:57','2014-11-06 20:45:54');
@@ -42,6 +37,57 @@ INSERT INTO `users` VALUES (4,'enrique','$2a$10$OtyUSAQ4xV5PzIIEg5fsfOnknZ4vNU2k
 INSERT INTO `users` VALUES (5,'rebeca','$2a$10$noygLzkwKKEJUHDiysg7QOTuJAKKrd98QjR9Xkg6Nt.q6KWFlMp9O',1,'65498135-8','7862-6565','rebeca@ues.edu.sv','Col. La Paz #4, Santa Ana, San Salvador','2014-11-06 20:51:59','2014-11-06 20:51:59');
 
 
+CREATE TABLE IF NOT EXISTS units (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  unidad varchar(50) NOT NULL,
+  descripcion varchar(250) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO units VALUES(id, 'Social', '');
+INSERT INTO units VALUES(id, 'Gerencial', '');
+
+CREATE TABLE IF NOT EXISTS managements (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  unit_id int(11) NOT NULL,
+  gerencia varchar(50) NOT NULL,
+  PRIMARY KEY (id),
+  KEY id_unidad (unit_id)
+);
+
+INSERT INTO managements VALUES(id, 2, 'Registro del Estado Familiar');
+INSERT INTO managements VALUES(id, 2, 'Administracion de Espacios Publicos');
+INSERT INTO managements VALUES(id, 2, 'Gerencia Financiera');
+INSERT INTO managements VALUES(id, 2, 'Administracion de Mercados');
+INSERT INTO managements VALUES(id, 2, 'Gerencia de Servicios Municipales');
+
+
+CREATE TABLE IF NOT EXISTS departaments (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  management_id int(11) NOT NULL,
+  departamento varchar(80) NOT NULL,
+  descripcion varchar(250) NOT NULL,
+  PRIMARY KEY (id),
+  KEY id_gerencia (management_id)
+);
+
+INSERT INTO departaments VALUES (id, 1, 'Cementerios','');
+
+INSERT INTO departaments VALUES (id, 2, 'Limpieza y Ornato','');
+INSERT INTO departaments VALUES (id, 2, 'Casa de la Cultura','');
+INSERT INTO departaments VALUES (id, 2, 'Parque Municipal Tio Julio','');
+
+INSERT INTO departaments VALUES (id, 3, 'Gestion de Cobro y Recuperacion de Mora','');
+INSERT INTO departaments VALUES (id, 3, 'Catastro','');
+INSERT INTO departaments VALUES (id, 3, 'Contabilidad','');
+INSERT INTO departaments VALUES (id, 3, 'Tesoreria Municipal','');
+
+INSERT INTO departaments VALUES (id, 4, 'Gestion de Cobro','');
+INSERT INTO departaments VALUES (id, 4, 'Mantenimiento','');
+
+INSERT INTO departaments VALUES (id, 5, 'Recoleccion y disposicion de desechos solidos','');
+INSERT INTO departaments VALUES (id, 5, 'Alumbrado publico y mantenimiento interno','');
+INSERT INTO departaments VALUES (id, 5, 'Taller Municipal','');
 
 
 
@@ -104,20 +150,6 @@ CREATE TABLE IF NOT EXISTS crews (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla 'departaments'
---
-
-CREATE TABLE IF NOT EXISTS departaments (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  management_id int(11) NOT NULL,
-  departamento varchar(80) NOT NULL,
-  descripcion varchar(250) NOT NULL,
-  PRIMARY KEY (id),
-  KEY id_gerencia (management_id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -263,20 +295,6 @@ CREATE TABLE IF NOT EXISTS maintenancetypes (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla 'managements'
---
-
-CREATE TABLE IF NOT EXISTS managements (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  unit_id int(11) NOT NULL,
-  gerencia varchar(50) NOT NULL,
-  PRIMARY KEY (id),
-  KEY id_unidad (unit_id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla 'modells'
 --
 
@@ -399,18 +417,6 @@ CREATE TABLE IF NOT EXISTS `types` (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla 'units'
---
-
-CREATE TABLE IF NOT EXISTS units (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  unidad varchar(50) NOT NULL,
-  descripcion varchar(250) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 

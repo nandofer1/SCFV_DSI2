@@ -17,7 +17,7 @@
 foreach ($Departamentos as $Departamento):?>
     
 <tr>
-    <td><?php echo $Departamento['Departament']['management_id'];?></td>
+    <td><?php echo $Departamento['Management']['gerencia'];?></td>
     <td><?php echo $Departamento['Departament']['departamento'];?></td>
     <td><?php echo $Departamento['Departament']['descripcion'];?></td>
      <td><?php echo $this->Html->link('Editar',array('action'=>'edit',$Departamento['Departament']['id']))    ?> </td>
