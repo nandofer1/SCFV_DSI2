@@ -2,9 +2,9 @@
 class VehiclesController extends AppController
 {
 public $helpers=array('Html','Form'); // helper para hacer formularios
-public $components=array('Session','Paginator');
+public $components=array('Session');
 public $paginate=array(
-    'limit'=>'5',
+    'limit'=>5,
     'order'=>array('Vehicule.id'=>'asc')
 );
 public function index()
@@ -115,6 +115,7 @@ public function delete($id)
         }
         
         public function find(){
+     $this->Vehicle->recursive=0;
      $this->set('Vehiculos',$this->paginate());
      
     $field = "{$this->request->data['Vehicle']['campo']} LIKE ";

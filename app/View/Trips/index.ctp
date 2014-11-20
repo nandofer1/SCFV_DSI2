@@ -1,7 +1,7 @@
 <h1 class="list-title">Viajes de Camiones Recolectores</h1>
 <div class="list-container">
     <div class="list-search">
-    <form action="/SCFV_DSI2/Vehicles/find" id="ViajesForm" method="post" accept-charset="utf-8">
+    <form action="/Trips/find" id="ViajesForm" method="post" accept-charset="utf-8">
       <div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>
       <input name="data[Trip][query]" type="text" id="BuscarQuery" placeholder="Palabras clave" value="<?php echo  isset($query)? $query: "" 
       ?>"/>
@@ -70,4 +70,18 @@ foreach ($Viajes as $Viaje):?>
 
 <?php endforeach;?>
 </table>
+    
+     <p id="paginador">
+        <?php  echo $this->Paginator->counter(
+                array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
+                
+                )?> 
+    </p>
+    <div class="paging">
+        <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
+        <?php echo $this->Paginator->numbers(array('separator'=>' ')); ?>
+         <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
+        
+    </div>
+    
 </div>

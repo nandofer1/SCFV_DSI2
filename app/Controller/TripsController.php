@@ -4,12 +4,19 @@ class TripsController extends AppController
 public $helpers=array('Html','Form'); // helper para hacer formularios
 public $components=array('Session');
 
+public $paginate=array(
+    'limit' => 5,
+    'order'=>array('Trip.id'=>'desc')
+);
+
 public function index()
 {
     //para mostrar los estudiantes en el index
     // ORM query explicito
     //Estudiantes el arreglo que se envia y lo recorremos desde el index
-$this->set('Viajes',$this->Trip->find('all'));
+//PAGINADO
+    $this->Trip->recursive=0;
+    $this->set('Viajes',$this->paginate());
 
 
 
@@ -33,9 +40,31 @@ if($this->request->is('post')): // si la consulta es de tipo post
     // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
     
     if($this->Trip->Save($this->request->data)): 
+    
         
+        //Ingresamos Motorista con el viaje
+        $motorista=$this->request->data['Trip']['motorista'];
+    //Ultimo Viaje que se ingreso
+     $idviaje=$this->Trip->id;
+    
+    $sql = "INSERT INTO crews VALUES('','".$idviaje."','".$motorista."',1);"; 
+    $this->loadModel('Crew');
+    $this->Crew->query($sql);
+    
+    //Ingresamos los empleados que van con el viaje
+    for($i=0;$i<5;$i++)
+    {
+      $id="Dui";
+      $id.=$i+1;
         
-
+        $idempleado=$this->request->data['Trip'][$id];
+        if($idempleado!=''):
+             $sql = "INSERT INTO crews VALUES('','".$idviaje."','".$idempleado."',0);"; 
+             $this->Crew->query($sql);
+        endif;
+    }
+   
+    //Ingresamos las Heramientas que se llevaron en el viaje
    
 
 

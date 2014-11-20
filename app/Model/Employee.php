@@ -3,7 +3,7 @@ class Employee extends AppModel
 {
      public $validate=array(
     'id' => array(
-        'valid' => array('rule' => array('custom','^([0-9]{8}-[0-9]{1})$^'), // DUI
+        'valid' => array('rule' => array('custom','^([0-9]{9})$^'), // DUI
                        'message' => 'Ingrese un DUI válido Ej:00000000-0'),
         'required' => array('rule' => array('maxLength', '10'),
                             'message' => 'Ingrese un Modelo de vahículo valido max 30 caracteres')),
