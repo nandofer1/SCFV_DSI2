@@ -114,12 +114,12 @@ public function delete($id)
     
         }
         
+  
         public function find(){
-     $this->Vehicle->recursive=0;
-     $this->set('Vehiculos',$this->paginate());
+     
      
     $field = "{$this->request->data['Vehicle']['campo']} LIKE ";
-    $data = $this->Paginator->paginate('Vehicle', array("{$field}" => "%{$this->request->data['Vehicle']['query']}%"));
+    $data = $this->paginate('Vehicle', array("{$field}" => "%{$this->request->data['Vehicle']['query']}%"));
     $this->set('Vehiculos', $data);
     $this->set('query', $this->request->data['Vehicle']['query']);
     $this->set('campo', $this->request->data['Vehicle']['campo']);

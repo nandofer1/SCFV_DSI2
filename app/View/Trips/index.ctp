@@ -8,7 +8,7 @@
       <select name="data[Trip][campo]" >
         <?php $campo = isset($campo)? $campo: "" ?>
         <option value="Trip.fecha_inicio" <?php echo $campo=="Trip.id"?" selected": "" ?>>Fecha</option>
-        <option value="Trip.id_dossier" <?php echo $campo=="Vehicle.id_dossier"?" selected": "" ?>>Placa</option>
+        <option value="Trip.dossier_id" <?php echo $campo=="Vehicle.dossier_id"?" selected": "" ?>>Placa</option>
       </select> 
       <input  type="submit" value="Buscar"/>
 
@@ -52,7 +52,7 @@ foreach ($Viajes as $Viaje):?>
     endif; 
         
         ?></td>
-     <td><?php echo $this->Html->link('Ver Detalles',array('action'=>'look',$Viaje['Trip']['id']))    ?> </td>
+     <td><?php echo $this->Html->link('Ver Detalles',array('action'=>'details',$Viaje['Trip']['id']))    ?> </td>
      <td><?php echo $this->Html->link('Modificar',array('action'=>'mod',$Viaje['Trip']['id']))    ?> </td>
     <td><?php 
     if ($Viaje['Trip']['fuera']==0):

@@ -68,8 +68,45 @@ echo $this->Form->input('Dui5', array(
 echo $this->Form->label('Comentario de Salida');echo'<br>';
 echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; height:200px;'));
 
-//echo $this->Form->label('Comentario de Entrada');
-//echo $this->Form->textarea('comentario_entrada',array('value'=>'No Disponible','style'=>'width: 300px; height:200px;'));
+?>
+     <table class="list" >
+        <tr>
+            <td colspan="5">
+                <b> <?php echo 'Herramientas'; ?></b>
+            </td>
+        </tr>
+        <tr>
+             
+      <?php
+   $n=0;
+   $i=0;
+      foreach ($Herramientas as $Herramienta):?>
+    <?php
+    // para mostrar 5 por cada fila
+    if($n!=5):
+        echo '<td>';
+         echo $Herramienta['Tool']['herramienta'];
+         echo $n;
+       echo $this->Form->checkbox($i, array('value'=>$Herramienta['Tool']['id']));
+               echo'<br><br>';
+               echo '</td>';
+               else:
+                   echo '</tr> <tr>';
+               $n=0;
+             
+    endif;
+    $n=$n+1;
+    $i=$i+1;
+    endforeach; 
+    //NUMERO DE HERRAMIENTAS
+    echo $this->Form->input('num_h',array('type'=>'hidden','value'=>$i+1));
+    
+    ?>
+     </table>
+    
+    
+<?php
+
 echo '<div class="input"><br>';
 echo $this->Form->end('Registrar Salida de Vehículo');
 echo '</div>';

@@ -13,7 +13,7 @@ public function index()
 {
     //para mostrar los estudiantes en el index
     // ORM query explicito
-    //Estudiantes el arreglo que se envia y lo recorremos desde el index
+  
 //PAGINADO
     $this->Trip->recursive=0;
     $this->set('Viajes',$this->paginate());
@@ -35,6 +35,8 @@ $this->loadModel('Employee'); //cargamos el modelo Expediente
 $this->set('Empleados',$this->Employee->find('list', array(       
                   'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
             )));
+$this->loadModel('Tool'); //cargamos el modelo Herramienta
+$this->set('Herramientas',$this->Tool->find('all'));
 
 if($this->request->is('post')): // si la consulta es de tipo post
     // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
@@ -65,7 +67,17 @@ if($this->request->is('post')): // si la consulta es de tipo post
     }
    
     //Ingresamos las Heramientas que se llevaron en el viaje
-   
+     for($j=0;$j<$this->request->data['Trip']['num_h'];$j++)
+    {
+    
+        
+        $idherramienta=$this->request->data['Trip'][$j];
+        if($idherramienta!=0):
+             $sql = "INSERT INTO cleaningtoolsuseds VALUES('','".$idviaje."','".$idherramienta."');"; 
+             $this->loadModel('Cleaningtoolsused');
+             $this->Cleaningtoolsused->query($sql);
+        endif;
+    }
 
 
     
@@ -93,10 +105,6 @@ $this->set('Empleados',$this->Employee->find('list', array(
             )));
 
 $this->loadModel('Tool'); //cargamos el modelo Herramienta
-
-/*$this->set('Herramientas',$this->Tool->find('list', array(       
-                  'fields' => array('Tool.id', 'Tool.herramienta')
-            )));*/
 $this->set('Herramientas',$this->Tool->find('all'));
     
     
@@ -135,6 +143,24 @@ public function delete($id)
         }
         
         
+         public function details($id = null) {
+    if($id != null){
+      $this->Trip->id = $id;
+      if (!$this->Trip->exists()) {
+        throw new NotFoundException(__('viaje invalido'));
+      }
+      $data = $this->Trip->findById($id);
+      $this->set('Viaje', $data);      
+    }
+    else{ //No se ha proporcionado un id
+
+    }
+       $this->loadModel('Cleaningtoolsused');
+   $this->set('Herramientas',$this->Cleaningtoolsused->find('all',array('conditions'=>'Cleaningtoolsused.trip_id ='.$id))) ;
+    $this->loadModel('Crew');
+   $this->set('Tripulantes',$this->Crew->find('all',array('conditions'=>'Crew.trip_id ='.$id))) ;
+    
+  }  
 
 public function mod($id=null)
 {
@@ -171,10 +197,10 @@ $this->set('Empleados',$this->Employee->find('list', array(
 }     
 
     public function find(){
-     $this->set('Viajes',$this->paginate());
+ 
      
     $field = "{$this->request->data['Trip']['campo']} LIKE ";
-    $data = $this->Paginator->paginate('Trip', array("{$field}" => "%{$this->request->data['Trip']['query']}%"));
+    $data = $this->paginate('Trip', array("{$field}" => "%{$this->request->data['Trip']['query']}%"));
     $this->set('Viajes', $data);
     $this->set('query', $this->request->data['Trip']['query']);
     $this->set('campo', $this->request->data['Trip']['campo']);
