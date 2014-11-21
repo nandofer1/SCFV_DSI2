@@ -1,5 +1,10 @@
+<?php echo $this->Html->css('jquery-ui-1.9.2.custom'); ?>
+<?php echo $this->Html->script('jquery-1.9.2.min'); ?>
+<?php echo $this->Html->script('jquery-ui-1.9.2.custom.min'); ?>
 
 <div class="users form">
+    
+    
     <fieldset>
 
     <legend><?php echo __('Reportar Salida de Camión Recolector'); ?></legend>
@@ -15,7 +20,18 @@ echo $this->Form->input('dossier_id', array(
     'empty'   => ('Seleccione una opcion')
 ));
 
-echo $this->Form->input('fecha_inicio',array('label'=>'Fecha de Salida','style'=>'width: 100px; height:30px;'));
+//echo $this->Form->input('fecha_inicio',array('label'=>'Fecha de Salida','style'=>'width: 100px; height:30px;'));
+
+        
+        
+        echo $this->Form->input('fecha_inicio', array('label' => "Fecha de Salida : ", 'type' => 'text', 
+                                'error' => false , 'id' => 'select_date'));
+       echo  '<center>';
+       
+         echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); 
+       echo '</center>';
+
+
 //echo $this->Form->input('fecha_fin',array('label'=>'Fecha de Regreso','value'=>'0000-00-00','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('hora_inicio',array('label'=>'Hora de Salida','style'=>'width: 100px; height:30px;'));
 //echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'00:00:00','style'=>'width: 100px; height:30px;'));
@@ -115,3 +131,18 @@ echo '</div>';
 
 </fieldset>
 </div>
+<script>
+$(document).ready(function(){
+              $("#select_date").click(function(){
+                     $("#datepicker").datepicker(
+                    {
+                           dateFormat: 'yy-mm-dd',
+                           onSelect: function(dateText, inst){
+                                 $('#select_date').val(dateText);
+                                 $("#datepicker").datepicker("destroy");
+                          }
+                     }
+                     );
+               });
+        });
+        </script>

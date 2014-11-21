@@ -1,7 +1,10 @@
 <?php
 class Tool extends AppModel
-{
+{  
+ 
+        
     
+ 
      public $validate=array( //INICIO VALIDACION
         
         'herramienta' => array(

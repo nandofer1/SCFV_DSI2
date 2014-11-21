@@ -1,7 +1,8 @@
 <h1 class="list-title">Viaje</h1>
+
 <div class="list-container">
   <table class="list">
-    <tr><td>Placa de Veh'iculo</td>           	        <td><?php echo $Viaje['Trip']['dossier_id']; ?></td></tr>
+    <tr><td>Placa de Vehículo</td>           	        <td><?php echo $Viaje['Trip']['dossier_id']; ?></td></tr>
     <tr><td>Fecha de Inicio</td>     	        <td><?php echo $Viaje['Trip']['fecha_inicio']; ?></td></tr>
     <tr><td>Fecha de Regreso</td>
         <td><?php 
@@ -88,4 +89,21 @@
     unset($Herramienta);
     ?>
   </table>
+    
 </div>
+
+<script>
+$(document).ready(function(){
+              $("#datepicker_img img").click(function(){
+                     $("#datepicker").datepicker(
+                    {
+                           dateFormat: 'yy-mm-dd',
+                           onSelect: function(dateText, inst){
+                                 $('#select_date').val(dateText);
+                                 $("#datepicker").datepicker("destroy");
+                          }
+                     }
+                     );
+               });
+        });
+        </script>
