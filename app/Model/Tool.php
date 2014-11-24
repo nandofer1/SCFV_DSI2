@@ -2,7 +2,8 @@
 class Tool extends AppModel
 {  
  
-        
+       public $displayField='herramienta';
+       public $hasOne=array('Cleaningtoolsused');
     
  
      public $validate=array( //INICIO VALIDACION

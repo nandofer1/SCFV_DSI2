@@ -63,7 +63,7 @@
   </tr>
   <tr><td><center>
   <?php foreach ($Herramientas as $Herramienta):
-    echo $Herramienta['Cleaningtoolsused']['tools_id'];
+    echo $Herramienta['Cleaningtoolsused']['tool_id'];
   echo'<br>';      
   endforeach;
   
@@ -85,25 +85,11 @@
       
   </center></td>
   </tr>
-    <?php unset($Viaje);
-    unset($Herramienta);
+    
     ?>
   </table>
-    
+    <?php echo $this->Html->link('Exportar PDF',array('action'=>'pdf',$Viaje['Trip']['id']));    ?>
+    <?php unset($Viaje);
+    unset($Herramienta);?>
 </div>
 
-<script>
-$(document).ready(function(){
-              $("#datepicker_img img").click(function(){
-                     $("#datepicker").datepicker(
-                    {
-                           dateFormat: 'yy-mm-dd',
-                           onSelect: function(dateText, inst){
-                                 $('#select_date').val(dateText);
-                                 $("#datepicker").datepicker("destroy");
-                          }
-                     }
-                     );
-               });
-        });
-        </script>

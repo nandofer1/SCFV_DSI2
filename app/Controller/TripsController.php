@@ -11,6 +11,7 @@ public $paginate=array(
 
 public function index()
 {
+   
     //para mostrar los estudiantes en el index
     // ORM query explicito
   
@@ -157,9 +158,11 @@ public function delete($id)
     }
        $this->loadModel('Cleaningtoolsused');
    $this->set('Herramientas',$this->Cleaningtoolsused->find('all',array('conditions'=>'Cleaningtoolsused.trip_id ='.$id))) ;
+   
+  
     $this->loadModel('Crew');
    $this->set('Tripulantes',$this->Crew->find('all',array('conditions'=>'Crew.trip_id ='.$id))) ;
-    
+
   }  
 
 public function mod($id=null)
@@ -206,4 +209,28 @@ $this->set('Empleados',$this->Employee->find('list', array(
     $this->set('campo', $this->request->data['Trip']['campo']);
     $this->render('index');    
   }
+  
+  function pdf($id = null)
+    {
+        
+        if (!$id){
+            $this->Session->setFlash('Id invÃ¡lido para obtener pdf');
+            $this->redirect(array('action'=>'index'), null, true);
+        }
+
+        Configure::write('debug',0);
+
+        $id = intval($id);
+		  
+        $property = $this->Trip->read(null, $id);
+		  $this->set('property',$property);
+        if (empty($property))
+        {
+            $this->Session->setFlash('Sorry, there is no property with the submitted ID.');
+            $this->redirect(array('action'=>'index'), null, true);
+        }
+        $this->layout = 'pdf';
+        $this->render();
+   
+    }
 }
