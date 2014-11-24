@@ -110,6 +110,15 @@ $imgdir = "{$this->webroot}app/webroot/img";
 									<li><a href="/Departaments/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
 								</ul>
 							</li>
+                                                        <li><a href="#"><img src=<?php echo "$imgdir/org.png" ?>> Empleados
+								<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="/Employees/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+									<li><a href="/Departaments/delete"><img src="<?php echo "$imgdir/del.png"?>">Eliminar</a></li>
+									<li><a href="/Departaments/edit"><img src="<?php echo "$imgdir/mod.png"?>">Editar</a></li>
+									<li><a href="/Employees/index"><img src="<?php echo "$imgdir/list.png"?>">Lista</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li><a href="/Vehicles/"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos</a>

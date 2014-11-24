@@ -36,7 +36,7 @@ foreach ($Viajes as $Viaje):?>
     
 <tr>
     
-    <td><?php echo $Viaje['Trip']['dossier_id'];?></td>
+    <td><?php echo $Viaje['Dossier']['vehicle_id'];?></td>
     <td><?php echo $Viaje['Trip']['fecha_inicio'];?></td>
     <td><?php echo $Viaje['Trip']['fecha_fin'];?></td>
     <td><?php echo $Viaje['Trip']['hora_inicio'];?></td>

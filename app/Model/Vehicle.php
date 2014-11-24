@@ -1,6 +1,8 @@
 <?php
 class Vehicle extends AppModel
 {//VALIDACION DE LOS CAMPOS
+   // public $belongsTo=array('Modell');
+public $belongsTo=array('Type','Modell');
     public $validate=array(
     
        /* 'id'=>array(

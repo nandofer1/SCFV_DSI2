@@ -1,6 +1,7 @@
 <?php
 class Type extends AppModel
 {
+     public $hasMany=array('Vehicle');
      public $validate=array( //INICIO VALIDACION
         
         'tipo' => array(

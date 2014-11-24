@@ -1,6 +1,8 @@
 <?php
 class Modell extends AppModel
 {
+    public $hasMany=array('Vehicle');
+    public $belongsTo=array('Brand');
      public $validate=array( //INICIO VALIDACION
         
          'brand_id'=>array(

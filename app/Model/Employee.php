@@ -1,6 +1,12 @@
 <?php
 class Employee extends AppModel
 {
+    public $displayField='nombre';
+    public $hasOne=array('Crew');
+    public $belongsTo=array('Departament');
+    
+    
+    
      public $validate=array(
     'id' => array(
         'valid' => array('rule' => array('custom','^([0-9]{9})$^'), // DUI

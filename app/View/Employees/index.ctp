@@ -21,7 +21,7 @@ foreach ($Empleados as $Empleado):?>
     
 <tr>
     <td><?php echo $Empleado['Employee']['id'];?></td>
-    <td><?php echo $Empleado['Employee']['departament_id'];?></td>
+    <td><?php echo $Empleado['Departament']['departamento'];?></td>
     <td><?php echo $Empleado['Employee']['nombre'];?></td>
     <td><?php echo $Empleado['Employee']['apellidos'];?></td>
     <td><?php echo $Empleado['Employee']['direccion'];?></td>

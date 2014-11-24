@@ -40,8 +40,8 @@ foreach ($Vehiculos as $Vehiculo):?>
     
 <tr>
     <td><?php echo $Vehiculo['Vehicle']['id'];?></td>
-    <td><?php echo $Vehiculo['Vehicle']['modell_id'];?></td>
-    <td><?php echo $Vehiculo['Vehicle']['type_id'];?></td>
+    <td><?php echo $Vehiculo['Modell']['modelo'];?></td>
+    <td><?php echo $Vehiculo['Type']['tipo'];?></td>
     <td><?php echo $Vehiculo['Vehicle']['tarjeta_circulacion'];?></td>
     <td><?php echo $Vehiculo['Vehicle']['fecha_tarjeta'];?></td>
     <td><?php echo $Vehiculo['Vehicle']['anio'];?></td>

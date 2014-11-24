@@ -4,7 +4,24 @@ class Tool extends AppModel
  
        public $displayField='herramienta';
        public $hasOne=array('Cleaningtoolsused');
-    
+    public $hasAndBelongsToMany = array(
+		'Trip' => array(
+			'className' => 'Trip',
+			'joinTable' => 'cleaningtoolsuseds',
+			'foreignKey' => 'tool_id',
+			'associationForeignKey' => 'trip_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		)
+	);
+
  
      public $validate=array( //INICIO VALIDACION
         

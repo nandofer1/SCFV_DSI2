@@ -16,7 +16,7 @@ foreach ($Modelos as $Modelo):?>
     
 <tr>
  <td><?php echo $Modelo['Modell']['modelo'];?></td>   
- <td><?php echo $Modelo['Modell']['brand_id'];?></td>
+ <td><?php echo $Modelo['Brand']['marca'];?></td>
   <td><?php echo $this->Html->link('Editar',array('action'=>'edit',$Modelo['Modell']['id']))    ?> </td>
    <td> <?php echo $this->Form->postLink('Eliminar',array('action'=>'delete',$Modelo['Modell']['id']),
              array('confirm'=>'Realmente Desea Eliminar este modelo de vehículo?')

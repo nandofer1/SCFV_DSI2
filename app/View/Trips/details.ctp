@@ -2,7 +2,7 @@
 
 <div class="list-container">
   <table class="list">
-    <tr><td>Placa de Vehículo</td>           	        <td><?php echo $Viaje['Trip']['dossier_id']; ?></td></tr>
+    <tr><td>Placa de Vehículo</td>           	        <td><?php echo $Viaje['Dossier']['vehicle_id']; ?></td></tr>
     <tr><td>Fecha de Inicio</td>     	        <td><?php echo $Viaje['Trip']['fecha_inicio']; ?></td></tr>
     <tr><td>Fecha de Regreso</td>
         <td><?php 
@@ -12,7 +12,7 @@
         else:
          echo $Viaje['Trip']['fecha_fin'];
         endif;
-     ?></td></tr>
+     ?> </td></tr>
     
     
     <tr><td>Hora de salida</td>                  <td><?php echo $Viaje['Trip']['hora_inicio']; ?></td></tr>
@@ -62,8 +62,10 @@
     <td><center>Tripulantes de Viaje</center></td>  
   </tr>
   <tr><td><center>
-  <?php foreach ($Herramientas as $Herramienta):
-    echo $Herramienta['Cleaningtoolsused']['tool_id'];
+  <?php
+
+   foreach ($Herramientas as $Herramienta):
+    echo $Herramienta['Tool']['herramienta'];
   echo'<br>';      
   endforeach;
   
@@ -73,7 +75,7 @@
   <td><center>
       
       <?php foreach ($Tripulantes as $Tripulante):
-    echo $Tripulante['Crew']['employee_id'];
+    echo $Tripulante['Employee']['nombre']." ".$Tripulante['Employee']['apellidos'];
       if($Tripulante['Crew']['motorista']==1):
           echo ' <b>(Motorista)</b>';
           
@@ -86,10 +88,16 @@
   </center></td>
   </tr>
     
-    ?>
+
   </table>
-    <?php echo $this->Html->link('Exportar PDF',array('action'=>'pdf',$Viaje['Trip']['id']));    ?>
+    <center>
+    <?php 
+  echo $this->Html->image('iconoPDF.gif');
+    echo $this->Html->link('Exportar PDF',array('action'=>'pdf',$Viaje['Trip']['id'])); 
+    
+    ?>
     <?php unset($Viaje);
     unset($Herramienta);?>
+    </center>
 </div>
 

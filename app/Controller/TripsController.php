@@ -156,8 +156,8 @@ public function delete($id)
     else{ //No se ha proporcionado un id
 
     }
-       $this->loadModel('Cleaningtoolsused');
-   $this->set('Herramientas',$this->Cleaningtoolsused->find('all',array('conditions'=>'Cleaningtoolsused.trip_id ='.$id))) ;
+      
+   $this->set('Herramientas',$this->Trip->Tool->find('all',array('conditions'=>'Cleaningtoolsused.trip_id ='.$id))) ;
    
   
     $this->loadModel('Crew');
@@ -224,6 +224,12 @@ $this->set('Empleados',$this->Employee->find('list', array(
 		  
         $property = $this->Trip->read(null, $id);
 		  $this->set('property',$property);
+                  
+         $this->set('Herramientas',$this->Trip->Tool->find('all',array('conditions'=>'Cleaningtoolsused.trip_id ='.$id))) ;
+   
+  
+    $this->loadModel('Crew');
+   $this->set('Tripulantes',$this->Crew->find('all',array('conditions'=>'Crew.trip_id ='.$id))) ;          
         if (empty($property))
         {
             $this->Session->setFlash('Sorry, there is no property with the submitted ID.');

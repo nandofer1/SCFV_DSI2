@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////// Get teacher data ////////////////////////////////////// 
 
-$placa = $property['Trip']['dossier_id'];
+$placa = $property['Dossier']['vehicle_id'];
 $fecha_inicio = $property['Trip']['fecha_inicio'];
 $fecha_fin=$property['Trip']['fecha_fin'];
 $horai=$property['Trip']['hora_inicio'];
@@ -10,6 +10,7 @@ $kmi=$property['Trip']['kilometraje_inicial'];
 $kmf=$property['Trip']['kilometraje_final'];
 $salida=$property['Trip']['comentario_salida'];
 $entrada=$property['Trip']['comentario_entrada'];
+$h=$Herramientas['Tool']['herramienta'];
 
 
 $html = '<style>
@@ -25,7 +26,7 @@ h2{
 		padding-bottom: 10px;
 		padding-left: 10px;
 		height: 20px;
-		margin-left: 10px;
+                margin-left: 10px;
     }
 </style>';
 
@@ -38,7 +39,7 @@ $html .= '<div class="field_data">'.$fecha_inicio . '</div>';
 $html .= '<div><strong>Fecha de Regreso</strong></div>';
 $html .= '<div class="field_data">'.$fecha_fin . '</div>';
 $html .= '<div><strong>Hora de Inicio</strong></div>';
-$html .= '<div class="field_data">'.$hora_inicio . '</div>';
+$html .= '<div class="field_data">'.$horai . '</div>';
 $html .= '<div><strong>Hora de Regreso</strong></div>';
 $html .= '<div class="field_data">'.$hora_fin . '</div>';
 $html .= '<div><strong>Kilometraje inicial de la unidad</strong></div>';
@@ -49,6 +50,8 @@ $html .= '<div><strong>Comentario de Salida</strong></div>';
 $html .= '<div class="field_data">'.$salida . '</div>';
 $html .= '<div><strong>Comentario de entrada</strong></div>';
 $html .= '<div class="field_data">'.$entrada . '</div>';
+$html .= '<div><strong>Herramientas Utilizadas</strong></div>';
+$html .= '<div class="field_data">'.$h.'</div>';
 $html .= '</div>';
 
 //$html .= $courses;
