@@ -333,7 +333,8 @@ h1.list-title{
     margin-left: auto;
     margin-right: auto; 
     margin-bottom: 50px;
-    width: 80%;/*whatever width you want*/;
+    width: 50%;/*whatever width you want*/;
+  	text-align: center;  	
 }
 
 .login-title{
