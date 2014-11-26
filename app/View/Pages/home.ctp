@@ -3,8 +3,8 @@
             <div class="login-middle">
                 <div class="login-inner">
                     <div class="login-title">
-                        <img src="<?php echo "$imgdir/cove-logo-large.png"?>">
-                        <span style="color: #222">CoVE: Sistema de Control de Flota Vehicular</span>
+                        <img src="<?php echo "$imgdir/logo_alcaldia.png"?>">
+                        <span style="color: #222">CoVE: Sistema de Control de Flota Vehicular<br>De La Alcaldia de Ciudad Delgado.</span>
                     </div>
                 </div>
             </div>
