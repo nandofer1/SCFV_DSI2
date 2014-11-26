@@ -313,7 +313,7 @@ h1.list-title{
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #333;
+    background: #222;
 	background: rgba(85,85,85,1);
 	background: -moz-radial-gradient(center, ellipse cover, rgba(85,85,85,1) 0%, rgba(34,34,34,1) 100%);
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(85,85,85,1)), color-stop(100%, rgba(34,34,34,1)));
@@ -333,8 +333,7 @@ h1.list-title{
     margin-left: auto;
     margin-right: auto; 
     margin-bottom: 50px;
-    width: 50%;/*whatever width you want*/;
-    /*border: 1px solid black;*/
+    width: 80%;/*whatever width you want*/;
 }
 
 .login-title{
@@ -342,18 +341,19 @@ h1.list-title{
 }
 
 .login-title>img{
-	width: 85px;
-	height: 85px;
+	width: 210px;
+	height: 292px;
 	padding: 3px;
 	vertical-align: middle;
-
+	display: inline-block;
 }
 
 .login-title>span{
-	font-size: 20px;
+	font-size: 30px;
 	font-weight: bold;
 	color: #BBB;
 	vertical-align: middle;
+	display: inline-block;	
 }
 
 .login-inner label{
