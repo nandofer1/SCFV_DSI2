@@ -16,15 +16,15 @@
   </div>    
 <table class="list">
     <tr>
-        <td>Placa de Vehículo</td>
-        <td>Fecha de Inicio</td>
+        <td><?php echo $this->Paginator->sort('dossier_id','placa')?></td>
+        <td><?php echo $this->Paginator->sort('fecha_incio','Fecha de Inicio')?></td>
         <td>Fecha de Regreso</td>
         <td>Hora de Inicio</td>
         <td>Hora de Regreso</td>
         <td>Km Inicial</td>
         <td>km Final</td>
-        <td>Estado</td>
-        <td colspan="4"><center>Acciones</center></td>
+        <td><?php echo $this->Paginator->sort('fuera','Estado')?></td>
+        <td colspan="3"><center>Acciones</center></td>
     </tr>  
 
     
@@ -63,9 +63,7 @@ foreach ($Viajes as $Viaje):?>
          echo $this->Html->link('Reportar Entrada',array('action'=>'edit',$Viaje['Trip']['id']));
     endif; 
        ?> </td>
-     <td> <?php echo $this->Form->postLink('Eliminar',array('action'=>'delete',$Viaje['Trip']['id']),
-             array('confirm'=>'Realmente Desea Eliminar este Viaje?')
-             ); ?></td>
+     
 </tr>
 
 <?php endforeach;?>

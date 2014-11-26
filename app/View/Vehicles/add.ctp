@@ -1,3 +1,6 @@
+<?php echo $this->Html->css('jquery-ui-1.9.2.custom'); ?>
+<?php echo $this->Html->script('jquery-1.9.2.min'); ?>
+<?php echo $this->Html->script('jquery-ui-1.9.2.custom.min'); ?>
 <div class="users form">
     <fieldset>
 
@@ -21,7 +24,13 @@ echo $this->Form->input('type_id', array(
 ));
 
 echo $this->Form->input('tarjeta_circulacion',array('label'=>'Tarjeta de Circulacion','style'=>'width: 300px; '));
-echo $this->Form->input('fecha_tarjeta',array('label'=>'Fecha de Tarjeta','style'=>'width: 300px;'));
+//echo $this->Form->input('fecha_tarjeta',array('label'=>'Fecha de Tarjeta','style'=>'width: 300px;'));
+ echo $this->Form->input('fecha_tarjeta', array('label' => "Fecha de Tarjeta : ", 'type' => 'text', 
+                                'error' => false , 'id' => 'select_date'));
+       echo  '<center>';
+       
+         echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); 
+       echo '</center>';
 echo $this->Form->input('anio',array('label'=>'Año','style'=>'width: 100px;'));
 echo $this->Form->input('color',array('label'=>'Color','style'=>'width: 300px; '));
 echo $this->Form->input('motor',array('label'=>'Motor','style'=>'width: 300px; '));
@@ -44,3 +53,18 @@ echo '</div>';
 
     </fieldset>
     </div>
+<script>
+$(document).ready(function(){
+              $("#select_date").click(function(){
+                     $("#datepicker").datepicker(
+                    {
+                           dateFormat: 'yy-mm-dd',
+                           onSelect: function(dateText, inst){
+                                 $('#select_date').val(dateText);
+                                 $("#datepicker").datepicker("destroy");
+                          }
+                     }
+                     );
+               });
+        });
+        </script>

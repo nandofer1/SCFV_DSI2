@@ -10,8 +10,26 @@ $kmi=$property['Trip']['kilometraje_inicial'];
 $kmf=$property['Trip']['kilometraje_final'];
 $salida=$property['Trip']['comentario_salida'];
 $entrada=$property['Trip']['comentario_entrada'];
-$h=$Herramientas['Tool']['herramienta'];
 
+$herramientas = '<h2>Herramientas Utilizadas</h2>';
+foreach($Herramientas as $ks => $herramienta):
+	//$herramientas.=  '<div class="herramienta">';
+	$herramientas .= $herramienta['Tool']['herramienta'];
+$herramientas.='<br>';
+	//$herramientas .= '</div>';
+endforeach;
+
+
+$tripulantes = '<h2>Tripulantes de Viaje</h2>';
+foreach($Tripulantes as $t => $Tripulante):
+	//$tripulantes.=  '<div class="tripulante">';
+	$tripulantes .= $Tripulante['Employee']['nombre'].''.$Tripulante['Employee']['apellido'];
+if($Tripulante['Crew']['motorista']==1):
+    $tripulantes.= '(Motorista)';
+endif;
+$tripulantes.='<br>';
+	//$tripulantes .= '</div>';
+endforeach;
 
 $html = '<style>
 h2{
@@ -50,11 +68,9 @@ $html .= '<div><strong>Comentario de Salida</strong></div>';
 $html .= '<div class="field_data">'.$salida . '</div>';
 $html .= '<div><strong>Comentario de entrada</strong></div>';
 $html .= '<div class="field_data">'.$entrada . '</div>';
-$html .= '<div><strong>Herramientas Utilizadas</strong></div>';
-$html .= '<div class="field_data">'.$h.'</div>';
 $html .= '</div>';
-
-//$html .= $courses;
+$html .= $herramientas;
+$html .= $tripulantes;
 ////////////////////////////////////// end Get course data //////////////////////////////////////
 
 ////////////////////////////////////// CakePHP interaction ////////////////////////////////////// 
@@ -80,6 +96,6 @@ $tcpdf->AddPage();
 $tcpdf->SetTextColor(0, 0, 0);
 $tcpdf->SetFont($textfont, '', 10);
 $tcpdf->writeHTML($html, true, false, true, false, '');
-$filename = 'viaje'.$property['Trip']['id'].'_'.$date.'.pdf';
+$filename = 'Viaje '.$property['Trip']['id'].'_'.$date.'.pdf';
 echo $tcpdf->Output($filename, 'D');
 ?>

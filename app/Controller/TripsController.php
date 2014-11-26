@@ -26,10 +26,30 @@ public function index()
 public function add()
 {
 $this->loadModel('Dossier'); //cargamos el modelo Expediente
-
-$this->set('Expedientes',$this->Dossier->find('list', array(       
+/*$this->set('Expedientes',$this->Dossier->find('list', array(       
                   'fields' => array('Dossier.id', 'Dossier.vehicle_id')
-            )));
+                 
+    
+            )));*/
+  // AQUI EVITAMOS QUE CUANDO UN VEHICULO HA SALIDO NO SE PUEDA PODER SELECCIONAR HASTA QUE SE REGISTRE ENTRADA DE SU VIAJE
+$exp=$this->Dossier->find('list', array(       
+                  'fields' => array('Dossier.id', 'Dossier.vehicle_id')));
+$i=0;
+while($i<count($exp)){
+   $viajes= $this->Trip->find('all',array('conditions'=>array('Trip.dossier_id' =>key($exp),'Trip.fuera' =>1)));
+            if((empty($viajes))==true):
+               
+                else:
+                 unset($exp[key($exp)]);
+            
+            endif;
+    next($exp);
+    $i=$i+1;
+    
+}
+         
+$this->set('Expedientes',$exp);
+
 
 $this->loadModel('Employee'); //cargamos el modelo Expediente
 

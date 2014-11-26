@@ -3,14 +3,16 @@
 <?php echo $this->Html->script('jquery-ui-1.9.2.custom.min'); ?>
 
 <div class="users form">
-    
-    
+
+   <?php print_r($Expedientes); ?>
     <fieldset>
 
     <legend><?php echo __('Reportar Salida de Camión Recolector'); ?></legend>
    
     <?php
-   
+    
+  
+
  //UTILIZAMOS EL HELPER FORM , generar un formulario de forma mas rapido
 echo $this->Form->create('Trip'); // se le pone el nombre del modelo para el que se quiere generar el formulario
 echo $this->Form->input('dossier_id', array(
@@ -102,7 +104,7 @@ echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; hei
     if($n!=5):
         echo '<td>';
          echo $Herramienta['Tool']['herramienta'];
-         echo $n;
+        // echo $n;
        echo $this->Form->checkbox($i, array('value'=>$Herramienta['Tool']['id']));
                echo'<br><br>';
                echo '</td>';

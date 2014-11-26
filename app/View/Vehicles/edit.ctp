@@ -6,7 +6,8 @@
     <?php
  //UTILIZAMOS EL HELPER FORM , generar un formulario de forma mas rapido
 echo $this->Form->create('Vehicle',array('action'=>'edit')); // se le pone el nombre del modelo para el que se quiere generar el formulario
-echo $this->Form->input('id',  array('type'=>'text','label'=>'Número de Placa','style'=>'width: 300px ;'));
+echo $this->Form->input('id',  array('type'=>'hidden','label'=>'Número de Placa','style'=>'width: 300px ;'));
+
 echo $this->Form->input('modell_id', array(
     'label'=>'Modelo',
     'type'    => 'select',
