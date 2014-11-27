@@ -9,10 +9,14 @@ class Employee extends AppModel
     
      public $validate=array(
     'id' => array(
-        'valid' => array('rule' => array('custom','^([0-9]{9})$^'), // DUI
-                       'message' => 'Ingrese un DUI válido Ej:00000000-0'),
-        'required' => array('rule' => array('maxLength', '10'),
-                            'message' => 'Ingrese un Modelo de vahículo valido max 30 caracteres')),
+        
+        'unique' => array(
+              'rule' => 'isUnique',
+              'required' => 'create',
+              'message' => 'La DUI ya esta en uso.'
+            )
+   )
+      /*  ),
          'departament_id'=>array(
             'rule'=>'notEmpty',
             'message' => 'Debe Seleccionar una departamento'),
@@ -46,7 +50,7 @@ class Employee extends AppModel
         'required' => array('rule' => array('minLength', '8'),
                     'message' => 'Ingrese un telefono válido , 8 dígitos')),
          
-         
+         */
          );
         
 }

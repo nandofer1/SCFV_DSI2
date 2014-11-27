@@ -16,10 +16,11 @@ echo $this->Form->input('brand_id', array(
     'label'=>'Marca',
     'type'    => 'select',
     'options' => $Marcas,
-    'empty'   => ('Seleccione una opcion')
+    'empty'   => ('Seleccione una opcion'),
+    'required'=>'true'
 ));
 
-echo $this->Form->input('modelo',  array('label'=>'Modelo','style'=>'width: 300px ;'));
+echo $this->Form->input('modelo',  array('label'=>'Modelo','style'=>'width: 300px ;','placeholder'=>'Alfanumérico,sin espacios','pattern'=>'^[A-Za-z0-9]*$','required'=>'true'));
 echo '<div class="input"><br>';
 echo $this->Form->end('Guardar Modelo');
 echo '</div>';

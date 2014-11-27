@@ -4,7 +4,7 @@ class Modell extends AppModel
     public $hasMany=array('Vehicle');
     public $belongsTo=array('Brand');
      public $validate=array( //INICIO VALIDACION
-        
+        /*
          'brand_id'=>array(
             'rule'=>'notEmpty',
             'message' => 'Debe Seleccionar un tipo de Gasolina'),
@@ -15,6 +15,6 @@ class Modell extends AppModel
         'required' => array('rule' => array('mixLength', '30'),
                             'message' => 'Ingrese un Modelo de vahículo valido max 30 caracteres'))
         
-        
+        */
     ); //FIN VALIDACION
 }

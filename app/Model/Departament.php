@@ -4,7 +4,7 @@ class Departament extends AppModel
     public $hasMany=Array('Employee');
     public $belongsTo = array('Management' => array('foreignKey'=>'management_id')); //belongsTo: the current model contains the foreign key.     
      public $validate=array( //INICIO VALIDACION
-        
+        /*
          'management_id'=>array(
             'rule'=>'notEmpty',
             'message' => 'Debe Seleccionar una gerencia'),
@@ -22,7 +22,7 @@ class Departament extends AppModel
         'required' => array('rule' => array('minLength', '10'),
                     'message' => 'Ingrese una Descripción  válida'))
          
-        
+        */
          
    
         

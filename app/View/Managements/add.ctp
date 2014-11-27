@@ -10,9 +10,10 @@ echo $this->Form->input('unit_id', array(
     'label'=>'Unidad a la que Pertenece',
     'type'    => 'select',
     'options' => $Unidades,
-    'empty'   => ('Seleccione una opcion')
+    'empty'   => ('Seleccione una opcion'),
+    'required'=>'true'
 ));
-echo $this->Form->input('gerencia',array('label'=>'Nombre de la Gerencia','style'=>'width: 300px; '));
+echo $this->Form->input('gerencia',array('label'=>'Nombre de la Gerencia','style'=>'width: 300px;','required'=>'true','pattern'=>'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$','placeholder'=>'Solo texto'));
 echo '<div class="input"><br>';
 echo $this->Form->end('Guardar Gerencia');
 echo '</div>';

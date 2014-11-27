@@ -15,16 +15,16 @@ echo $this->Form->input('dossier_id',array('type'=>'hidden','style'=>'width: 100
 echo $this->Form->input('fecha_inicio',array('type'=>'hidden','style'=>'width: 100px; height:30px;'));
 //echo $this->Form->input('fecha_fin',array('label'=>'Fecha de Regreso','value'=>'0000-00-00','style'=>'width: 100px; height:30px;'));
  echo $this->Form->input('fecha_fin', array('label' => "Fecha de Regreso : ",'value'=>'' ,'type' => 'text', 
-                                'error' => false , 'id' => 'select_date'));echo  '<center>';
+                                'error' => false , 'id' => 'select_date','required'=>'true'));echo  '<center>';
        echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); 
        echo '</center>';
 echo $this->Form->input('hora_inicio',array('type'=>'hidden','style'=>'width: 100px; height:30px;'));
-echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'00:00:00','style'=>'width: 100px; height:30px;'));
+echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('kilometraje_inicial',array('type'=>'hidden','style'=>'width: 100px; height:30px;'));
-echo $this->Form->input('kilometraje_final',array('label'=>'Kilometraje Final','value'=>'00','style'=>'width: 100px; height:30px;'));
+echo $this->Form->input('kilometraje_final',array('type'=>'number','label'=>'Kilometraje Final','style'=>'width: 100px; height:30px;','maxlength'=>'6','required'=>'true'));
 echo $this->Form->input('fuera',array('type'=>'hidden','value'=>'0','style'=>'width: 100px; height:30px;'));
 echo $this->Form->label('Comentario de Entrada');echo '<br>';
-echo $this->Form->textarea('comentario_entrada',array('style'=>'width: 300px; height:200px;'));
+echo $this->Form->textarea('comentario_entrada',array('style'=>'width: 300px; height:200px;','pattern'=>'/^[A-Za-z0-9áéíóúÁÉÍÓÚÑñ\s]{1,}$/i'));
 echo'<br><br>'
 ?>
     <table class="list" >
