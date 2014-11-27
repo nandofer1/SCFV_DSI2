@@ -77,7 +77,7 @@ $html .= $tripulantes;
 App::import('Vendor', 'tcpdf', array('file' => 'tcpdf'.DS.'tcpdf.php'));
 App::uses('CakeTime', 'Utility');
 // Ver mÃ¡s timezones en http://en.wikipedia.org/wiki/List_of_IANA_time_zones
-$date = CakeTime::convert(time(), new DateTimeZone('America/Mexico_City'));
+$date = CakeTime::convert(time(), new DateTimeZone('America/El_Salvador'));
 
 $tcpdf = new TCPDF();
 $tcpdf->SetAuthor("Cove-Control Vehicular");
@@ -96,6 +96,6 @@ $tcpdf->AddPage();
 $tcpdf->SetTextColor(0, 0, 0);
 $tcpdf->SetFont($textfont, '', 10);
 $tcpdf->writeHTML($html, true, false, true, false, '');
-$filename = 'Viaje '.$property['Trip']['id'].'_'.$date.'.pdf';
+$filename = 'Viaje de Vehiculo'.$property['Dossier']['vehicle_id'].'_'.$date.'.pdf';
 echo $tcpdf->Output($filename, 'D');
 ?>

@@ -3,14 +3,19 @@ class EmployeesController extends AppController
 {
 public $helpers=array('Html','Form'); // helper para hacer formularios
 public $components=array('Session');
+public $paginate=array(
+    'limit'=>5,
+    'order'=>array('Employee.id'=>'asc')
+);
 
 public function index()
 {
     //para mostrar los estudiantes en el index
     // ORM query explicito
    
-$this->set('Empleados',$this->Employee->find('all'));
-
+//$this->set('Empleados',$this->Employee->find('all'));
+$this->Employee->recursive=0;
+    $this->set('Empleados',$this->paginate());
 }
 //Funcion Agregar
 public function add()

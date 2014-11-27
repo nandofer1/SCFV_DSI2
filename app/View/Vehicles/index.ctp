@@ -72,5 +72,11 @@ foreach ($Vehiculos as $Vehiculo):?>
          <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
         
     </div>
-    </div>
+    <center>
+     <?php echo $this->Html->image('iconoPDF.gif');
+      echo $this->Html->link('Exportar Listado PDF',array('action'=>'pdf')); 
+     
+    ?>
+    </center>
+      </div>
  

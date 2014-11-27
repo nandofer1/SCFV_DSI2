@@ -57,6 +57,7 @@ $this->set('Empleados',$this->Employee->find('list', array(
                   'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
             )));
 $this->loadModel('Tool'); //cargamos el modelo Herramienta
+$this->Tool->recursive=-1;
 $this->set('Herramientas',$this->Tool->find('all'));
 
 if($this->request->is('post')): // si la consulta es de tipo post

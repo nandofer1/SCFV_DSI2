@@ -123,6 +123,7 @@ echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; hei
     $n=$n+1;
     $i=$i+1;
     endforeach; 
+
     //NUMERO DE HERRAMIENTAS
     echo $this->Form->input('num_h',array('type'=>'hidden','value'=>$i+1));
     

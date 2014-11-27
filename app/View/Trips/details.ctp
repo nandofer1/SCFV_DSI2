@@ -92,8 +92,12 @@
   </table>
     <center>
     <?php 
-  echo $this->Html->image('iconoPDF.gif');
-    echo $this->Html->link('Exportar PDF',array('action'=>'pdf',$Viaje['Trip']['id'])); 
+  
+  if($Viaje['Trip']['fuera']==0):
+      echo $this->Html->image('iconoPDF.gif');
+      echo $this->Html->link('Exportar PDF',array('action'=>'pdf',$Viaje['Trip']['id'])); 
+  endif;
+    
     
     ?>
     <?php unset($Viaje);

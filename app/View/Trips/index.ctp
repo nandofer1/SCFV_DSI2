@@ -45,10 +45,10 @@ foreach ($Viajes as $Viaje):?>
     <td><?php echo $Viaje['Trip']['kilometraje_final'];?></td>
     <td><?php if ($Viaje['Trip']['fuera']==0):
         
-        echo'Finalizado';
+        echo'<b><font color="red">Finalizado</font></b>';
     
     else:
-        echo 'En Progreso';
+        echo '<b><font color="green">En Progreso</font></b>';
     endif; 
         
         ?></td>

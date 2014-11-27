@@ -35,4 +35,16 @@ foreach ($Empleados as $Empleado):?>
 
 <?php endforeach;?>
 </table>
+     <p id="paginador">
+        <?php  echo $this->Paginator->counter(
+                array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
+                
+                )?> 
+    </p>
+    <div class="paging">
+        <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
+        <?php echo $this->Paginator->numbers(array('separator'=>' ')) ?>
+         <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
+        
+    </div>
 </div>

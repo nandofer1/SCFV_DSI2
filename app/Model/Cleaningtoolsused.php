@@ -1,7 +1,7 @@
 <?php
 class Cleaningtoolsused extends AppModel
 {
-     public $belongsTo=array('Tool');
+    public $belongsTo=array('Tool');
      
    
     

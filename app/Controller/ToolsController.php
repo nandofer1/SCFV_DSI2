@@ -4,12 +4,17 @@ class ToolsController extends AppController
 public $helpers=array('Html','Form'); // helper para hacer formularios
 public $components=array('Session');
 
+public $paginate=array(
+    'limit'=>5,
+    'order'=>array('Tool.id'=>'asc')
+);
+
 public function index()
 {
     //para mostrar las Herramientas en el index
     // ORM query explicito
-   
-$this->set('Herramientas',$this->Tool->find('all'));
+$this->Tool->recursive=-1;
+$this->set('Herramientas',$this->paginate());
 }
 //Funcion Agregar
 public function add()
