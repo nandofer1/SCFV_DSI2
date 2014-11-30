@@ -151,7 +151,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
                                         </li>
 					<li><a href="/mantenimientos"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a></li>
 					<li><a href="/expedientes"><img src=<?php echo "$imgdir/reg.png" ?>> Expedientes</a></li>
-					<li><a href="/prestamos"><img src=<?php echo "$imgdir/prestamo.png" ?>> Prestamos</a></li>
+					<li><a href="/requests"><img src=<?php echo "$imgdir/prestamo.png" ?>> Prestamos</a></li>
 					<li><a href="/reportes"><img src=<?php echo "$imgdir/reports.png" ?>> Reportes</a></li>
 					<li><a href="/combustible"><img src=<?php echo "$imgdir/gas.png" ?>> Combustible</a></li>
 					<li><a href="/ayuda"><img src=<?php echo "$imgdir/help.png" ?>> Ayuda</a></li>
