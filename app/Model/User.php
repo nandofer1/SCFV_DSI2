@@ -25,6 +25,13 @@ class User extends AppModel {
                 'message' => 'El password es requerido'
             )
         ),
+        'password1' => array(
+          'required'=>'notEmpty',
+          'match'=>array(
+            'rule' => 'validatePasswdConfirm',
+            'message' => 'Los passwords no coinciden'
+          )
+        ),
         'correo' => array(
             'rule1' => array(
                 'rule' => array('email'),
@@ -61,6 +68,16 @@ class User extends AppModel {
         ),
 
     );
+
+    function validatePasswdConfirm($data)
+    {
+      if ($this->data['User']['password'] !== $data['password1'])
+      {
+        return false;
+      }
+      return true;
+    }
+
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
             $passwordHasher = new BlowfishPasswordHasher();
