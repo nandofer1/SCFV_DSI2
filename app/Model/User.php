@@ -25,13 +25,41 @@ class User extends AppModel {
                 'message' => 'El password es requerido'
             )
         ),
-        'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
+        'correo' => array(
+            'rule1' => array(
+                'rule' => array('email'),
+                'message' => 'Debe ingresar un correo valido'
             )
-        )
+        ),
+        'dui' => array(
+            'rule1' => array(
+                'rule' => array('minLength', '10'),
+                'message' => 'Debe tener 10 caracteres minimo'
+            ),
+            'rule2' => array(
+                'rule' => array('maxLength', '10'),
+                'message' => 'Debe tener 10 caracteres maximo'
+            ),
+            'rule3' => array(
+                'rule' => '/^[0-9]{8}[-]{1}[0-9]{1}$/i',
+                'message' => 'Debe seguir el formato ########-#'
+            )
+        ),
+        'telefono' => array(
+            'rule1' => array(
+                'rule' => array('minLength', '9'),
+                'message' => 'Debe tener 9 caracteres minimo'
+            ),
+            'rule2' => array(
+                'rule' => array('maxLength', '9'),
+                'message' => 'Debe tener 9 caracteres maximo'
+            ),
+            'rule3' => array(
+                'rule' => '/^[0-9]{4}[-]{1}[0-9]{4}$/i',
+                'message' => 'Debe seguir el formato ####-####'
+            )
+        ),
+
     );
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
