@@ -5,9 +5,11 @@ App::uses('UserType', 'Model');
 class UsersController extends AppController {
   public $components = array('Paginator');
 
+  
+
   public function beforeFilter() {
     parent::beforeFilter();
-
+    $this->Auth->fields = array('username' => 'username','password' => 'password');
     $this->Auth->allow('logout'); // Allow Usuarios to logout.
   }
 
