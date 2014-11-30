@@ -9,12 +9,12 @@ CREATE TABLE IF NOT EXISTS user_types (
   modified datetime DEFAULT NULL
 );
 
-INSERT INTO user_types values (id, 'Administrador del Sistema', NOW(), NOW());
-INSERT INTO user_types values (id, 'Gerente General', NOW(), NOW());
-INSERT INTO user_types values (id, 'Gerente de Servicios', NOW(), NOW());
-INSERT INTO user_types values (id, 'Supervisor de desechos solidos', NOW(), NOW());
-INSERT INTO user_types values (id, 'Jefe del Taller', NOW(), NOW());
-INSERT INTO user_types values (id, 'Gestor de prestamos de vehiculos', NOW(), NOW());
+INSERT INTO user_types (tipo_usuario, created, modified) values ('Administrador del Sistema', NOW(), NOW());
+INSERT INTO user_types (tipo_usuario, created, modified) values ('Gerente General', NOW(), NOW());
+INSERT INTO user_types (tipo_usuario, created, modified) values ('Gerente de Servicios', NOW(), NOW());
+INSERT INTO user_types (tipo_usuario, created, modified) values ('Supervisor de desechos solidos', NOW(), NOW());
+INSERT INTO user_types (tipo_usuario, created, modified) values ('Jefe del Taller', NOW(), NOW());
+INSERT INTO user_types (tipo_usuario, created, modified) values ('Gestor de prestamos de vehiculos', NOW(), NOW());
 
 CREATE TABLE IF NOT EXISTS users (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS units (
   PRIMARY KEY (id)
 );
 
-INSERT INTO units VALUES(id, 'Social', '');
-INSERT INTO units VALUES(id, 'Gerencial', '');
+INSERT INTO units (unidad, descripcion) VALUES('Social', '');
+INSERT INTO units (unidad, descripcion) VALUES('Gerencial', '');
 
 CREATE TABLE IF NOT EXISTS managements (
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -55,11 +55,11 @@ CREATE TABLE IF NOT EXISTS managements (
   KEY id_unidad (unit_id)
 );
 
-INSERT INTO managements VALUES(id, 2, 'Registro del Estado Familiar');
-INSERT INTO managements VALUES(id, 2, 'Administracion de Espacios Publicos');
-INSERT INTO managements VALUES(id, 2, 'Gerencia Financiera');
-INSERT INTO managements VALUES(id, 2, 'Administracion de Mercados');
-INSERT INTO managements VALUES(id, 2, 'Gerencia de Servicios Municipales');
+INSERT INTO managements (unit_id, gerencia) VALUES(2, 'Registro del Estado Familiar');
+INSERT INTO managements (unit_id, gerencia) VALUES(2, 'Administracion de Espacios Publicos');
+INSERT INTO managements (unit_id, gerencia) VALUES(2, 'Gerencia Financiera');
+INSERT INTO managements (unit_id, gerencia) VALUES(2, 'Administracion de Mercados');
+INSERT INTO managements (unit_id, gerencia) VALUES(2, 'Gerencia de Servicios Municipales');
 
 
 CREATE TABLE IF NOT EXISTS departaments (
@@ -71,37 +71,22 @@ CREATE TABLE IF NOT EXISTS departaments (
   KEY id_gerencia (management_id)
 );
 
-INSERT INTO departaments VALUES (id, 1, 'Cementerios','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (1, 'Cementerios','');
 
-INSERT INTO departaments VALUES (id, 2, 'Limpieza y Ornato','');
-INSERT INTO departaments VALUES (id, 2, 'Casa de la Cultura','');
-INSERT INTO departaments VALUES (id, 2, 'Parque Municipal Tio Julio','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (2, 'Limpieza y Ornato','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (2, 'Casa de la Cultura','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (2, 'Parque Municipal Tio Julio','');
 
-INSERT INTO departaments VALUES (id, 3, 'Gestion de Cobro y Recuperacion de Mora','');
-INSERT INTO departaments VALUES (id, 3, 'Catastro','');
-INSERT INTO departaments VALUES (id, 3, 'Contabilidad','');
-INSERT INTO departaments VALUES (id, 3, 'Tesoreria Municipal','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (3, 'Gestion de Cobro y Recuperacion de Mora','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (3, 'Catastro','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (3, 'Contabilidad','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (3, 'Tesoreria Municipal','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (4, 'Gestion de Cobro','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (4, 'Mantenimiento','');
 
-INSERT INTO departaments VALUES (id, 4, 'Gestion de Cobro','');
-INSERT INTO departaments VALUES (id, 4, 'Mantenimiento','');
-
-INSERT INTO departaments VALUES (id, 5, 'Recoleccion y disposicion de desechos solidos','');
-INSERT INTO departaments VALUES (id, 5, 'Alumbrado publico y mantenimiento interno','');
-INSERT INTO departaments VALUES (id, 5, 'Taller Municipal','');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (5, 'Recoleccion y disposicion de desechos solidos','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (5, 'Alumbrado publico y mantenimiento interno','');
+INSERT INTO departaments (management_id, departamento, descripcion) VALUES (5, 'Taller Municipal','');
 
 
 CREATE TABLE IF NOT EXISTS allocations (
