@@ -1,8 +1,24 @@
-<div class="maintenances index">
-	<h2><?php echo __('Maintenances'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<thead>
-	<tr>
+<?php $this->set('title_for_layout', 'Mantenimientos'); ?>
+<h1 class="list-title">Mantenimientos de vehículos</h1>
+<div class="list-container">
+  <div class="list-search">
+    <form action="../requests/buscar" id="RequestsForm" method="post" accept-charset="utf-8">
+      <div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>
+      <input name="data[User][query]" type="text" id="BuscarQuery" placeholder="Palabras clave" value="<?php echo  isset($query)? $query: "" 
+      ?>"/>
+      <select name="data[Request][campo]" >
+        <?php $campo = isset($campo)? $campo: "" ?>
+        <option value="User.username" <?php echo $campo=="User.username"?" selected": "" ?>>Fecha Mantenimiento</option>
+        <option value="UserType.tipo_usuario" <?php echo $campo=="UserType.tipo_usuario"?" selected": "" ?>>Tipo de usuario</option>
+      </select> 
+      <input  type="submit" value="Buscar"/>
+
+    </form>
+  </div>
+    
+    
+  <table class="list">
+    <tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('dossier_id'); ?></th>
@@ -28,9 +44,9 @@
 		<td><?php echo h($maintenance['Maintenance']['fecha_mantenimiento']); ?>&nbsp;</td>
 		<td><?php echo h($maintenance['Maintenance']['fecha_solicitud']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $maintenance['Maintenance']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $maintenance['Maintenance']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $maintenance['Maintenance']['id']), array(), __('Are you sure you want to delete # %s?', $maintenance['Maintenance']['id'])); ?>
+			<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $maintenance['Maintenance']['id'])); ?> | 
+			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $maintenance['Maintenance']['id'])); ?>
+<!--			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $maintenance['Maintenance']['id']), array(), __('Are you sure you want to delete # %s?', $maintenance['Maintenance']['id'])); ?>-->
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -49,18 +65,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Maintenance'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Dossiers'), array('controller' => 'dossiers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Dossier'), array('controller' => 'dossiers', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Maintenancetoolsuseds'), array('controller' => 'maintenancetoolsuseds', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Maintenancetoolsused'), array('controller' => 'maintenancetoolsuseds', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Partsuseds'), array('controller' => 'partsuseds', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Partsused'), array('controller' => 'partsuseds', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

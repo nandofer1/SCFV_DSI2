@@ -149,10 +149,10 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							
 						</ul>
                                         </li>
-					<li><a href="/Maintenances"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a>
+					<li><a href="/maintenances"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a>
                         <ul id="second-level">
-							<li><a href="/requests/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/requests/index"><img src="<?php echo "$imgdir/list.png"?>">Ver historial</a></li>
+							<li><a href="/maintenances/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/maintenances/index"><img src="<?php echo "$imgdir/list.png"?>">Ver historial</a></li>
                             <li><a href="/parts/index"><img src="<?php echo "$imgdir/reg.png"?>">Repuestos</a>
                                 <ul id="second-level">
 							     <li><a href="/parts/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Repuesto</a></li>
