@@ -1,46 +1,50 @@
-<h1 class="list-title">Herramientas</h1>
-<div class="list-container">
-<table class="list">
-    <tr>
-        <td>Herramienta</td>
-        <td>Existencia</td>
-        <td>Descripción</td>
-        <td>Valor</td>
-        <td colspan="2">Acciones</td>
-    </tr>  
-
-    
-    <?php
-//Impresion recursiva
-//print_r($Estudiantes);
-
-foreach ($Herramientas as $Herramienta):?>
-    
-<tr>
-    <td><?php echo $Herramienta['Tool']['herramienta'];?></td>
-    <td><?php echo $Herramienta['Tool']['existencia'];?></td>
-      <td><?php echo $Herramienta['Tool']['descripcion'];?></td>
-       <td><?php echo'$'; echo $Herramienta['Tool']['valor'];?></td>
-        <td><?php echo $this->Html->link('Editar',array('action'=>'edit',$Herramienta['Tool']['id']))    ?> </td>
-         <td> <?php echo $this->Form->postLink('Eliminar',array('action'=>'delete',$Herramienta['Tool']['id']),
-             array('confirm'=>'Realmente Desea Eliminar esta Herramienta?')
-             ); ?></td>
-</tr>
-
-<?php endforeach;
-
-?>
-</table>
-     <p id="paginador">
-        <?php  echo $this->Paginator->counter(
-                array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
-                
-                )?> 
-    </p>
-    <div class="paging">
-        <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
-        <?php echo $this->Paginator->numbers(array('separator'=>' ')) ?>
-         <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
-        
-    </div>
+<div class="tools index">
+	<h2><?php echo __('Tools'); ?></h2>
+	<table cellpadding="0" cellspacing="0">
+	<thead>
+	<tr>
+			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('herramienta'); ?></th>
+			<th><?php echo $this->Paginator->sort('existencia'); ?></th>
+			<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
+			<th><?php echo $this->Paginator->sort('valor'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($tools as $tool): ?>
+	<tr>
+		<td><?php echo h($tool['Tool']['id']); ?>&nbsp;</td>
+		<td><?php echo h($tool['Tool']['herramienta']); ?>&nbsp;</td>
+		<td><?php echo h($tool['Tool']['existencia']); ?>&nbsp;</td>
+		<td><?php echo h($tool['Tool']['descripcion']); ?>&nbsp;</td>
+		<td><?php echo h($tool['Tool']['valor']); ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $tool['Tool']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tool['Tool']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $tool['Tool']['id']), array(), __('Are you sure you want to delete # %s?', $tool['Tool']['id'])); ?>
+		</td>
+	</tr>
+<?php endforeach; ?>
+	</tbody>
+	</table>
+	<p>
+	<?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	));
+	?>	</p>
+	<div class="paging">
+	<?php
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ''));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
+	</div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Tool'), array('action' => 'add')); ?></li>
+	</ul>
 </div>

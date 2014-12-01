@@ -1,20 +1,20 @@
-<div class="users form">
-    <fieldset>
+<div class="tools form">
+<?php echo $this->Form->create('Tool'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Tool'); ?></legend>
+	<?php
+		echo $this->Form->input('herramienta');
+		echo $this->Form->input('existencia');
+		echo $this->Form->input('descripcion');
+		echo $this->Form->input('valor');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
 
-    <legend><?php echo __('Agregar Herramienta'); ?></legend>
-       
-
-    <?php
- //UTILIZAMOS EL HELPER FORM , generar un formulario de forma mas rapido
-echo $this->Form->create('Tool'); // se le pone el nombre del modelo para el que se quiere generar el formulario
-echo $this->Form->input('herramienta',  array('label'=>'Nombre de la Herramienta','style'=>'width: 300px ;','placeholder'=>'Solo texto','pattern'=>'^[A-Za-záéíóúÁÉÍÓÚñ\s]*$'));
-echo $this->Form->input('existencia',  array('type'=>'number','label'=>'Existencias','style'=>'width: 100px ;','maxlength'=>'4'));
-echo $this->Form->label('Descripción');echo '<br>';
-echo $this->Form->textarea('descripcion',array('style'=>'width: 300px; height:200px;','pattern'=>'/^[A-Za-z0-9áéíóúÁÉÍÓÚÑñ\s]{1,}$/i','required'=>'true'));
-echo $this->Form->input('valor',array('type'=>'number','step'=>'0.2','label'=>'Valor $','type'=>'text','style'=>'width: 100px;','required'=>'true','placeholder'=>'$'));
-echo '<div class="input"><br>';
-echo $this->Form->end('Guardar Herramienta');
-echo '</div>';
-?>
-    </fieldset>
+		<li><?php echo $this->Html->link(__('List Tools'), array('action' => 'index')); ?></li>
+	</ul>
 </div>
