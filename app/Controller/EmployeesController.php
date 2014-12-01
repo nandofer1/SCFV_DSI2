@@ -83,4 +83,34 @@ public function delete($id)
     endif;
     
         }
+        
+         function pdf()
+    {
+        
+        /*if (!$id){
+            $this->Session->setFlash('Id invÃ¡lido para obtener pdf');
+            $this->redirect(array('action'=>'index'), null, true);
+        }*/
+
+        Configure::write('debug',0);
+
+       // $id = intval($id);
+		  
+        /*$property = $this->Trip->read(null, $id);
+		  $this->set('property',$property);*/
+           $property=$this->Employee->find('all');       
+         $this->set('Empleados',$property) ;
+   
+  
+   /* $this->loadModel('Crew');
+   $this->set('Tripulantes',$this->Crew->find('all',array('conditions'=>'Crew.trip_id ='.$id))) ;     */     
+        if (empty($property))
+        {
+            $this->Session->setFlash('Sorry, there is no property with the submitted ID.');
+            $this->redirect(array('action'=>'index'), null, true);
+        }
+        $this->layout = 'pdf';
+        $this->render();
+   
+    } 
 }

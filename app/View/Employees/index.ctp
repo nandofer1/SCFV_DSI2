@@ -21,7 +21,7 @@ foreach ($Empleados as $Empleado):?>
     
 <tr>
     <td><?php echo $Empleado['Employee']['id'];?></td>
-    <td><?php echo $Empleado['Departament']['departamento'];?></td>
+    <td><?php echo $Empleado['Employee']['departament_id'];?></td>
     <td><?php echo $Empleado['Employee']['nombre'];?></td>
     <td><?php echo $Empleado['Employee']['apellidos'];?></td>
     <td><?php echo $Empleado['Employee']['direccion'];?></td>
@@ -47,4 +47,10 @@ foreach ($Empleados as $Empleado):?>
          <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
         
     </div>
+    <center>
+     <?php echo $this->Html->image('iconoPDF.gif');
+      echo $this->Html->link('Exportar Listado PDF',array('action'=>'pdf')); 
+     
+    ?>
+    </center>
 </div>

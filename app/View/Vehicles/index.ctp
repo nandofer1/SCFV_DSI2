@@ -28,7 +28,7 @@
         <td>Chasis Vin?</td>
         <td>Tipo Gasolina</td>
         <td>Costo</td>
-        <td colspan="2">Acciones</td>
+        <td colspan="1">Acciones</td>
     </tr>  
 
     
@@ -53,9 +53,7 @@ foreach ($Vehiculos as $Vehiculo):?>
     <td>$<?php echo $Vehiculo['Vehicle']['costo'];?></td>
      <td><?php echo $this->Html->link('Editar',array('action'=>'edit',$Vehiculo['Vehicle']['id']))    ?> </td>
     
-     <td> <?php echo $this->Form->postLink('Eliminar',array('action'=>'delete',$Vehiculo['Vehicle']['id']),
-             array('confirm'=>'Realmente Desea Eliminar este Vehículo?')
-             ); ?></td>
+     
 </tr>
 
 <?php endforeach;?>
