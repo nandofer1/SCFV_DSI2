@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Préstamos'); ?>
 <h1 class="list-title">Solicitud de prestamos</h1>
 <div class="list-container">
   <div class="list-search">
@@ -30,8 +31,7 @@
 		<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
 		<th><?php echo $this->Paginator->sort('aprobado'); ?></th>
 		<th><?php echo $this->Paginator->sort('anulado'); ?></th>
-		<th class="actions"><?php echo __('Acciones'); ?></th>
-      <th style="width: 1px;">&nbsp;</th>
+		<th colspan="3" class="actions"><center><?php echo __('Acciones'); ?></center></th>
     </tr>
 
     <?php foreach ($requests as $request): ?>
@@ -56,10 +56,12 @@
 		<td><?php echo h($request['Request']['aprobado']); ?>&nbsp;</td>
 		<td><?php echo h($request['Request']['anulado']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver detalles'), array('action' => 'view', $request['Request']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $request['Request']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver detalles'), array('action' => 'view', $request['Request']['id'])); ?></td>
+        <td class="actions">
+			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $request['Request']['id'])); ?></td>
+            
+            <td class="actions">
             <?php echo $this->Html->link(__('Gestionar'), array('action' => 'edit', $request['Request']['id'])); ?>
-<!--			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $request['Request']['id']), array(), __('Are you sure you want to delete # %s?', $request['Request']['id'])); ?>-->
 		</td>
 	</tr>
 <?php endforeach;

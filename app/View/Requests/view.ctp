@@ -1,66 +1,24 @@
-<div class="requests view">
-<h2><?php echo __('Request'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Dossier'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($request['Dossier']['vehicle_id'], array('controller' => 'dossiers', 'action' => 'view', $request['Dossier']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($request['User']['id'], array('controller' => 'users', 'action' => 'view', $request['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Solicitud'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['fecha_solicitud']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Inicio'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['fecha_inicio']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Fin'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['fecha_fin']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Hora Inicio'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['hora_inicio']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Hora Fin'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['hora_fin']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Descripcion'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['descripcion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Aprobado'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['aprobado']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Anulado'); ?></dt>
-		<dd>
-			<?php echo h($request['Request']['anulado']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<?php $this->set('title_for_layout', 'Detalle solicitud'); ?>
+<h1 class="list-title">Solicitud de préstamo de vehículo</h1>
+<div class="list-container">
+  <table class="list">
+    <tr><td>Solicitud N°: </td>           	<td><?php echo h($request['Request']['id']); ?></td></tr>
+    <tr><td>Expediente de vehículo: </td>     	<td><?php echo $this->Html->link($request['Dossier']['vehicle_id'], array('controller' => 'dossiers', 'action' => 'view', $request['Dossier']['id'])); ?></td></tr>
+    <tr><td>Usuario solicitante: </td><td><?php echo $this->Html->link($request['User']['username'], array('controller' => 'users', 'action' => 'ver', $request['User']['id'])); ?></td></tr>
+    <tr><td>Fecha de solicitud: </td>          	<td><?php echo h($request['Request']['fecha_solicitud']); ?></td></tr>
+    <tr><td>Desde el día: </td>       <td><?php echo h($request['Request']['fecha_inicio']); ?></td></tr>
+    <tr><td>Hasta el día: </td>         <td><?php echo h($request['Request']['fecha_fin']); ?></td></tr>
+    <tr><td>Hora inicio: </td>      <td><?php echo h($request['Request']['hora_inicio']); ?></td></tr>
+    <tr><td>Hora fin: </td>         <td><?php echo h($request['Request']['hora_fin']); ?></td></tr>
+    <tr><td>Descripción: </td>     <td><?php echo h($request['Request']['descripcion']); ?></td></tr>
+    <tr><td>Aprobado: </td>     <td><?php echo h($request['Request']['aprobado']); ?></td></tr>
+    <tr><td>Anulado: </td>     <td><?php echo h($request['Request']['anulado']); ?></td></tr>
+    <?php unset($request); ?>
+  </table>
 </div>
 
 <div class="related">
-	<h3><?php echo __('Related Drivers'); ?></h3>
+	<h3><?php echo __('Empleados: '); ?></h3>
 	<?php if (!empty($request['Driver'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -84,14 +42,9 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Driver'), array('controller' => 'drivers', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Requestvouchers'); ?></h3>
+	<h3><?php echo __('Vales de combustible: '); ?></h3>
 	<?php if (!empty($request['Requestvoucher'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -117,7 +70,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Requestvoucher'), array('controller' => 'requestvouchers', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Añadir vale de combustible'), array('controller' => 'requestvouchers', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

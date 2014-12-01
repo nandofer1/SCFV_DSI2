@@ -77,9 +77,12 @@
         ));
 		//echo $this->Form->input('aprobado');
 		//echo $this->Form->input('anulado');
-	?>
+        echo '<div class="input">';
+        echo $this->Form->end(__('Enviar solicitud'));
+        echo '</div>';
+        ?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+
 </div>
 
 <script>
