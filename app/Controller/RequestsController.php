@@ -57,7 +57,8 @@ class RequestsController extends AppController {
 		}
 		$dossiers = $this->Request->Dossier->find('list');
 		$users = $this->Request->User->find('list');
-		$this->set(compact('dossiers', 'users'));
+        $employees = $this->Request->Employee->find('list');
+		$this->set(compact('dossiers', 'users','employees'));
 	}
 
 /**
@@ -84,7 +85,8 @@ class RequestsController extends AppController {
 		}
 		$dossiers = $this->Request->Dossier->find('list');
 		$users = $this->Request->User->find('list');
-		$this->set(compact('dossiers', 'users'));
+		$employees = $this->Request->Employee->find('list');
+		$this->set(compact('dossiers', 'users','employees'));
 	}
 
 /**

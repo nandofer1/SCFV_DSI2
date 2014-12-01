@@ -4,6 +4,8 @@ App::uses('AppModel', 'Model');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel {
+    //Presentar nombre de usuario en vez del id
+    var $displayField = 'username';
     public $belongsTo = array('UserType' => array('foreignKey'=>'tipo_usuario')); //belongsTo: the current model contains the foreign key.
     public $useTable = 'users';
     public $validate = array(

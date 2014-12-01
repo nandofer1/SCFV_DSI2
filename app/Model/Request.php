@@ -32,6 +32,13 @@ class Request extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+        'Employee' => array(
+			'className' => 'Employee',
+			'foreignKey' => 'employee_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
@@ -41,19 +48,6 @@ class Request extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Driver' => array(
-			'className' => 'Driver',
-			'foreignKey' => 'request_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Requestvoucher' => array(
 			'className' => 'Requestvoucher',
 			'foreignKey' => 'request_id',
