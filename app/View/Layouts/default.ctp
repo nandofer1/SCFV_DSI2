@@ -142,15 +142,38 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="/Tools/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
 						</ul>
 					</li>
-					<li><a href="/camiones"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a>
+					<li><a href="/Trips"><img src=<?php echo "$imgdir/truck.png" ?>> Camiones Recolectores</a>
                                         <ul id="second-level">
 							<li><a href="/Trips/add"><img src="<?php echo "$imgdir/add.png"?>">Reportar Salida</a></li>
 							<li><a href="/Trips/index"><img src="<?php echo "$imgdir/list.png"?>">Ver Viajes</a></li>
 							
 						</ul>
                                         </li>
-					<li><a href="/mantenimientos"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a></li>
-					<li><a href="/expedientes"><img src=<?php echo "$imgdir/reg.png" ?>> Expedientes</a></li>
+					<li><a href="/Maintenances"><img src=<?php echo "$imgdir/maintenance.png" ?>> Mantenimientos</a>
+                        <ul id="second-level">
+							<li><a href="/requests/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/requests/index"><img src="<?php echo "$imgdir/list.png"?>">Ver historial</a></li>
+                            <li><a href="/parts/index"><img src="<?php echo "$imgdir/reg.png"?>">Repuestos</a>
+                                <ul id="second-level">
+							     <li><a href="/parts/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Repuesto</a></li>
+							     <li><a href="/parts/index"><img src="<?php echo "$imgdir/list.png"?>">Lista Repuestos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/tools/index"><img src="<?php echo "$imgdir/tools.png"?>">Herramientas</a>
+                                <ul id="second-level">
+							     <li><a href="/tools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Herramienta</a></li>
+							     <li><a href="/tools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista Herramientas</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/maintenancetypes/index"><img src="<?php echo "$imgdir/org.png"?>">Tipos de mantenimientos</a>
+                                <ul id="second-level">
+							     <li><a href="/maintenancetypes/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Tipo</a></li>
+							     <li><a href="/maintenancetypes/index"><img src="<?php echo "$imgdir/list.png"?>">Ver Tipos</a></li>
+                                </ul>
+                            </li>
+						</ul>
+                    </li>
+					<li><a href="/dossiers"><img src=<?php echo "$imgdir/reg.png" ?>> Expedientes</a></li>
 					<li><a href="/requests"><img src=<?php echo "$imgdir/prestamo.png" ?>> Prestamos</a>
                         <ul id="second-level">
 							<li><a href="/requests/add"><img src="<?php echo "$imgdir/add.png"?>">Solicitar vehículo</a></li>
@@ -158,7 +181,12 @@ $imgdir = "{$this->webroot}app/webroot/img";
 						</ul>
                     </li>
 					<li><a href="/reportes"><img src=<?php echo "$imgdir/reports.png" ?>> Reportes</a></li>
-					<li><a href="/combustible"><img src=<?php echo "$imgdir/gas.png" ?>> Combustible</a></li>
+					<li><a href="/fuelvouchers"><img src=<?php echo "$imgdir/gas.png" ?>> Combustible</a>
+                        <ul id="second-level">
+							<li><a href="/fuelvouchers/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Vale</a></li>
+							<li><a href="/fuelvouchers/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
+                        </ul>
+                    </li>
 					<li><a href="/ayuda"><img src=<?php echo "$imgdir/help.png" ?>> Ayuda</a></li>
 				</ul>
 			</div>
