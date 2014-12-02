@@ -3,7 +3,7 @@
 <table class="list">
     <tr>
         <td>DUI</td>
-        <td>Departamento al que Pertenece</td>
+        <td>Depto.</td>
         <td>Nombre</td>
         <td>Apellido</td>
         <td>Dirección</td>
@@ -21,7 +21,7 @@ foreach ($Empleados as $Empleado):?>
     
 <tr>
     <td><?php echo $Empleado['Employee']['id'];?></td>
-    <td><?php echo $Empleado['Employee']['departament_id'];?></td>
+    <td><?php echo $Empleado['Departament']['departamento'];?></td>
     <td><?php echo $Empleado['Employee']['nombre'];?></td>
     <td><?php echo $Empleado['Employee']['apellidos'];?></td>
     <td><?php echo $Empleado['Employee']['direccion'];?></td>
@@ -35,13 +35,12 @@ foreach ($Empleados as $Empleado):?>
 
 <?php endforeach;?>
 </table>
-     <p id="paginador">
+     <p id="paginador" style="display: block; width: 100%; text-align: center">
         <?php  echo $this->Paginator->counter(
                 array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
-                
                 )?> 
     </p>
-    <div class="paging">
+    <div class="paging" style="display: block; width: 100%; text-align: center">
         <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
         <?php echo $this->Paginator->numbers(array('separator'=>' ')) ?>
          <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
