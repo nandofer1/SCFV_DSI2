@@ -160,6 +160,19 @@ CREATE TABLE IF NOT EXISTS `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+
+INSERT INTO `employees` VALUES ('89045678-2', 11, 'Ester Graciela', 'Marmol Escajeda', 'Poligono Santa Cecilia #4Z, Ciudad Delgado', 'marmol@cove.sv', '5482-7964', 0);
+INSERT INTO `employees` VALUES ('12345678-9', 2, 'Mauricio Faro', 'Cala Crisostomo', 'Col. Atlacatl pje. #8B, Ciudad Delgado', 'cala@cove.sv', '8419-3887', 0);
+INSERT INTO `employees` VALUES ('56745678-5', 11, 'Mario Berto', 'Ochoa Galicia', 'Urbanizacion Carrasco #4G, Ciudad Delgado', 'ochoa@cove.sv', '2489-4967', 0);
+INSERT INTO `employees` VALUES ('23445678-8', 3, 'Guadalupe Dinora', 'Villasana Fonseca', 'Residencial San Marcos Casa #1, Ciudad Delgado', 'villasana@cove.sv', '8882-7774', 0);
+INSERT INTO `employees` VALUES ('67845678-4', 11, 'Modesta Josefina', 'Esperanza Lazos', 'Urbanizacion Minier #4H, Ciudad Delgado', 'villasana@cove.sv', '8882-7774', 0);
+INSERT INTO `employees` VALUES ('34545678-7', 4, 'Victoriano Ezequiel', 'Melero Burgos', 'Residencial Bella Vista Casa #4, Ciudad Delgado', 'melero@cove.sv', '5589-4911', 0);
+INSERT INTO `employees` VALUES ('78945678-3', 11, 'Severo Bonifacio', 'Almaraz Cornelio', 'Km. 13. Carretera Troncal del Norte #2A, Ciudad Delgado', 'almaraz@cove.sv', '1385-5511', 0);
+INSERT INTO `employees` VALUES ('90145678-1', 11, 'Raimunda Enrica', 'Carrera Prieto', 'Km. 12. Carretera Troncal del Norte #2B, Ciudad Delgado', 'aguas@cove.sv', '8882-7774', 0);
+INSERT INTO `employees` VALUES ('45645678-6', 5, 'Claudio Natalio', 'Contreras Calle', 'Col. Las Rosas #4, Ciudad Delgado', 'calles@cove.sv', '2489-4967', 0);
+INSERT INTO `employees` VALUES ('01245678-0', 11, 'Cristoval Macario', 'Pavon Larin', 'Col. Santa Eduviges #8F, Ciudad Delgado', 'pavon@cove.sv', '8882-7774', 0);
+
+
 --
 -- Estructura de tabla para la tabla `fuelvouchers`
 --
