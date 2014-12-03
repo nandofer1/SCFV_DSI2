@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 -- Base de datos: `scfv`
 --
 
+
+CREATE TABLE IF NOT EXISTS `logbooks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` DATETIME NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `action` varchar(50) NOT NULL,
+  `data` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
 -- --------------------------------------------------------
 
 --
