@@ -5,7 +5,7 @@
 		<legend><?php echo __('Agregar Mantenimiento'); ?></legend>
 	<?php
 		echo $this->Form->input('user_id', array(
-            'label' => 'Usuario: ',
+            'label' => 'Usuario solicitante: ',
             'type' => 'select',
             'empty'   => ('Seleccione una opción'),
         ));
@@ -14,13 +14,13 @@
             'type' => 'select',
             'empty'   => ('Seleccione una opción'),
         ));
-		echo $this->Form->input('upkeeptype_id', array(
-            'label' => 'Tiempo: ',
+		echo $this->Form->input('maintenancetype_id', array(
+            'label' => 'Tipo de mantenimiento: ',
             'empty'   => ('Seleccione una opción'),
         ));
 		echo $this->Form->input('descripcion', array(
             'label' => 'Descripción: ',
-            'placeholder'=>'Indique concretamente la misión a realizar',
+            'placeholder'=>'Describir la razón del mantenimiento',
             'type' => 'textarea',
             'size'=>250,
         ));
