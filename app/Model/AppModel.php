@@ -29,5 +29,8 @@ App::uses('Model', 'Model');
  *
  * @package       app.Model
  */
+App::uses('Logbook', 'Model');
+
 class AppModel extends Model {
+	
 }
