@@ -1,11 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('UserType', 'Model');
+App::uses('Logbook', 'Model');
 
 class UsersController extends AppController {
   public $components = array('Paginator');
-
-  
 
   public function beforeFilter() {
     parent::beforeFilter();
@@ -18,11 +17,14 @@ class UsersController extends AppController {
     if ($this->request->is('post')) {
       if ($this->Auth->login()) {
         $this->Session->write('username', $this->request->data['User']['username']);
-
         $Usuario = new User();
         $datos_usuario = $Usuario->find('first', array('conditions' => array('User.username' => $this->request->data['User']['username'])));
         $this->Session->write('id', $datos_usuario['User']['id']);
         $this->Session->write('tipo_usuario', $datos_usuario['User']['tipo_usuario']);
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Usuario ha ingresado", "");
+
         return $this->redirect($this->Auth->redirect());
       }
       $this->Session->setFlash(__('Usuario o Password invalido por favor intente de nuevo'), 'flash_notification');
@@ -30,6 +32,10 @@ class UsersController extends AppController {
   }
 
   public function logout() {
+    //Bitacora
+    $logbook = new Logbook();
+    $logbook->add("Usuario ha salido", "");    
+
     $this->Auth->logout();
     return $this->redirect("/users/login");
   }
@@ -50,7 +56,7 @@ class UsersController extends AppController {
         throw new NotFoundException(__('Usuario invalido'));
       }
       $data = $this->User->findById($id);
-      $this->set('usuario', $data);      
+      $this->set('usuario', $data);
     }
     else{ //No se ha proporcionado un id
 
@@ -78,6 +84,10 @@ class UsersController extends AppController {
     if ($this->request->is('post')) {
       $this->User->create();
       if ($this->User->save($this->request->data)) {
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Usuario Agregado", serialize($this->request->data));
+
         $this->Session->setFlash("El usuario se ha agregado al sistema.", 'flash_notification');
         $this->redirect('/users/index');
         return;
@@ -97,7 +107,12 @@ class UsersController extends AppController {
         throw new NotFoundException(__('Usuario invalido'));
       }
       if ($this->request->is('post') || $this->request->is('put')) {
+        $data = $this->User->findById($id);
         if ($this->User->save($this->request->data)) {
+          //Bitacora
+          $logbook = new Logbook();
+          $logbook->add("Usuario Modificado", serialize($data));
+
           $this->Session->setFlash(__('El Usuario ha sido guardado'), 'flash_notification');
           return $this->redirect(array('action' => 'index'));
         }
@@ -145,7 +160,12 @@ class UsersController extends AppController {
       if (!$this->User->exists()) {
         throw new NotFoundException(__('Usuario invalido'));
       }
+      $data = $this->User->findById($id);
       if ($this->User->delete()) {
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Usuario Eliminado", serialize($data));
+
         $this->Session->setFlash(__('Usuario borrado'), 'flash_notification');
         $this->redirect(array('action' => 'index'));
         return ;
