@@ -180,7 +180,11 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="/requests/index"><img src="<?php echo "$imgdir/list.png"?>">Ver solicitudes</a></li>
 						</ul>
                     </li>
-					<li><a href="/reportes"><img src=<?php echo "$imgdir/reports.png" ?>> Reportes</a></li>
+					<li><a href="/reportes"><img src=<?php echo "$imgdir/reports.png" ?>> Reportes</a>
+              					<ul id="second-level">
+							<li><a href="/logbooks/"><img src="<?php echo "$imgdir/list.png"?>">Bitacora</a></li>
+              					</ul>
+					</li>
 					<li><a href="/fuelvouchers"><img src=<?php echo "$imgdir/gas.png" ?>> Combustible</a>
                         <ul id="second-level">
 							<li><a href="/fuelvouchers/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Vale</a></li>
