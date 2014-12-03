@@ -17,7 +17,11 @@ public function add()
 {
     if($this->request->is('post')): // si la consulta es de tipo post
         // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
-        if($this->Unit->Save($this->request->data)): 
+        if($this->Unit->Save($this->request->data)):
+            //Bitacora
+            $logbook = new Logbook();
+            $logbook->add("Unidad Agregada", serialize($this->request->data));
+
             $this->Session->setFlash('Unidad Guardada', 'flash_notification');
             $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
         endif;
@@ -35,7 +39,12 @@ public function edit($id=null)
     if($this->request->is('get')):
         $this->request->data=$this->Unit->read();
     else: //si la peteicion no es get
+        $data = $this->Unit->findById($id);
         if($this->Unit->save($this->request->data)):
+            //Bitacora
+            $logbook = new Logbook();
+            $logbook->add("Unidad Modificada", serialize($data));
+
             $this->Session->setFlash('Unidad Modificada', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
@@ -49,7 +58,12 @@ public function delete($id){
         $this->redirect(array('action'=>'index'));
         //throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
+        $data = $this->Unit->findById($id);
         if($this->Unit->delete($id)):
+            //Bitacora
+            $logbook = new Logbook();
+            $logbook->add("Unidad Eliminada", serialize($data));
+
             $this->Session->setFlash("Unidad  Eliminada", 'flash_notification');
         $this->redirect(array('action'=>'index'));
         endif;
