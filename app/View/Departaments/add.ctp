@@ -14,7 +14,7 @@ echo $this->Form->input('management_id', array(
     'required'=>'true'
 ));
 
-echo $this->Form->input('departamento',array('label'=>'Nombre del Departamemento','style'=>'width: 300px;','required'=>'true','pattern'=>'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$','placeholder'=>'Solo texto'));
+echo $this->Form->input('departamento',array('label'=>'Nombre del Departamento','style'=>'width: 300px;','required'=>'true','pattern'=>'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$','placeholder'=>'Solo texto'));
 
 echo $this->Form->input('descripcion', array('label'=>'Descripcion de la Unidad: ', 'type' => 'textarea', 'style'=>'width: 300px; height:200px;'));
 echo '<div class="input"><br>';
