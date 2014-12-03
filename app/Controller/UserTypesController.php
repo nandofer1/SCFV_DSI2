@@ -46,6 +46,10 @@ class UserTypesController extends AppController {
     if ($this->request->is('post')) {
       $this->UserType->create();
       if ($this->UserType->save($this->request->data)) {
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Tipo de Usuario Agregado", serialize($this->request->data));
+
         $this->Session->setFlash("El tipo de usuario se ha agregado al sistema.", 'flash_notification');
         $this->redirect('/UserTypes/index');
         return;
@@ -61,7 +65,12 @@ class UserTypesController extends AppController {
         throw new NotFoundException(__('Tipo de Usuario invalido'));
       }
       if ($this->request->is('post') || $this->request->is('put')) {
+        $data = $this->UserType->findById($id);
         if ($this->UserType->save($this->request->data)) {
+          //Bitacora
+          $logbook = new Logbook();
+          $logbook->add("Tipo de Usuario Modificado", serialize($data));
+
           $this->Session->setFlash(__('El Tipo de Usuario ha sido guardado'), 'flash_notification');
           return $this->redirect(array('action' => 'index'));
         }
@@ -84,7 +93,12 @@ class UserTypesController extends AppController {
       if (!$this->UserType->exists()) {
         throw new NotFoundException(__('Tipo de Usuario invalido'));
       }
+      $data = $this->UserType->findById($id);
       if ($this->UserType->delete()) {
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Tipo de Usuario Eliminado", serialize($data));
+
         $this->Session->setFlash(__('Tipo de Usuario borrado'), 'flash_notification');
         $this->redirect(array('action' => 'index'));
         return ;
