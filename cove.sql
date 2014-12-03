@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS `scfv`;
+CREATE DATABASE `scfv`;
+USE `scfv`;
+
 -- phpMyAdmin SQL Dump
 -- version 4.1.14
 -- http://www.phpmyadmin.net
