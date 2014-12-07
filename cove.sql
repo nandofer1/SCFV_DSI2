@@ -11,7 +11,7 @@ USE `scfv`;
 -- Versión del servidor: 5.6.17-log
 -- Versión de PHP: 5.5.12
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+/*SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";*/
 SET time_zone = "+00:00";
 
 
