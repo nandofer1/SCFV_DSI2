@@ -266,9 +266,9 @@ table.list td{
 	border: 1px solid lightgray;
 	padding: 5px;
 }
+
 table.list th{
-	background: #eee;
-	padding: 8px;
+	padding: 6px;
 	padding-left: 4px;
 }
 
