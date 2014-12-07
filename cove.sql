@@ -62,6 +62,23 @@ CREATE TABLE IF NOT EXISTS `brands` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
+INSERT INTO brands VALUES (id, 'Toyota');
+INSERT INTO brands VALUES (id, 'Daihatsu');
+INSERT INTO brands VALUES (id, 'Nissan');
+INSERT INTO brands VALUES (id, 'Datsun');
+INSERT INTO brands VALUES (id, 'Mitsubishi');
+INSERT INTO brands VALUES (id, 'Mercedes Benz');
+INSERT INTO brands VALUES (id, 'Kia');
+INSERT INTO brands VALUES (id, 'Hyundai');
+INSERT INTO brands VALUES (id, 'Mack');
+INSERT INTO brands VALUES (id, 'Ford');
+INSERT INTO brands VALUES (id, 'Chevrolet');
+INSERT INTO brands VALUES (id, 'Isuzu');
+INSERT INTO brands VALUES (id, 'Honda');
+INSERT INTO brands VALUES (id, 'Volkswagen');
+INSERT INTO brands VALUES (id, 'Mazda');
+INSERT INTO brands VALUES (id, 'Dodge');
+
 -- --------------------------------------------------------
 
 --
