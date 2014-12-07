@@ -1,3 +1,4 @@
+<div class="form">
 <h1 class="list-title">Departamentos</h1>
 <div class="list-container">
 <table class="list">
@@ -28,4 +29,5 @@ foreach ($Departamentos as $Departamento):?>
 
 <?php endforeach;?>
 </table>
+</div>
 </div>
