@@ -114,16 +114,16 @@ $imgdir = "{$this->webroot}app/webroot/img";
 							<li><a href="/Vehicles/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/Vehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
 
-					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
-						<ul id="second-level">
-							<li><a href="/Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
-							<li><a href="/Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
-						</ul>
-					</li>
 					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Marca de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
 						<ul id="second-level">
 							<li><a href="/Brands/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 							<li><a href="/Brands/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Modelo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
+						<ul id="second-level">
+							<li><a href="/Modells/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
+							<li><a href="/Modells/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Tipo de Vehiculo<span class="glyphicon glyphicon-play"></span></a>
