@@ -2,7 +2,7 @@
 <h1 class="list-title">Marcas de Vehiculos</h1>
 <div class="list-container">
   <div class="list-search">
-    <form action="../brands/buscar" id="UsuarioForm" method="post" accept-charset="utf-8">
+    <form action="/brands/buscar" id="UsuarioForm" method="post" accept-charset="utf-8">
       <div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>
       <input name="data[Brand][query]" type="text" id="BuscarQuery" placeholder="Palabras clave" value="<?php echo  isset($query)? $query: "" 
       ?>"/>
