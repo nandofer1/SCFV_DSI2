@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(30) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `capacidad` int(11) NOT NULL,
+  `capacidad` varchar(250) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
