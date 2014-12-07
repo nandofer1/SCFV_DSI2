@@ -26,7 +26,7 @@
  			<td width="1"> <?php echo $this->Form->postLink('Eliminar',array('action'=>'delete',$Marca['Brand']['id']),
              array('confirm'=>'Realmente Desea Eliminar esta marca de Vehículo?')
              ); ?></td>
-      <td><a class="editar"   href="../brands/editar/<?php    echo $Marca['Brand']['id'] ?>">Editar</a></td>
+      <td><a class="editar"   href="/brands/editar/<?php    echo $Marca['Brand']['id'] ?>">Editar</a></td>
     </tr>
     <?php 
       endforeach; 
