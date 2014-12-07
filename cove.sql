@@ -439,14 +439,44 @@ CREATE TABLE IF NOT EXISTS `types` (
   `descripcion` varchar(250) NOT NULL,
   `capacidad` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `types`
 --
 
-INSERT INTO `types` (`id`, `tipo`, `descripcion`, `capacidad`) VALUES
-(8, 'Tipo', '', 102);
+INSERT INTO types VALUES(1, 'Sedan','','');
+INSERT INTO types VALUES(2, 'Familiar','','');
+INSERT INTO types VALUES(3, 'Pick Up','','');
+INSERT INTO types VALUES(4, 'Pick Up Cabina Doble','','');
+INSERT INTO types VALUES(5, 'Pick Up Cabina Extra','','');
+INSERT INTO types VALUES(6, 'Pick Up Camper','','');
+INSERT INTO types VALUES(7, 'Furgon','','');
+INSERT INTO types VALUES(8, 'Furgoneta','','');
+INSERT INTO types VALUES(9, 'Camion','','');
+INSERT INTO types VALUES(10, 'Microbus','','');
+INSERT INTO types VALUES(11, 'Bus','','');
+INSERT INTO types VALUES(12, 'Coster','','');
+INSERT INTO types VALUES(13, 'Van','','');
+INSERT INTO types VALUES(14, 'Ambulancia','','');
+INSERT INTO types VALUES(15, 'Camioneta','','');
+INSERT INTO types VALUES(16, 'Panelito','','');
+INSERT INTO types VALUES(17, 'Grua','','');
+INSERT INTO types VALUES(18, 'Camion de Barandal','','');
+INSERT INTO types VALUES(19, 'Camion con brazo hidraulico','','');
+INSERT INTO types VALUES(20, 'Camion Cajon','','');
+INSERT INTO types VALUES(21, 'Camion Cisterna','','');
+INSERT INTO types VALUES(22, 'Camion Compactador','','');
+INSERT INTO types VALUES(23, 'Camion Mezclador','','');
+INSERT INTO types VALUES(24, 'Camion Plataforma','','');
+INSERT INTO types VALUES(25, 'Camion de Volteo','','');
+INSERT INTO types VALUES(26, 'SUV','','');
+INSERT INTO types VALUES(27, 'Hatchback','','');
+INSERT INTO types VALUES(28, 'Motocicleta','','');
+INSERT INTO types VALUES(29, 'Kei','','');
+INSERT INTO types VALUES(30, 'Mini SUV','','');
+INSERT INTO types VALUES(31, 'Camion Pequeño','','');
+INSERT INTO types VALUES(32, 'Coupe','','');
 
 -- --------------------------------------------------------
 
