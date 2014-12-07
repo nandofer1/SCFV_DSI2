@@ -69,7 +69,7 @@ class BrandsController extends AppController
 
   public function buscar(){
     $this->Paginator->settings = array(
-      'limit' => 20, 'order' => array('Brand.id' => 'desc')
+      'limit' => 100, 'order' => array('Brand.id' => 'desc')
     );
     $field = "{$this->request->data['Brand']['campo']} LIKE ";
     $data = $this->Paginator->paginate('Brand', array("{$field}" => "%{$this->request->data['Brand']['query']}%"));
