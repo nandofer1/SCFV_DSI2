@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `marca` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 INSERT INTO brands VALUES (id, 'Toyota');
 INSERT INTO brands VALUES (id, 'Daihatsu');
@@ -195,14 +195,14 @@ CREATE TABLE IF NOT EXISTS `employees` (
 
 
 INSERT INTO `employees` VALUES ('89045678-2', 11, 'Ester Graciela', 'Marmol Escajeda', 'Poligono Santa Cecilia #4Z, Ciudad Delgado', 'marmol@cove.sv', '5482-7964', 0);
-INSERT INTO `employees` VALUES ('12345678-9', 2, 'Mauricio Faro', 'Cala Crisostomo', 'Col. Atlacatl pje. #8B, Ciudad Delgado', 'cala@cove.sv', '8419-3887', 0);
+INSERT INTO `employees` VALUES ('12345678-9', 2,  'Mauricio Faro', 'Cala Crisostomo', 'Col. Atlacatl pje. #8B, Ciudad Delgado', 'cala@cove.sv', '8419-3887', 0);
 INSERT INTO `employees` VALUES ('56745678-5', 11, 'Mario Berto', 'Ochoa Galicia', 'Urbanizacion Carrasco #4G, Ciudad Delgado', 'ochoa@cove.sv', '2489-4967', 0);
-INSERT INTO `employees` VALUES ('23445678-8', 3, 'Guadalupe Dinora', 'Villasana Fonseca', 'Residencial San Marcos Casa #1, Ciudad Delgado', 'villasana@cove.sv', '8882-7774', 0);
+INSERT INTO `employees` VALUES ('23445678-8', 3,  'Guadalupe Dinora', 'Villasana Fonseca', 'Residencial San Marcos Casa #1, Ciudad Delgado', 'villasana@cove.sv', '8882-7774', 0);
 INSERT INTO `employees` VALUES ('67845678-4', 11, 'Modesta Josefina', 'Esperanza Lazos', 'Urbanizacion Minier #4H, Ciudad Delgado', 'villasana@cove.sv', '8882-7774', 0);
-INSERT INTO `employees` VALUES ('34545678-7', 4, 'Victoriano Ezequiel', 'Melero Burgos', 'Residencial Bella Vista Casa #4, Ciudad Delgado', 'melero@cove.sv', '5589-4911', 0);
+INSERT INTO `employees` VALUES ('34545678-7', 4,  'Victoriano Ezequiel', 'Melero Burgos', 'Residencial Bella Vista Casa #4, Ciudad Delgado', 'melero@cove.sv', '5589-4911', 0);
 INSERT INTO `employees` VALUES ('78945678-3', 11, 'Severo Bonifacio', 'Almaraz Cornelio', 'Km. 13. Carretera Troncal del Norte #2A, Ciudad Delgado', 'almaraz@cove.sv', '1385-5511', 0);
 INSERT INTO `employees` VALUES ('90145678-1', 11, 'Raimunda Enrica', 'Carrera Prieto', 'Km. 12. Carretera Troncal del Norte #2B, Ciudad Delgado', 'aguas@cove.sv', '8882-7774', 0);
-INSERT INTO `employees` VALUES ('45645678-6', 5, 'Claudio Natalio', 'Contreras Calle', 'Col. Las Rosas #4, Ciudad Delgado', 'calles@cove.sv', '2489-4967', 0);
+INSERT INTO `employees` VALUES ('45645678-6', 5,  'Claudio Natalio', 'Contreras Calle', 'Col. Las Rosas #4, Ciudad Delgado', 'calles@cove.sv', '2489-4967', 0);
 INSERT INTO `employees` VALUES ('01245678-0', 11, 'Cristoval Macario', 'Pavon Larin', 'Col. Santa Eduviges #8F, Ciudad Delgado', 'pavon@cove.sv', '8882-7774', 0);
 
 
@@ -317,6 +317,55 @@ INSERT INTO `managements` (`id`, `unit_id`, `gerencia`) VALUES
 (4, 2, 'Administracion de Mercados'),
 (5, 2, 'Gerencia de Servicios Municipales');
 
+
+
+CREATE TABLE IF NOT EXISTS `types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(30) NOT NULL,
+  `descripcion` varchar(250) NOT NULL,
+  `capacidad` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcado de datos para la tabla `types`
+--
+
+INSERT INTO types VALUES(1, 'Sedan','','');
+INSERT INTO types VALUES(2, 'Familiar','','');
+INSERT INTO types VALUES(3, 'Pick Up','','');
+INSERT INTO types VALUES(4, 'Pick Up Cabina Doble','','');
+INSERT INTO types VALUES(5, 'Pick Up Cabina Extra','','');
+INSERT INTO types VALUES(6, 'Pick Up Camper','','');
+INSERT INTO types VALUES(7, 'Furgon','','');
+INSERT INTO types VALUES(8, 'Furgoneta','','');
+INSERT INTO types VALUES(9, 'Camion','','');
+INSERT INTO types VALUES(10, 'Microbus','','');
+INSERT INTO types VALUES(11, 'Bus','','');
+INSERT INTO types VALUES(12, 'Coster','','');
+INSERT INTO types VALUES(13, 'Van','','');
+INSERT INTO types VALUES(14, 'Ambulancia','','');
+INSERT INTO types VALUES(15, 'Camioneta','','');
+INSERT INTO types VALUES(16, 'Panelito','','');
+INSERT INTO types VALUES(17, 'Grua','','');
+INSERT INTO types VALUES(18, 'Camion de Barandal','','');
+INSERT INTO types VALUES(19, 'Camion con brazo hidraulico','','');
+INSERT INTO types VALUES(20, 'Camion Cajon','','');
+INSERT INTO types VALUES(21, 'Camion Cisterna','','');
+INSERT INTO types VALUES(22, 'Camion Compactador','','');
+INSERT INTO types VALUES(23, 'Camion Mezclador','','');
+INSERT INTO types VALUES(24, 'Camion Plataforma','','');
+INSERT INTO types VALUES(25, 'Camion de Volteo','','');
+INSERT INTO types VALUES(26, 'SUV','','');
+INSERT INTO types VALUES(27, 'Hatchback','','');
+INSERT INTO types VALUES(28, 'Motocicleta','','');
+INSERT INTO types VALUES(29, 'Kei','','');
+INSERT INTO types VALUES(30, 'Mini SUV','','');
+INSERT INTO types VALUES(31, 'Camion Pequeño','','');
+INSERT INTO types VALUES(32, 'Coupe','','');
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -327,9 +376,149 @@ CREATE TABLE IF NOT EXISTS `modells` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `brand_id` int(11) NOT NULL,
   `modelo` varchar(30) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `tipo_combustible` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_marca` (`brand_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+-- Toyota
+INSERT INTO modells VALUES (id, 1, 'Corolla', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Corolla E70', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Corolla XLi', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Rav4', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, '4Runner', 26, 'Diesel');
+INSERT INTO modells VALUES (id, 1, 'Prius', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Land Cruiser', 26, 'Diesel');
+INSERT INTO modells VALUES (id, 1, 'Celica',1 , 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Supra',1 , 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Tercel', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Tercel EZ', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Yaris', 1, 'Diesel');
+INSERT INTO modells VALUES (id, 1, 'Echo',1 , 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Camry', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Highlander', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Hilux', 3, 'Diesel');
+INSERT INTO modells VALUES (id, 1, 'Hilux 22r', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Tacoma',3 , 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Tundra', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Hiace', 16, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Starlet', 8, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Corolla Trueno', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Vitz', 8, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'T-100', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Corolla Verso', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Corolla Levin', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Corolla Fielder', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'Solara', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 1, 'iQ', 27, 'Gasolina');
+-- Daihatsu
+INSERT INTO modells VALUES (id, 2, 'Applause' ,1, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Charmant', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Charade', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Charade Giro', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Cuore', 29, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Max Cuore', 29, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Move', 29, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'F10', 30, 'Gasolina');
+INSERT INTO modells VALUES (id, 2, 'Delta', 9, 'Gasolina');
+-- Nissan
+INSERT INTO modells VALUES (id, 3, 'X-Trail', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'D21', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'NP-300', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Terrano', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Navara', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Frontier', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Titan', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Pathfinder', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Almera', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'X-Terra', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Patrol', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Sentra', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Leaf' ,1, 'Gasolina');
+INSERT INTO modells VALUES (id, 3, 'Hardbody', 3, 'Gasolina');
+-- Datsun
+INSERT INTO modells VALUES (id, 4, '280 ZX', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, 'Sunny 1200', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, '1500', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, 'SD 22', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, '720', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, 'King Cab', 5, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, '120y', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, '210', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 4, '160 J', 1, 'Gasolina');
+-- Mitsubishi 
+INSERT INTO modells VALUES (id, 5, 'Lancer', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'Lancer GLX', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'Montero', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'Outlander', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'Expo', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'Sportero', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'L-200', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 5, 'RAM-50', 3, 'Gasolina');
+-- Mercedez Benz
+INSERT INTO modells VALUES (id, 6, '1319', 18, 'Gasolina');
+INSERT INTO modells VALUES (id, 6, '1317', 18, 'Gasolina');
+INSERT INTO modells VALUES (id, 6, '1633 D', 20, 'Gasolina');
+INSERT INTO modells VALUES (id, 6, '1633', 7, 'Gasolina');
+INSERT INTO modells VALUES (id, 6, 'L1113', 18, 'Gasolina');
+INSERT INTO modells VALUES (id, 6, 'L1117', 18, 'Gasolina');
+INSERT INTO modells VALUES (id, 6, '1214', 9, 'Gasolina');
+-- KIA
+INSERT INTO modells VALUES (id, 7, 'K-2500', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'K-2700', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'K-3000', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'K-3600', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'K-3600 II', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Pregio', 10, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Grand Pregio', 10, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Towner', 16, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Ceres', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Sorento', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Spectra', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Rondo', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Rio', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 7, 'Sportage', 26, 'Gasolina');
+-- Hyundai 
+INSERT INTO modells VALUES (id, 8, 'H100', 31, 'Gasolina');
+INSERT INTO modells VALUES (id, 8, 'Santa Fe', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 8, 'Elantra', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 8, 'HD72', 9, 'Gasolina');
+-- Mack
+INSERT INTO modells VALUES (id, 9, 'Vision', 7, 'Gasolina');
+INSERT INTO modells VALUES (id, 9, 'Super-Liner', 7, 'Gasolina');
+INSERT INTO modells VALUES (id, 9, 'RS700', 7, 'Gasolina');
+-- Ford
+INSERT INTO modells VALUES (id, 10, 'Ranger', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 10, 'Explorer', 26, 'Gasolina');
+INSERT INTO modells VALUES (id, 10, 'Focus', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 10, 'Sport Trac', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 10, 'F-250 Lariat', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 10, 'F-150', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 10, 'Escape', 26, 'Gasolina');
+-- Chevrolet
+INSERT INTO modells VALUES (id, 11, 'S10', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 11, 'Silverado', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 11, 'Colorado', 5, 'Gasolina');
+-- Isuzu
+INSERT INTO modells VALUES (id, 12, 'Hombre', 3, 'Gasolina');
+INSERT INTO modells VALUES (id, 12, 'Pup', 3, 'Gasolina');
+-- Honda
+INSERT INTO modells VALUES (id, 13, 'Civic', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 13, 'Accord', 1, 'Gasolina');
+-- Volkswagen
+INSERT INTO modells VALUES (id, 14, 'Caddy', 8, 'Gasolina');
+INSERT INTO modells VALUES (id, 14, 'Amarok', 4, 'Gasolina');
+-- Mazda
+INSERT INTO modells VALUES (id, 15, 'B2200', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 15, 'B2300', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 15, 'B2900', 1, 'Gasolina');
+INSERT INTO modells VALUES (id, 15, 'BT50', 4, 'Gasolina');
+-- Dodge
+INSERT INTO modells VALUES (id, 16, 'Dakota', 4, 'Gasolina');
+INSERT INTO modells VALUES (id, 16, 'RAM', 4, 'Gasolina');
+
 
 -- Estructura de tabla para la tabla `parts`
 --
@@ -432,52 +621,6 @@ CREATE TABLE IF NOT EXISTS `trips` (
 --
 -- Estructura de tabla para la tabla `types`
 --
-
-CREATE TABLE IF NOT EXISTS `types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(30) NOT NULL,
-  `descripcion` varchar(250) NOT NULL,
-  `capacidad` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcado de datos para la tabla `types`
---
-
-INSERT INTO types VALUES(1, 'Sedan','','');
-INSERT INTO types VALUES(2, 'Familiar','','');
-INSERT INTO types VALUES(3, 'Pick Up','','');
-INSERT INTO types VALUES(4, 'Pick Up Cabina Doble','','');
-INSERT INTO types VALUES(5, 'Pick Up Cabina Extra','','');
-INSERT INTO types VALUES(6, 'Pick Up Camper','','');
-INSERT INTO types VALUES(7, 'Furgon','','');
-INSERT INTO types VALUES(8, 'Furgoneta','','');
-INSERT INTO types VALUES(9, 'Camion','','');
-INSERT INTO types VALUES(10, 'Microbus','','');
-INSERT INTO types VALUES(11, 'Bus','','');
-INSERT INTO types VALUES(12, 'Coster','','');
-INSERT INTO types VALUES(13, 'Van','','');
-INSERT INTO types VALUES(14, 'Ambulancia','','');
-INSERT INTO types VALUES(15, 'Camioneta','','');
-INSERT INTO types VALUES(16, 'Panelito','','');
-INSERT INTO types VALUES(17, 'Grua','','');
-INSERT INTO types VALUES(18, 'Camion de Barandal','','');
-INSERT INTO types VALUES(19, 'Camion con brazo hidraulico','','');
-INSERT INTO types VALUES(20, 'Camion Cajon','','');
-INSERT INTO types VALUES(21, 'Camion Cisterna','','');
-INSERT INTO types VALUES(22, 'Camion Compactador','','');
-INSERT INTO types VALUES(23, 'Camion Mezclador','','');
-INSERT INTO types VALUES(24, 'Camion Plataforma','','');
-INSERT INTO types VALUES(25, 'Camion de Volteo','','');
-INSERT INTO types VALUES(26, 'SUV','','');
-INSERT INTO types VALUES(27, 'Hatchback','','');
-INSERT INTO types VALUES(28, 'Motocicleta','','');
-INSERT INTO types VALUES(29, 'Kei','','');
-INSERT INTO types VALUES(30, 'Mini SUV','','');
-INSERT INTO types VALUES(31, 'Camion Pequeño','','');
-INSERT INTO types VALUES(32, 'Coupe','','');
-
 -- --------------------------------------------------------
 
 --
@@ -605,6 +748,10 @@ CREATE TABLE IF NOT EXISTS `vouchers` (
 ALTER TABLE `modells`
   ADD CONSTRAINT `modells_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
+
+ALTER TABLE `modells`
+  ADD CONSTRAINT `modells_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
 --
 -- Filtros para la tabla `users`
 --
@@ -614,3 +761,6 @@ ALTER TABLE `users`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
