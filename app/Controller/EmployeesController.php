@@ -51,7 +51,7 @@ class EmployeesController extends AppController {
       if ($this->Employee->save($this->request->data)):
       //Bitacora
         $logbook = new Logbook();
-        $logbook->add("Usuario Modificado", serialize($data));
+        $logbook->add("Empleado Modificado", serialize($data));
 
         $this->Session->setFlash('Empleado Modificado');
         $this->redirect(array(
@@ -71,7 +71,7 @@ class EmployeesController extends AppController {
       if ($this->Employee->delete($id)):
       //Bitacora
         $logbook = new Logbook();
-        $logbook->add("Usuario Eliminado", serialize($data));
+        $logbook->add("Empleado Eliminado", serialize($data));
 
         $this->Session->setFlash("Empleado Eliminado");
         $this->redirect(array(
