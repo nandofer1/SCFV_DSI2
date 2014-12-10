@@ -50,10 +50,10 @@ class FuelvouchersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Fuelvoucher->create();
 			if ($this->Fuelvoucher->save($this->request->data)) {
-				$this->Session->setFlash(__('The fuelvoucher has been saved.'));
+				$this->Session->setFlash(__('The fuelvoucher has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The fuelvoucher could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The fuelvoucher could not be saved. Please, try again.'), 'flash_notification');
 			}
 		}
 	}
@@ -71,10 +71,10 @@ class FuelvouchersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Fuelvoucher->save($this->request->data)) {
-				$this->Session->setFlash(__('The fuelvoucher has been saved.'));
+				$this->Session->setFlash(__('The fuelvoucher has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The fuelvoucher could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The fuelvoucher could not be saved. Please, try again.'), 'flash_notification');
 			}
 		} else {
 			$options = array('conditions' => array('Fuelvoucher.' . $this->Fuelvoucher->primaryKey => $id));
@@ -96,9 +96,9 @@ class FuelvouchersController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Fuelvoucher->delete()) {
-			$this->Session->setFlash(__('The fuelvoucher has been deleted.'));
+			$this->Session->setFlash(__('The fuelvoucher has been deleted.'), 'flash_notification');
 		} else {
-			$this->Session->setFlash(__('The fuelvoucher could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The fuelvoucher could not be deleted. Please, try again.'), 'flash_notification');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
