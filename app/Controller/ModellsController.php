@@ -33,7 +33,7 @@ public $components=array('Paginator');
         $logbook = new Logbook();
         $logbook->add("Modelo de Vehiculo Agregado", serialize($this->request->data));
 
-        $this->Session->setFlash('Modelo de Vehículo  Guardado');
+        $this->Session->setFlash('Modelo de Vehículo  Guardado', 'flash_notification');
         $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
       endif;
     endif;
@@ -57,10 +57,10 @@ public function edit($id=null)
       $logbook = new Logbook();
       $logbook->add("Modelo de Vehiculo Modificado", serialize($data));
 
-      $this->Session->setFlash('Modelo de Vehículo Modificado');
+      $this->Session->setFlash('Modelo de Vehículo Modificado', 'flash_notification');
       $this->redirect(array('action'=>'index'));
     else:
-      $this->Session->setFlash('No se pudo Modificar el modelo de Vehículo');
+      $this->Session->setFlash('No se pudo Modificar el modelo de Vehículo', 'flash_notification');
     endif;
   endif;
 }
@@ -75,7 +75,7 @@ public function delete($id){
       $logbook = new Logbook();
       $logbook->add("Modelo de Vehiculo Eliminado", serialize($data));
 
-      $this->Session->setFlash("Modelo de Vehículo Eliminado");
+      $this->Session->setFlash("Modelo de Vehículo Eliminado", 'flash_notification');
       $this->redirect(array('action'=>'index'));
     endif;
   endif;
