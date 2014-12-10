@@ -50,10 +50,10 @@ class PartsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Part->create();
 			if ($this->Part->save($this->request->data)) {
-				$this->Session->setFlash(__('The part has been saved.'));
+				$this->Session->setFlash(__('The part has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The part could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The part could not be saved. Please, try again.'), 'flash_notification');
 			}
 		}
 	}
@@ -71,10 +71,10 @@ class PartsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Part->save($this->request->data)) {
-				$this->Session->setFlash(__('The part has been saved.'));
+				$this->Session->setFlash(__('The part has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The part could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The part could not be saved. Please, try again.'), 'flash_notification');
 			}
 		} else {
 			$options = array('conditions' => array('Part.' . $this->Part->primaryKey => $id));
@@ -96,9 +96,9 @@ class PartsController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Part->delete()) {
-			$this->Session->setFlash(__('The part has been deleted.'));
+			$this->Session->setFlash(__('The part has been deleted.'), 'flash_notification');
 		} else {
-			$this->Session->setFlash(__('The part could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The part could not be deleted. Please, try again.'), 'flash_notification');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
