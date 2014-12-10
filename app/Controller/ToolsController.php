@@ -20,7 +20,7 @@ public function add()
 if($this->request->is('post')): // si la consulta es de tipo post
     // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
     if($this->Tool->Save($this->request->data)): 
-        $this->Session->setFlash('Herramienta  Guardada');
+        $this->Session->setFlash('Herramienta  Guardada', 'flash_notification');
     $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
         
     endif;
@@ -39,10 +39,10 @@ public function edit($id=null)
     else: //si la peteicion no es get
         
         if($this->Tool->save($this->request->data)):
-            $this->Session->setFlash('Herramienta Modificada');
+            $this->Session->setFlash('Herramienta Modificada', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
-                $this->Session->setFlash('No se pudo Modificar la herramienta');
+                $this->Session->setFlash('No se pudo Modificar la herramienta', 'flash_notification');
             
         endif;
         
@@ -55,7 +55,7 @@ public function delete($id)
         throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
         if($this->Tool->delete($id)):
-            $this->Session->setFlash("Herramienta  Eliminada");
+            $this->Session->setFlash("Herramienta  Eliminada", 'flash_notification');
         $this->redirect(array('action'=>'index'));
         endif;
     endif;
