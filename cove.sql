@@ -78,7 +78,7 @@ INSERT INTO brands VALUES (id, 'Honda');
 INSERT INTO brands VALUES (id, 'Volkswagen');
 INSERT INTO brands VALUES (id, 'Mazda');
 INSERT INTO brands VALUES (id, 'Dodge');
-
+INSERT INTO brands VALUES (id, 'Kensworth');
 -- --------------------------------------------------------
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `dossiers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vehicle_id` varchar(8) NOT NULL,
   `fecha_ingreso` date NOT NULL,
-  `Kilometraje_actual` float NOT NULL,
+  `kilometraje_actual` float NOT NULL,
   `kilometraje` float NOT NULL,
   `numero_viajes` int(11) NOT NULL,
   `numero_mantenimientos` int(11) NOT NULL,
@@ -363,7 +363,7 @@ INSERT INTO types VALUES(29, 'Kei','','');
 INSERT INTO types VALUES(30, 'Mini SUV','','');
 INSERT INTO types VALUES(31, 'Camion Pequeño','','');
 INSERT INTO types VALUES(32, 'Coupe','','');
-
+INSERT INTO types VALUES(33, 'Camion Compactador','','');
 
 
 -- --------------------------------------------------------
@@ -518,7 +518,8 @@ INSERT INTO modells VALUES (id, 15, 'BT50', 4, 'Gasolina');
 -- Dodge
 INSERT INTO modells VALUES (id, 16, 'Dakota', 4, 'Gasolina');
 INSERT INTO modells VALUES (id, 16, 'RAM', 4, 'Gasolina');
-
+-- Kensworth
+INSERT INTO modells VALUES (id, 17, 'T370',33,'Gasolina');
 
 -- Estructura de tabla para la tabla `parts`
 --
@@ -711,7 +712,6 @@ INSERT INTO `user_types` (`id`, `tipo_usuario`, `created`, `modified`) VALUES
 CREATE TABLE IF NOT EXISTS `vehicles` (
   `id` varchar(8) NOT NULL,
   `modell_id` int(11) NOT NULL,
-  `type_id` int(11) NOT NULL,
   `tarjeta_circulacion` varchar(12) NOT NULL,
   `fecha_tarjeta` varchar(15) NOT NULL,
   `anio` varchar(4) NOT NULL,
@@ -719,12 +719,12 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `motor` varchar(20) NOT NULL,
   `chasisgrabado` varchar(20) NOT NULL,
   `chasisvin` varchar(20) NOT NULL,
-  `tipo_gasolina` varchar(20) NOT NULL,
   `costo` float(8,2) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_modelo` (`modell_id`,`type_id`),
-  KEY `id_tipo` (`type_id`)
+  KEY `id_modelo` (`modell_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla almacenamiento de vehículos';
+
+INSERT INTO `vehicles` VALUES ('N4165',120,'N41652006','2013-03-06','2006','Blanco','45782369','AASJKJ10U1353876','ADASDDAD1232132',35000.00),('N4546',120,'N45462010','2014-02-04','2010','Blanco','7841235','KHASDJ10U1352452','PVNWEU10U1352452',40000.00),('N5241',120,'N52412008','2014-05-01','2008','Blanco','9973459','ASDSADJ10U1353847','UOIYOYJ10U1353847',54000.00),('N5456',120,'N54562006','2013-04-10','2006','Blanco','1973458','QJNFTCJ10U1353585','KJNFCOJ10U1353585',46000.00),('N5468',120,'N54681997','2014-08-06','1997','Blanco','19763648','JJNFCGJ10U1279249','SJVFCAJ10U1279249',54000.00),('N5687',118,'N56872010','2014-04-03','2010','Rojo','73369372','3BKHHZ8X1DF712998','SJNFDAE11U1286116',17500.00),('N5713',113,'N57132007','2013-07-11','2007','Verde','45687613','AENFCAJ10U1232057','SEDJCAJ10U6000911',7000.00),('N5746',83,'N57462000','2011-11-01','2000','Rojo','78913845','SJNFDYE11U1304314','OPNFCAJ10U1238112',8000.00),('N7721',1,'N77212005','2010-09-14','2005','Gris','19734563','UJNFCLQ10U1238681','FJIPCAX10U1279633',9000.00);
 
 
 --
