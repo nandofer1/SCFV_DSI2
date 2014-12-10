@@ -24,7 +24,7 @@ class DepartamentsController extends AppController {
         $logbook = new Logbook();
         $logbook->add("Departamento Agregado", serialize($this->request->data));
 
-        $this->Session->setFlash('Departamento Guardado');
+        $this->Session->setFlash('Departamento Guardado', 'flash_notification');
         $this->redirect(array(
           'action' => 'index'
         )); // nos regresa a la funcion index
@@ -55,12 +55,12 @@ class DepartamentsController extends AppController {
         $logbook = new Logbook();
         $logbook->add("Departamento Modificado", serialize($data));
 
-        $this->Session->setFlash('Departamento Modificado');
+        $this->Session->setFlash('Departamento Modificado', 'flash_notification');
         $this->redirect(array(
           'action' => 'index'
         ));
       else:
-        $this->Session->setFlash('No se pudo Modificar el Departamento');
+        $this->Session->setFlash('No se pudo Modificar el Departamento', 'flash_notification');
       endif;
     endif;
   }
@@ -77,7 +77,7 @@ class DepartamentsController extends AppController {
         $logbook = new Logbook();
         $logbook->add("Departamento Eliminado", serialize($data));
 
-        $this->Session->setFlash("Departamento  Eliminado");
+        $this->Session->setFlash("Departamento  Eliminado", 'flash_notification');
         $this->redirect(array(
           'action' => 'index'
         ));
