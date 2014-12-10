@@ -50,10 +50,10 @@ class DossiersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Dossier->create();
 			if ($this->Dossier->save($this->request->data)) {
-				$this->Session->setFlash(__('The dossier has been saved.'));
+				$this->Session->setFlash(__('The dossier has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The dossier could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The dossier could not be saved. Please, try again.'), 'flash_notification');
 			}
 		}
 		$vehicles = $this->Dossier->Vehicle->find('list');
@@ -73,10 +73,10 @@ class DossiersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Dossier->save($this->request->data)) {
-				$this->Session->setFlash(__('The dossier has been saved.'));
+				$this->Session->setFlash(__('The dossier has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The dossier could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The dossier could not be saved. Please, try again.'), 'flash_notification');
 			}
 		} else {
 			$options = array('conditions' => array('Dossier.' . $this->Dossier->primaryKey => $id));
@@ -100,9 +100,9 @@ class DossiersController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Dossier->delete()) {
-			$this->Session->setFlash(__('The dossier has been deleted.'));
+			$this->Session->setFlash(__('The dossier has been deleted.'), 'flash_notification');
 		} else {
-			$this->Session->setFlash(__('The dossier could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The dossier could not be deleted. Please, try again.'), 'flash_notification');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
