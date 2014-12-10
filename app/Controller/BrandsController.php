@@ -24,7 +24,7 @@ class BrandsController extends AppController
         $logbook = new Logbook();
         $logbook->add("Marca Agregada", serialize($this->request->data));
 
-        $this->Session->setFlash('Marca  Guardada');
+        $this->Session->setFlash('Marca  Guardada', 'flash_notification');
         $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
       endif;
     endif;
@@ -43,10 +43,10 @@ class BrandsController extends AppController
         $logbook = new Logbook();
         $logbook->add("Marca Modificada", serialize($data));
 
-        $this->Session->setFlash('Marca Modificada');
+        $this->Session->setFlash('Marca Modificada', 'flash_notification');
         $this->redirect(array('action'=>'index'));
       else:
-        $this->Session->setFlash('No se pudo Modificar la marca');
+        $this->Session->setFlash('No se pudo Modificar la marca', 'flash_notification');
       endif;
     endif;
   }
@@ -61,7 +61,7 @@ class BrandsController extends AppController
         $logbook = new Logbook();
         $logbook->add("Marca Eliminada", serialize($data));
 
-        $this->Session->setFlash("Marca de Vehículo Eliminada");
+        $this->Session->setFlash("Marca de Vehículo Eliminada", 'flash_notification');
         $this->redirect(array('action'=>'index'));
       endif;
     endif;
