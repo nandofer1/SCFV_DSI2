@@ -50,10 +50,10 @@ class MaintenancetypesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Maintenancetype->create();
 			if ($this->Maintenancetype->save($this->request->data)) {
-				$this->Session->setFlash(__('The maintenancetype has been saved.'));
+				$this->Session->setFlash(__('The maintenancetype has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The maintenancetype could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The maintenancetype could not be saved. Please, try again.'), 'flash_notification');
 			}
 		}
 	}
@@ -71,10 +71,10 @@ class MaintenancetypesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Maintenancetype->save($this->request->data)) {
-				$this->Session->setFlash(__('The maintenancetype has been saved.'));
+				$this->Session->setFlash(__('The maintenancetype has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The maintenancetype could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The maintenancetype could not be saved. Please, try again.'), 'flash_notification');
 			}
 		} else {
 			$options = array('conditions' => array('Maintenancetype.' . $this->Maintenancetype->primaryKey => $id));
@@ -96,9 +96,9 @@ class MaintenancetypesController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Maintenancetype->delete()) {
-			$this->Session->setFlash(__('The maintenancetype has been deleted.'));
+			$this->Session->setFlash(__('The maintenancetype has been deleted.'), 'flash_notification');
 		} else {
-			$this->Session->setFlash(__('The maintenancetype could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The maintenancetype could not be deleted. Please, try again.'), 'flash_notification');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
