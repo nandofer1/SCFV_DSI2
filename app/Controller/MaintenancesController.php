@@ -50,10 +50,10 @@ class MaintenancesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Maintenance->create();
 			if ($this->Maintenance->save($this->request->data)) {
-				$this->Session->setFlash(__('The maintenance has been saved.'));
+				$this->Session->setFlash(__('The maintenance has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The maintenance could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The maintenance could not be saved. Please, try again.'), 'flash_notification');
 			}
 		}
 		$users = $this->Maintenance->User->find('list');
@@ -74,10 +74,10 @@ class MaintenancesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Maintenance->save($this->request->data)) {
-				$this->Session->setFlash(__('The maintenance has been saved.'));
+				$this->Session->setFlash(__('The maintenance has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The maintenance could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The maintenance could not be saved. Please, try again.'), 'flash_notification');
 			}
 		} else {
 			$options = array('conditions' => array('Maintenance.' . $this->Maintenance->primaryKey => $id));
@@ -102,9 +102,9 @@ class MaintenancesController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Maintenance->delete()) {
-			$this->Session->setFlash(__('The maintenance has been deleted.'));
+			$this->Session->setFlash(__('The maintenance has been deleted.'), 'flash_notification');
 		} else {
-			$this->Session->setFlash(__('The maintenance could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The maintenance could not be deleted. Please, try again.'), 'flash_notification');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
