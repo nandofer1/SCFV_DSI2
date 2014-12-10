@@ -27,7 +27,7 @@ class EmployeesController extends AppController {
         $logbook = new Logbook();
         $logbook->add("Empleado Agregado", serialize($this->request->data));
 
-        $this->Session->setFlash('Empleado Guardado');
+        $this->Session->setFlash('Empleado Guardado', 'flash_notification');
         $this->redirect(array(
           'action' => 'index'
         )); // nos regresa a la funcion index
@@ -53,12 +53,12 @@ class EmployeesController extends AppController {
         $logbook = new Logbook();
         $logbook->add("Empleado Modificado", serialize($data));
 
-        $this->Session->setFlash('Empleado Modificado');
+        $this->Session->setFlash('Empleado Modificado', 'flash_notification');
         $this->redirect(array(
           'action' => 'index'
         ));
       else:
-        $this->Session->setFlash('No se pudo Modificar el Empleado');
+        $this->Session->setFlash('No se pudo Modificar el Empleado', 'flash_notification');
       endif;
     endif;
   }
@@ -73,7 +73,7 @@ class EmployeesController extends AppController {
         $logbook = new Logbook();
         $logbook->add("Empleado Eliminado", serialize($data));
 
-        $this->Session->setFlash("Empleado Eliminado");
+        $this->Session->setFlash("Empleado Eliminado", 'flash_notification');
         $this->redirect(array(
           'action' => 'index'
         ));
@@ -82,7 +82,7 @@ class EmployeesController extends AppController {
   }
   function pdf() {
     /*if (!$id){
-    $this->Session->setFlash('Id invÃ¡lido para obtener pdf');
+    $this->Session->setFlash('Id invÃ¡lido para obtener pdf', 'flash_notification');
     $this->redirect(array('action'=>'index'), null, true);
     }*/
     Configure::write('debug', 0);
@@ -94,7 +94,7 @@ class EmployeesController extends AppController {
     /* $this->loadModel('Crew');
     $this->set('Tripulantes',$this->Crew->find('all',array('conditions'=>'Crew.trip_id ='.$id))) ;     */
     if (empty($property)) {
-      $this->Session->setFlash('Sorry, there is no property with the submitted ID.');
+      $this->Session->setFlash('Sorry, there is no property with the submitted ID.', 'flash_notification');
       $this->redirect(array(
         'action' => 'index'
       ), null, true);
