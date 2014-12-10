@@ -1,22 +1,29 @@
 <?php
 class Vehicle extends AppModel
-{//VALIDACION DE LOS CAMPOS
-   // public $belongsTo=array('Modell');
-public $belongsTo=array('Type','Modell');
-    public $validate=array(
-    
+{
+  public $belongsTo=array('Modell');
+  public $validate = array(
+        'id' => array(
+          'unique' => array(
+            'rule' => 'isUnique',
+            'required' => 'create',
+            'message' => 'La Placa ya esta en uso.'
+          )
+        ),
+        
+        'costo' => array(
+          'between' => array(
+            'rule' => array('between', 0,10000000),
+            'message' => 'Por favor ingrese una cantidad entre $0 y $10,000,000.'
+          )
+        )
+
+      ); 
+      //validamos campo por campo 
        /* 'id'=>array(
              'rule' => array('custom', '/^[a-z0-9]{3,}$/i'),
             'required'=>'true',
             'message' => 'Fomato Inválido o Cmpo Vacío'),*/
-        'id' => array(
-        'unique' => array(
-              'rule' => 'isUnique',
-              'required' => 'create',
-              'message' => 'La Placa ya esta en uso.'
-            )
-   )
-           
        /* 'modell_id'=>array('rule'=>'notEmpty',
                     'message' => 'Debe Seleccionar un modelo de Vehículo'),
         
@@ -68,14 +75,5 @@ public $belongsTo=array('Type','Modell');
             'rule'=>'notEmpty',
             'message' => 'Debe Seleccionar un tipo de Gasolina'),
         
-        
-            'costo' => array(
-             'rule' => array('decimal', 2),
-        'message' => 'Por favor ingrere una cantidad monetaria válida.',
-             'allowEmpty' => false)
-       */
-        
-        
-        
-    ); //validamos campo por campo 
+        */
 }
