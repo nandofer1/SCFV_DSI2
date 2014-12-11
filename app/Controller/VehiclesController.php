@@ -127,16 +127,26 @@ class VehiclesController extends AppController
     }
 
     public function delete($id){
+      $this->loadModel('Devehicle'); //cargamos el modelo Modelos
       if($this->request->is('get')):
         throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
       else:
+        $this->Vehicle->recursive=-1;
         $data = $this->Vehicle->findById($id);
+        $data['Devehicle'] = $data['Vehicle'];
+        unset($data['Vehicle']);
         if($this->Vehicle->delete($id)):
           //Bitacora
           $logbook = new Logbook();
-          $logbook->add("Vehiculo Eliminado", serialize($data));          
+          
+          //Se agrega a los devehicles.
+          $this->Devehicle->create();
+          $this->Devehicle->Save($data);
+
+          $logbook->add("Vehiculo Eliminado", serialize($data));
           $this->Session->setFlash("Vehículo  Eliminado", 'flash_notification');
-          $this->redirect(array('action'=>'index'));
+          //$this->redirect(array('action'=>'index'));
+          $this->redirect("/devehicles/index");
         endif;
       endif;
     }
