@@ -1,7 +1,7 @@
 <?php
 class Vehicle extends AppModel
 {
-  public $belongsTo=array('Modell');
+  public $belongsTo=array('Modell', 'Management');
   public $validate = array(
         'id' => array(
           'unique' => array(
