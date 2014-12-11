@@ -22,7 +22,7 @@ class TypesController extends AppController
             $logbook = new Logbook();
             $logbook->add("Tipo de Vehiculo Agregado", serialize($this->request->data));
 
-              $this->Session->setFlash('Tipo de Vehículo Guardado');
+              $this->Session->setFlash('Tipo de Vehículo Guardado', 'flash_notification');
               $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
           endif;
      endif;
@@ -40,10 +40,10 @@ class TypesController extends AppController
               $logbook = new Logbook();
               $logbook->add("Tipo de Vehiculo Modificado", serialize($data));
 
-              $this->Session->setFlash('Tipo de Vehículo Modificado');
+              $this->Session->setFlash('Tipo de Vehículo Modificado', 'flash_notification');
               $this->redirect(array('action'=>'index'));
           else:
-              $this->Session->setFlash('No se pudo Modificar el tipo de Vehículo');
+              $this->Session->setFlash('No se pudo Modificar el tipo de Vehículo', 'flash_notification');
           endif;
       endif;
   }
@@ -58,7 +58,7 @@ class TypesController extends AppController
               $logbook = new Logbook();
               $logbook->add("Tipo de Vehiculo Eliminado", serialize($data));
 
-              $this->Session->setFlash("Tipo de vehículo   Eliminado");
+              $this->Session->setFlash("Tipo de vehículo   Eliminado", 'flash_notification');
               $this->redirect(array('action'=>'index'));
           endif;
       endif;
