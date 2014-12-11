@@ -12,7 +12,7 @@
         <option value="Brand.marca" <?php echo $campo=="Brand.marca"?" selected": "" ?>>Marca</option>
         <option value="Modell.modelo" <?php echo $campo=="Modell.modelo"?" selected": "" ?>>Modelo</option>
         <option value="Vehicle.color" <?php echo $campo=="Vehicle.color"?" selected": "" ?>>Color</option>
-        <option value="Vehicle.tarjeta_circulacion" <?php echo $campo=="Vehicle.tarjeta_circulacion"?" selected": "" ?>>Tarjeta de Circulacion</option>
+        <option value="Management.gerencia" <?php echo $campo=="Management.gerencia"?" selected": "" ?>>Gerencia</option>
         <option value="Modell.tipo_combustible" <?php echo $campo=="Modell.tipo_combustible"?" selected": "" ?>>Combustible</option>
       </select> 
       <input  type="submit" value="Buscar"/>
@@ -27,7 +27,7 @@
         <th><?php echo $this->Paginator->sort('modelo','Modelo')?></th>
         <th><?php echo $this->Paginator->sort('anio','Año')?></th>
         <th><?php echo $this->Paginator->sort('color','Color')?></th>
-        <th><?php echo $this->Paginator->sort('tarjeta_circulacion','Tarjeta de Circulacion')?></th>
+        <th><?php echo $this->Paginator->sort('gerencia','Gerencia')?></th>
         <th><?php echo $this->Paginator->sort('tipo_combustible','Combustible')?></th>
         <th colspan="3">Acciones</th>
     </tr>  
@@ -40,7 +40,7 @@
       <td><?php echo $Vehiculo['Modell']['modelo'];?></td>
       <td><?php echo $Vehiculo['Vehicle']['anio'];?></td>
       <td><?php echo $Vehiculo['Vehicle']['color'];?></td>
-      <td><?php echo $Vehiculo['Vehicle']['tarjeta_circulacion'];?></td>      
+      <td><?php echo $Vehiculo['Management']['gerencia'];?></td>
       <td><?php echo $Vehiculo['Modell']['tipo_combustible'];?></td>
       <td><?php echo $this->Html->link('Editar',array('action'=>'edit',$Vehiculo['Vehicle']['id'])) ?> </td>
       <td> <?php echo $this->Form->postLink('Eliminar',array('action'=>'delete',$Vehiculo['Vehicle']['id']),
