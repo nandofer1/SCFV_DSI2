@@ -8,7 +8,7 @@ class VehiclesController extends AppController
   public function index()
   {
     $this->Paginator->settings = array(
-      'fields' => array('Vehicle.id', 'Modell.modelo', 'Type.tipo', 'Brand.marca', 'Vehicle.anio', 'Vehicle.color', 'Modell.tipo_combustible', 'Vehicle.tarjeta_circulacion'), 
+      'fields' => array('Vehicle.id', 'Modell.modelo', 'Type.tipo', 'Brand.marca', 'Management.gerencia', 'Vehicle.anio', 'Vehicle.color', 'Modell.tipo_combustible', 'Vehicle.tarjeta_circulacion'), 
       'limit' => 10, 
       'order' => array('Vehicle.id' => 'desc'),
       'recursive' => 0,
@@ -21,7 +21,11 @@ class VehiclesController extends AppController
           'table' => 'brands',
           'alias' => 'Brand',
           'conditions'=> array('Modell.brand_id = Brand.id')
-        )
+        )/*,array(
+          'table' => 'managements',
+          'alias' => 'Management',
+          'conditions'=> array('Vehicle.management_id = Management.id')
+        ) */       
       )
     );
     $data = $this->Paginator->paginate('Vehicle');
@@ -54,6 +58,10 @@ class VehiclesController extends AppController
   {
     $this->loadModel('Modell'); //cargamos el modelo Modelos
     $this->set('Modelos', $this->Modell->find('all', array('recursive' => 1, 'fields' => array('Modell.id', 'Modell.modelo', 'Type.tipo', 'Brand.marca'))));
+
+    $this->loadModel('Management'); //cargamos el modelo Modelos
+    $this->set('Gerencias', $this->Management->find('list', array('recursive' => -1, 'fields' => array('Management.id', 'Management.gerencia'))));
+
     if($this->request->is('post')): // si la consulta es de tipo post
       // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
       if($this->Vehicle->Save($this->request->data)):
@@ -108,6 +116,10 @@ class VehiclesController extends AppController
         )
       )));
       $this->Vehicle->id=$id;
+
+      $this->loadModel('Management'); //cargamos el modelo Modelos
+      $this->set('Gerencias', $this->Management->find('list', array('recursive' => -1, 'fields' => array('Management.id', 'Management.gerencia'))));
+
       $this->set('Modelo_id', $this->Vehicle->find('first', array('recursive'=> -1, 'conditions' => array('Vehicle.id' => $id))));
       if($this->request->is('get')):
         $this->request->data=$this->Vehicle->read();
@@ -155,7 +167,7 @@ class VehiclesController extends AppController
   public function find(){
     $field = "{$this->request->data['Vehicle']['campo']} LIKE ";
     $this->Paginator->settings = array(
-      'fields' => array('Vehicle.id', 'Modell.modelo', 'Type.tipo', 'Brand.marca', 'Vehicle.anio', 'Vehicle.color', 'Modell.tipo_combustible', 'Vehicle.tarjeta_circulacion'), 
+      'fields' => array('Vehicle.id', 'Modell.modelo', 'Type.tipo', 'Brand.marca', 'Vehicle.anio', 'Management.gerencia', 'Vehicle.color', 'Modell.tipo_combustible', 'Vehicle.tarjeta_circulacion'), 
       'limit' => 10, 
       'order' => array('Vehicle.id' => 'desc'),
       'conditions' => array("{$field}" => "%{$this->request->data['Vehicle']['query']}%"),
