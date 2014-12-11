@@ -133,7 +133,7 @@ $imgdir = "{$this->webroot}app/webroot/img";
 								<ul id="second-level">
 									<li><a href="/Devehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
 								</ul>
-							</li>							
+							</li>
 						</ul>
 					</li>
 
