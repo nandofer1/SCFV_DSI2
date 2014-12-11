@@ -6,6 +6,15 @@
     echo $this->Form->create('Vehicle'); // se le pone el nombre del modelo para el que se quiere generar el formulario
     
     echo $this->Form->input('id',  array('disabled', 'type'=>'text','label'=>'Número de Placa: ','style'=>'width: 300px; background: white; border: none','placeholder'=>'Ej:N####','required'=>'true','pattern'=>'^N{1}\d{4}$','maxlength'=>'5'));
+    
+    echo $this->Form->input('management_id', array(
+      'label'=>'Gerencia: ',
+      'type'    => 'select',
+      'options' => $Gerencias,
+      'empty'   => ('Seleccione una opcion'),
+      'required'=>'true'
+    ));
+
     ?>
     <!-- Hacemos el control select de los modelos -->
     <div class="input select">
