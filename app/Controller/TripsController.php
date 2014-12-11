@@ -103,7 +103,7 @@ if($this->request->is('post')): // si la consulta es de tipo post
 
 
     
-        $this->Session->setFlash('Salida de Vehículo Registrado');
+        $this->Session->setFlash('Salida de Vehículo Registrado', 'flash_notification');
     $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
         
     endif;
@@ -138,10 +138,10 @@ $this->set('Herramientas',$this->Tool->find('all'));
     else: //si la peteicion no es get
         
         if($this->Trip->save($this->request->data)):
-            $this->Session->setFlash('Regreso de Camión Registrado ');
+            $this->Session->setFlash('Regreso de Camión Registrado ', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
-                $this->Session->setFlash('No se pudo Registrar la entrada del viaje');
+                $this->Session->setFlash('No se pudo Registrar la entrada del viaje', 'flash_notification');
             
         endif;
         
@@ -155,7 +155,7 @@ public function delete($id)
         throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
         if($this->Trip->delete($id)):
-            $this->Session->setFlash("Viaje Eliminado");
+            $this->Session->setFlash("Viaje Eliminado", 'flash_notification');
         $this->redirect(array('action'=>'index'));
         endif;
 
@@ -209,10 +209,10 @@ $this->set('Empleados',$this->Employee->find('list', array(
     else: //si la peteicion no es get
         
         if($this->Trip->save($this->request->data)):
-            $this->Session->setFlash('Modificación de viaje Realizado ');
+            $this->Session->setFlash('Modificación de viaje Realizado ', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
-                $this->Session->setFlash('No se pudo Modificar los datos  del viaje');
+                $this->Session->setFlash('No se pudo Modificar los datos  del viaje', 'flash_notification');
             
         endif;
         
@@ -235,7 +235,7 @@ $this->set('Empleados',$this->Employee->find('list', array(
     {
         
         if (!$id){
-            $this->Session->setFlash('Id invÃ¡lido para obtener pdf');
+            $this->Session->setFlash('Id invalido para obtener pdf', 'flash_notification');
             $this->redirect(array('action'=>'index'), null, true);
         }
 
@@ -253,7 +253,7 @@ $this->set('Empleados',$this->Employee->find('list', array(
    $this->set('Tripulantes',$this->Crew->find('all',array('conditions'=>'Crew.trip_id ='.$id))) ;          
         if (empty($property))
         {
-            $this->Session->setFlash('Sorry, there is no property with the submitted ID.');
+            $this->Session->setFlash('Sorry, there is no property with the submitted ID.', 'flash_notification');
             $this->redirect(array('action'=>'index'), null, true);
         }
         $this->layout = 'pdf';
