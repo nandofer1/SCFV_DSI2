@@ -52,7 +52,9 @@
     
   <tr> 
     <!-- Cambiar el numero de columnas que cubre el colspan -->
-    <td colspan="10" align="center" style="border: 0px"><?php echo $this->Paginator->numbers(array('first' => 'First page'));  ?></td>
+    <td colspan="10" align="center" style="border: 0px"><?php echo $this->Html->link('Exportar Listado PDF',array('action'=>'pdf')); ?>
+      <br><?php echo $this->Paginator->numbers(array('first' => 'First page'));  ?>
+    </td>
   </tr>
 
 </table>
@@ -69,7 +71,6 @@
     <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
   </div>
   <?php echo $this->Html->image('iconoPDF.gif');
-    echo $this->Html->link('Exportar Listado PDF',array('action'=>'pdf')); 
   ?>
 </center>
 -->
