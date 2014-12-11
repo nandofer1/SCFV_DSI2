@@ -4,7 +4,7 @@
 
 <div class="users form">
 
-   <?php //print_r($Empleados); ?>
+   <?php//print key($Empleados); ?>
     <fieldset>
 
     <legend><?php echo __('Reportar Salida de Camión Recolector'); ?></legend>

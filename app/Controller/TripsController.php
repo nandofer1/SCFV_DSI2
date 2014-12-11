@@ -47,15 +47,49 @@ while($i<count($exp)){
     $i=$i+1;
     
 }
-         
+         // se asigna el arreglo ya depurado sin los vehiculos que ya estan en viaje
 $this->set('Expedientes',$exp);
 
 
-$this->loadModel('Employee'); //cargamos el modelo Expediente
-
+$this->loadModel('Employee'); //cargamos el modelo Empleado
+/*
 $this->set('Empleados',$this->Employee->find('list', array(       
                   'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
             )));
+ * 
+ */
+
+//VALIDAMOS PARA QUE CUANDO UN EMPLEADO SE ENCUENTRE EN VIAJE NO APAREZCA PARA SELECCIONAR MIENTRAS EL VIAJE DONDE SE ENCUENTRE NO FINALICE
+$this->loadModel('Crew'); 
+$viajes= $this->Trip->find('list',array(
+    
+    'fields'=>array('Trip.id','Trip.fuera'),
+    'conditions'=>array('Trip.fuera' =>1)));
+
+$Emp=$this->Employee->find('list', array(       
+                  'fields' => array('Employee.id', 'Employee.apellidos')
+            ));
+$i=0;
+$j=0;
+while($i<count($viajes)){
+   $tripulacion= $this->Crew->find('list',array(
+       'fields'=>array('Crew.employee_id','Crew.trip_id'),
+       'conditions'=>array('Crew.trip_id' =>key($viajes))));
+    while ($j<count($tripulacion))
+        {
+       $empleado= key($tripulacion);
+        unset($Emp[$empleado]);
+         next($tripulacion);
+          $j=$j+1;
+        }
+        $j=0;
+   
+    next($viajes);
+    $i=$i+1;
+    
+}
+         // se asigna el arreglo ya depurado sin los vehiculos que ya estan en viaje
+$this->set('Empleados',$Emp);
 $this->loadModel('Tool'); //cargamos el modelo Herramienta
 $this->Tool->recursive=-1;
 $this->set('Herramientas',$this->Tool->find('all'));
