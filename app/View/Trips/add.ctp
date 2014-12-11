@@ -1,5 +1,4 @@
 <?php echo $this->Html->css('jquery-ui-1.9.2.custom'); ?>
-<?php echo $this->Html->script('jquery-1.9.2.min'); ?>
 <?php echo $this->Html->script('jquery-ui-1.9.2.custom.min'); ?>
 
 <div class="users form">

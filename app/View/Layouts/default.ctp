@@ -23,9 +23,21 @@ $imgdir = "{$this->webroot}app/webroot/img";
 <html>
 <head>
 	<title>Cove - <?php echo $this->fetch('title'); ?></title>
+    
+<?php
+
+//CSS
+echo $this->Html->css('zebra_datepicker');
+echo $this->Html->css('timePicker');
+ 
+//JavaScript
+echo $this->Html->script('jquery-2.1.1.min');
+echo $this->Html->script('jquery.timePicker.min');
+echo $this->Html->script('zebra_datepicker');
+
+?>
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/css/cove.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/js/bootstrap/css/bootstrap.min.css">
-	<script type='text/javascript' src="<?php echo $webroot ?>/js/jquery-2.1.1.min.js"></script>
 	<script type='text/javascript' src="<?php echo $webroot ?>/js/bootstrap/js/bootstrap.min.js"></script>
 	<script type='text/javascript' src="<?php echo $webroot ?>/js/bootbox.min.js"></script>
 			
