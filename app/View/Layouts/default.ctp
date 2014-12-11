@@ -128,7 +128,12 @@ $imgdir = "{$this->webroot}app/webroot/img";
 									<li><a href="/Types/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar</a></li>
 									<li><a href="/Types/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
 								</ul>
-							</li>	
+							</li>
+							<li><a href="#"><img src=<?php echo "$imgdir/car.png" ?>> Vehiculos Dados De Baja<span class="glyphicon glyphicon-play"></span></a>
+								<ul id="second-level">
+									<li><a href="/Devehicles/index"><img src="<?php echo "$imgdir/list.png"?>">Ver</a></li>
+								</ul>
+							</li>							
 						</ul>
 					</li>
 
