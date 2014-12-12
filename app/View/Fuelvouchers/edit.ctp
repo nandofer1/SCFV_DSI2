@@ -5,7 +5,14 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('monto');
-		echo $this->Form->input('fecha');
+		echo $this->Form->input('fecha', array(
+            'label' => 'Fecha Vale: ',
+            'placeholder'=>'año-mes-dia',
+            'type' => 'text',
+            'error' => false,
+            'id' => 'fecha_vale',
+            'required'=>'true',
+        ));
 		echo $this->Form->input('tipo_combustible');
 		echo $this->Form->input('galones');
 		echo $this->Form->input('aceite');
@@ -14,15 +21,18 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Fuelvoucher.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Fuelvoucher.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Fuelvouchers'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Requestvouchers'), array('controller' => 'requestvouchers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Requestvoucher'), array('controller' => 'requestvouchers', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Vouchers'), array('controller' => 'vouchers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Voucher'), array('controller' => 'vouchers', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<script>
+$(document).ready(function(){
+    $("#fecha_vale").Zebra_DatePicker({
+        format: 'Y-m-d',
+        direction: true,
+        disabled_dates: ['* * * 0'],
+        inside: false,
+        show_select_today: 'Hoy',
+        lang_clear_date: 'Limpiar fecha',
+        days:['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+        months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+                'Septiembre','Octubre','Noviembre','Diciembre']
+    });
+});
+</script>

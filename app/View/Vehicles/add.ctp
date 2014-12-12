@@ -59,15 +59,15 @@
 <script>
 $(document).ready(function(){
   
-  $("#select_date").focus(function(){
-    $("#datepicker").datepicker({
-      dateFormat: 'yy-mm-dd',
-      onSelect: function(dateText, inst){
-        $('#select_date').val(dateText);
-        $("#datepicker").datepicker("destroy");
-      }
+  $("#select_date").Zebra_DatePicker({
+        format: 'Y-m-d',
+        inside: false,
+        show_select_today: 'Hoy',
+        lang_clear_date: 'Limpiar fecha',
+        days:['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+        months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+                'Septiembre','Octubre','Noviembre','Diciembre']
     });
-  });
 
  /*$("#colora").selectBoxIt({
     theme: "jquery", // Uses the jQueryUI theme for the drop down

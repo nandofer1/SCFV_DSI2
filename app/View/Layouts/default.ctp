@@ -40,7 +40,7 @@ echo $this->Html->script('zebra_datepicker');
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/css/cove.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/js/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/css/jquery-ui-1.9.2.custom.css">	
-	<script type='text/javascript' src="<?php echo $webroot ?>/js/jquery-2.1.1.min.js"></script>
+
 	<script type='text/javascript' src="<?php echo $webroot ?>/js/bootstrap/js/bootstrap.min.js"></script>
 	<script type='text/javascript' src="<?php echo $webroot ?>/js/bootbox.min.js"></script>
 	<script type='text/javascript' src="<?php echo $webroot ?>/js/jquery-ui-1.9.2.custom.min.js"></script>		

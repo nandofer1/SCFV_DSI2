@@ -1,6 +1,3 @@
-<?php echo $this->Html->css('jquery-ui-1.9.2.custom'); ?>
-<?php echo $this->Html->script('jquery-ui-1.9.2.custom.min'); ?>
-
 <div class="users form">
 
    <?php //  print_r ($Expedientes); ?>
@@ -26,16 +23,22 @@ echo $this->Form->input('dossier_id', array(
 
         
         
-        echo $this->Form->input('fecha_inicio', array('label' => "Fecha de Salida : ", 'type' => 'text', 
-                                'error' => false , 'id' => 'select_date', 'required'=>'true'));
-       echo  '<center>';
-       
-         echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); 
-       echo '</center>';
-
+        echo $this->Form->input('fecha_inicio', array(
+            'label' => "Fecha de Salida : ", 
+            'type' => 'text', 
+            'error' => false , 
+            'id' => 'select_date', 
+            'required'=>'true'
+        ));
 
 //echo $this->Form->input('fecha_fin',array('label'=>'Fecha de Regreso','value'=>'0000-00-00','style'=>'width: 100px; height:30px;'));
-echo $this->Form->input('hora_inicio',array('label'=>'Hora de Salida','style'=>'width: 100px; height:30px;','required'=>'true'));
+echo $this->Form->input('hora_inicio',array(
+    'label'=>'Hora de Salida',
+    'id' => 'hora_inicio',
+    'type' => 'text',
+    'style'=>'width: 100px; height:30px;',
+    'required'=>'true'
+));
 //echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'00:00:00','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('kilometraje_inicial',array('type'=>'number','label'=>'Kilometraje Inicial','style'=>'width: 100px; height:30px;','maxlength'=>'6','required'=>'true'));
 //echo $this->Form->input('kilometraje_final',array('label'=>'Kilometraje Final','value'=>'00','style'=>'width: 100px; height:30px;'));
@@ -142,16 +145,22 @@ echo '</div>';
 </div>
 <script>
 $(document).ready(function(){
-              $("#select_date").click(function(){
-                     $("#datepicker").datepicker(
-                    {
-                           dateFormat: 'yy-mm-dd',
-                           onSelect: function(dateText, inst){
-                                 $('#select_date').val(dateText);
-                                 $("#datepicker").datepicker("destroy");
-                          }
-                     }
-                     );
-               });
-        });
-        </script>
+    $("#select_date").Zebra_DatePicker({
+            format: 'Y-m-d',
+            direction: true,
+            disabled_dates: ['* * * 0'],
+            inside: false,
+            show_select_today: 'Hoy',
+            lang_clear_date: 'Limpiar fecha',
+            days:['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+            months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+                    'Septiembre','Octubre','Noviembre','Diciembre']
+    });
+    $("#hora_inicio").timePicker({
+        startTime: "05:00",
+        endTime: "19:00",
+        show24Hours: false,
+        separator: ':',
+    });
+});
+</script>

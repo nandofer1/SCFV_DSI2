@@ -27,12 +27,14 @@
 		echo $this->Form->input('fecha_mantenimiento', array(
             'label' => 'Fecha mantenimiento: ',
             'type' => 'text',
-            'placeholder'=>'aaaa/mm/dd',
+            'id' => 'fecha_mantenimiento',
+            'placeholder'=>'año-mes-dia',
         ));
 		echo $this->Form->input('fecha_solicitud', array(
             'label' => 'Fecha solictud: ',
             'type' => 'text',
-            'placeholder'=>'aaaa/mm/dd',
+            'id' => 'fecha_solicitud',
+            'placeholder'=>'año-mes-dia',
         ));
 
         echo '<div class="input">';
@@ -41,3 +43,31 @@
         ?>
 	</fieldset>
 </div>
+
+<script>
+$(document).ready(function(){
+    $("#fecha_mantenimiento").Zebra_DatePicker({
+        format: 'Y-m-d',
+        direction: true,
+        disabled_dates: ['* * * 0'],
+        inside: false,
+        show_select_today: 'Hoy',
+        lang_clear_date: 'Limpiar fecha',
+        days:['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+        months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+                'Septiembre','Octubre','Noviembre','Diciembre']
+    });
+    $("#fecha_solicitud").Zebra_DatePicker({
+        format: 'Y-m-d',
+        direction: true,
+        pair: $('#fecha_mantenimiento'),
+        disabled_dates: ['* * * 0'],
+        inside: false,
+        show_select_today: 'Hoy',
+        lang_clear_date: 'Limpiar fecha',
+        days:['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+        months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+                'Septiembre','Octubre','Noviembre','Diciembre']
+    });
+});
+</script>

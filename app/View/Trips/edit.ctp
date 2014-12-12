@@ -18,7 +18,7 @@ echo $this->Form->input('fecha_inicio',array('type'=>'hidden','style'=>'width: 1
        echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); 
        echo '</center>';
 echo $this->Form->input('hora_inicio',array('type'=>'hidden','style'=>'width: 100px; height:30px;'));
-echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'','style'=>'width: 100px; height:30px;'));
+echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'','type' => 'text', 'id' => 'hora_fin', 'style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('kilometraje_inicial',array('type'=>'hidden','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('kilometraje_final',array('type'=>'number','label'=>'Kilometraje Final','style'=>'width: 100px; height:30px;','maxlength'=>'6','required'=>'true'));
 echo $this->Form->input('fuera',array('type'=>'hidden','value'=>'0','style'=>'width: 100px; height:30px;'));
@@ -74,16 +74,22 @@ echo '</div>';
 </div>
 <script>
 $(document).ready(function(){
-              $("#select_date").click(function(){
-                     $("#datepicker").datepicker(
-                    {
-                           dateFormat: 'yy-mm-dd',
-                           onSelect: function(dateText, inst){
-                                 $('#select_date').val(dateText);
-                                 $("#datepicker").datepicker("destroy");
-                          }
-                     }
-                     );
-               });
-        });
-        </script>
+    $("#select_date").Zebra_DatePicker({
+            format: 'Y-m-d',
+            direction: true,
+            disabled_dates: ['* * * 0'],
+            inside: false,
+            show_select_today: 'Hoy',
+            lang_clear_date: 'Limpiar fecha',
+            days:['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+            months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+                    'Septiembre','Octubre','Noviembre','Diciembre']
+    });
+    $("#hora_fin").timePicker({
+        startTime: "05:00",
+        endTime: "19:00",
+        show24Hours: false,
+        separator: ':',
+    });
+});
+</script>
