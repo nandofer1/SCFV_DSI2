@@ -154,6 +154,21 @@ class VehiclesController extends AppController
           //Se agrega a los devehicles.
           $this->Devehicle->create();
           $this->Devehicle->Save($data);
+          
+          //CAMBIAMOS EL ESTADO DE VEHICULO A INACTIVO EN EXPEDIENTE (COSME)
+          $this->loadModel('Dossier');
+          $Exp=$this->Dossier->find('list', array(       
+                  'fields' => array('Dossier.id', 'Dossier.vehicle_id'),
+                  'conditions'=>array('Dossier.vehicle_id'=>$id)));
+          $idexpediente=key($Exp);
+          $this->Dossier->id=$idexpediente;
+         $this->request->data=$this->Dossier->read();
+         //cambiamos el estado a inactivo
+         $this->request->data['Dossier']['activo']=0;
+         $this->Dossier->save($this->request->data);
+          
+          
+          
 
           $logbook->add("Vehiculo Eliminado", serialize($data));
           $this->Session->setFlash("Vehículo  Eliminado", 'flash_notification');

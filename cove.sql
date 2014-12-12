@@ -158,6 +158,7 @@ CREATE TABLE IF NOT EXISTS `dossiers` (
   `fecha_ult_mant` date NOT NULL,
   `prestable` tinyint(1) NOT NULL,
   `observaciones` varchar(250) NOT NULL,
+   `activo` int(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `placa` (`vehicle_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
@@ -739,15 +740,15 @@ INSERT INTO `vehicles` VALUES
 
 -- --------------------------------------------------------
 INSERT INTO `dossiers` VALUES 
-('','N4165','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N4546','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N5241','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N5456','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N5468','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N5687','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N5713','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N5746','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado'),
-('','N7721','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado');
+('','N4165','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N4546','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N5241','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N5456','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N5468','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N5687','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N5713','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N5746','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
+('','N7721','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1');
 
 --
 -- Estructura de tabla para la tabla `devehicles`

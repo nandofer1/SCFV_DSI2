@@ -3,7 +3,7 @@
 
 <div class="users form">
 
-   <?php//print key($Empleados); ?>
+   <?php // print $Expedientes[key($Expedientes)]; ?>
     <fieldset>
 
     <legend><?php echo __('Reportar Salida de Camión Recolector'); ?></legend>
