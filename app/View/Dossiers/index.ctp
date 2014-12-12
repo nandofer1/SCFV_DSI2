@@ -1,5 +1,5 @@
 <?php $this->set('title_for_layout', 'Expedientes de vehículos'); ?>
-
+<div class="form">
 <h1 class="list-title">Expedientes de vehículos</h1>
 <div class="list-container">
   <div class="list-search">
@@ -25,7 +25,7 @@
 <!--			<th><?php echo $this->Paginator->sort('Kilometraje_actual'); ?></th>-->
 			<th><?php echo $this->Paginator->sort('kilometraje'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero_viajes','Número de viajes'); ?></th>
-			<th><?php echo $this->Paginator->sort('numero_mantenimientos', 'Manteminientos'); ?></th>
+			<th><?php echo $this->Paginator->sort('numero_mantenimientos', 'Mantenimientos'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero_vales', 'Vales Combustible'); ?></th>
 			<th><?php echo $this->Paginator->sort('fecha_ult_mant','Ultimo Mantenimiento'); ?></th>
 			<th><?php echo $this->Paginator->sort('prestable','Préstable'); ?></th>
@@ -68,4 +68,5 @@
 		echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
+</div>
 </div>
