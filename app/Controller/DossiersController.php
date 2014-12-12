@@ -43,12 +43,48 @@ class DossiersController extends AppController {
              
              ));
          $this->set('Ultimo',$ultimo);
+         
 		if (!$this->Dossier->exists($id)) {
 			throw new NotFoundException(__('Invalid dossier'));
 		}
 		$options = array('conditions' => array('Dossier.' . $this->Dossier->primaryKey => $id));
 		$this->set('dossier', $this->Dossier->find('first', $options));
+                
+                //TRAEMOS LOS GALONES DE GASOLINA GASTADOS
+                  $this->loadModel('Voucher');
+      // $ngalones= $this->Voucher->field('sum(Voucher.galones) AS total', array('Voucher.dossier_id'=>$id));
+         
+                  
+                   $vouchersusados= $this->Voucher->find('list',array(
+                       'fields'=>array('Voucher.id','Voucher.fuelvoucher_id'),
+                       'conditions'=>array('Voucher.dossier_id' =>$id)));
+                   
+                   $i=0;
+                   $ngalones=0;
+                   $monto=0;
+                   $this->loadModel('Fuelvoucher');
+                   while($i<count($vouchersusados))
+                   {
+                       $n=$this->Fuelvoucher->field('Fuelvoucher.galones', array('Fuelvoucher.id'=>key($vouchersusados)));
+                       $m=$this->Fuelvoucher->field('Fuelvoucher.monto', array('Fuelvoucher.id'=>key($vouchersusados)));
+                       $ngalones= $ngalones+$n;
+                       $monto=$monto+$m;
+                       next($vouchersusados);
+                       $i=$i+1;
+                   }
+                  
+       $kilometraje=$this->Dossier->field('Dossier.kilometraje', array('Dossier.id'=>$id));
+       $galoneskm=array();
+       $galoneskm[0]=$ngalones;
+       $galoneskm[1]=$kilometraje;
+       $galoneskm[2]=$monto;
+       
+       $this->set('datos',$galoneskm);
+            
+       
 	}
+        
+      
 
 /**
  * add method

@@ -9,18 +9,46 @@
       <tr><td>Kilometraje Actual: </td><td><?php echo $dossier['Dossier']['kilometraje'];?></td></tr>
       <tr><td>Kilometraje: </td><td><?php echo $dossier['Dossier']['kilometraje']?></td></tr>
       <tr><td>Numero Viajes: </td><td><?php echo $dossier['Dossier']['numero_viajes'];
-      $U=end ($Ultimo);
+     
       echo'<br><br>';
       echo'Ultimo Viaje Realizado:';
-   echo $this->Html->link('Ver Detalles',array('action'=>'Trip',end ($Ultimo))) ;
-      echo end ($Ultimo);
+   echo $this->Html->link('Ver Detalles',array('controller'=>'Trips','action'=>'details',end ($Ultimo))) ;
+      //echo end ($Ultimo);
      // echo $this->Html->link('Ver Detalles',array('action'=>'Trips/details',$Ultimo['Trip']['id']));
       ?></td></tr>
-      <tr><td>Numero Mantenimientos: </td><td><?php echo $dossier['Dossier']['numero_mantenimientos']?></td></tr>
-      <tr><td nowrap width="1" >Numero Vales: </td><td><?php echo $dossier['Dossier']['numero_vales']?></td></tr>
+      <tr><td>Numero Mantenimientos: </td><td><?php echo $dossier['Dossier']['numero_mantenimientos'];?>
+          </td></tr>
+      <tr><td nowrap width="1" >Numero Vales: </td><td><?php echo $dossier['Dossier']['numero_vales'];
+      echo '<br><br>';
+       echo'Ultimo Vale Utilizado:';
+   echo $this->Html->link('Ver Detalles',array('controller'=>'Fuelvoucher','action'=>'view',end ($Ultimo))) ;  
+      
+      ?></td></tr>
       <tr><td>Fecha Ult Mant.</td><td><?php echo $dossier['Dossier']['fecha_ult_mant']?></td></tr>
       <tr><td>Prestable: </td><td><?php echo $dossier['Dossier']['prestable']==false?"No":"Si"?></td></tr>      
-      <tr><td>Observaciones</td><td><?php echo $dossier['Dossier']['observaciones'];?></td></tr>      
+      <tr><td>Observaciones</td><td><?php echo $dossier['Dossier']['observaciones'];?></td></tr>  
+       <tr><td>Rendimiento</td><td><?php 
+       echo 'Numero de Galones Consumidos: '.$datos[0];
+       echo '<br><br>';
+       echo 'Total de Kilometros recorridos por Viaje: '.$datos[1];
+       echo '<br><br>';
+       
+       if($datos[0]==0):
+           echo 'No hay Galones Consumidos por este Veh{iculo';
+           else :
+               $razon=($datos[1]/$datos[0]);
+       $total=number_format((float)$razon, 2, '.', '');
+       echo 'Rendimiento (Km / gal): <b> '. $total.' Km por cada galon consumido</b>'; 
+      echo '<br><br>';
+    $total=number_format((float)$datos[2], 2, '.', '');
+     echo 'Inversion Total por Combustible: <b>$'.$total; 
+      
+       
+       endif;
+      
+       
+       
+       ?></td></tr>   
 </table>
 </div>
 </div>
