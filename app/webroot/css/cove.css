@@ -462,3 +462,9 @@ span.glyphicon{
 option[value=""]{
 	display: none;
 }
+
+
+
+#paginador, .paging{
+	text-align: center;
+}
