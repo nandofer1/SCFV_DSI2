@@ -2,11 +2,11 @@
 <div class="list-container">
 <table class="list">
     <tr>
-        <td>Herramienta</td>
-        <td>Existencia</td>
-        <td>Descripción</td>
-        <td>Valor</td>
-        <td colspan="2">Acciones</td>
+        <th>Herramienta</th>
+        <th>Existencia</th>
+        <th>Descripción</th>
+        <th>Valor</th>
+        <th colspan="2">Acciones</th>
     </tr>  
 
     
