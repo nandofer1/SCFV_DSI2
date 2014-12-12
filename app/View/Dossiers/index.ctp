@@ -47,7 +47,7 @@
 		<td><?php echo h($dossier['Dossier']['prestable']); ?>&nbsp;</td>
 <!--		<td><?php echo h($dossier['Dossier']['observaciones']); ?>&nbsp;</td>-->
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $dossier['Dossier']['id'])); ?> | 
+			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $dossier['Dossier']['id'])); ?>
 			<?php //echo $this->Html->link(__('Editar'), array('action' => 'edit', $dossier['Dossier']['id'])); ?>
 			
 		</td>
