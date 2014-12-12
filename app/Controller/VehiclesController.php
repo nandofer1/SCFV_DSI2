@@ -79,7 +79,8 @@ class VehiclesController extends AppController
           'numero_vales'=>0,
           'fecha_ult_mant'=>0,
           'prestable'=>FALSE,
-          'observaciones'=>$this->request->data['Vehicle']['observacion']
+          'observaciones'=>$this->request->data['Vehicle']['observacion'],
+           'activo'=>'1'
         ));
         //carmos el modelo de expediente y luego creamos el registro inicial para el expediente de el nuevo vehiculo
         $this->loadModel('Dossier');
