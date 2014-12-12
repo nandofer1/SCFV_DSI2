@@ -25,7 +25,7 @@
 <!--			<th><?php echo $this->Paginator->sort('Kilometraje_actual'); ?></th>-->
 			<th><?php echo $this->Paginator->sort('kilometraje'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero_viajes','Número de viajes'); ?></th>
-			<th><?php echo $this->Paginator->sort('numero_mantenimientos', 'Manteminientos'); ?></th>
+			<th><?php echo $this->Paginator->sort('numero_mantenimientos', 'Mantenimientos'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero_vales', 'Vales Combustible'); ?></th>
 			<th><?php echo $this->Paginator->sort('fecha_ult_mant','Ultimo Mantenimiento'); ?></th>
 			<th><?php echo $this->Paginator->sort('prestable','Préstable'); ?></th>
