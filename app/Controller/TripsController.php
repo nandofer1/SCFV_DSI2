@@ -175,30 +175,133 @@ endif;
 
 public function edit($id=null)
 {
-    $this->loadModel('Dossier'); //cargamos el modelo Expediente
-
-$this->set('Expedientes',$this->Dossier->find('list', array(       
+   $this->loadModel('Dossier'); //cargamos el modelo Expediente
+$this->loadModel('Vehicle');
+/*$this->set('Expedientes',$this->Dossier->find('list', array(       
                   'fields' => array('Dossier.id', 'Dossier.vehicle_id')
-            )));
+                 
+    
+            )));*/
+  // AQUI EVITAMOS QUE CUANDO UN VEHICULO HA SALIDO NO SE PUEDA PODER SELECCIONAR HASTA QUE SE REGISTRE ENTRADA DE SU VIAJE
+$exp=$this->Dossier->find('list', array(       
+                  'fields' => array('Dossier.id', 'Dossier.vehicle_id'),
+                  'conditions'=>array('Dossier.activo'=>1),
+                  'order'=>'Dossier.vehicle_id'
+    
+    ));
+$Veh=$this->Vehicle->find('list', array(       
+                  'fields' => array('Vehicle.id', 'Vehicle.management_id'),
+                  'order'=>'Vehicle.id'));
+//AQUI CREAMOS UN ARREGLO CON EL ID DE EXPEDIENTE Y LAS PLACAS DE LOS VEHICULOS QUE SOLO PERTENECEN A LA  GERENCIA DE SERVICIOS
+$j=0;
+$Exp=array();
+while ($j<count($Veh))
+    {
+    if($Veh[$exp[key($exp)]]==5):
+        
+           $Exp[key($exp)]=key($Veh);
+           
+    endif;
+    next($Veh);
+    next($exp);
+    $j=$j+1;
+    }
+//$this->set('Prueba',$Exp);
+
+$i=0;
+while($i<count($Exp)){
+   $viajes= $this->Trip->find('all',array('conditions'=>array('Trip.dossier_id' =>key($Exp),'Trip.fuera' =>1)));
+   
+  
+   
+            if((empty($viajes))==true):
+               
+                else:
+                 unset($Exp[key($Exp)]);
+            
+            endif;
+    next($Exp);
+    $i=$i+1;
+    
+}
+         // se asigna el arreglo ya depurado sin los vehiculos que ya estan en viaje
+$this->set('Expedientes',$Exp);
+
 
 $this->loadModel('Employee'); //cargamos el modelo Empleado
-
+/*
 $this->set('Empleados',$this->Employee->find('list', array(       
                   'fields' => array('Employee.id', 'Employee.apellidos','Employee.nombre')
             )));
+ * 
+ */
 
-$this->loadModel('Tool'); //cargamos el modelo Herramienta
-$this->set('Herramientas',$this->Tool->find('all'));
+//VALIDAMOS PARA QUE CUANDO UN EMPLEADO SE ENCUENTRE EN VIAJE NO APAREZCA PARA SELECCIONAR MIENTRAS EL VIAJE DONDE SE ENCUENTRE NO FINALICE
+$this->loadModel('Crew'); 
+$viajes= $this->Trip->find('list',array(
     
+    'fields'=>array('Trip.id','Trip.fuera'),
+    'conditions'=>array('Trip.fuera' =>1)));
+
+$Emp=$this->Employee->find('list', array(       
+                  'fields' => array('Employee.id', 'Employee.apellidos')
+            ));
+$i=0;
+$j=0;
+while($i<count($viajes)){
+   $tripulacion= $this->Crew->find('list',array(
+       'fields'=>array('Crew.employee_id','Crew.trip_id'),
+       'conditions'=>array('Crew.trip_id' =>key($viajes))));
+    while ($j<count($tripulacion))
+        {
+       $empleado= key($tripulacion);
+        unset($Emp[$empleado]);
+         next($tripulacion);
+          $j=$j+1;
+        }
+        $j=0;
+   
+    next($viajes);
+    $i=$i+1;
+    
+}
+         // se asigna el arreglo ya depurado sin los vehiculos que ya estan en viaje
+$this->set('Empleados',$Emp);
+$this->loadModel('Tool'); //cargamos el modelo Herramienta
+$this->Tool->recursive=-1;
+$this->set('Herramientas',$this->Tool->find('all'));
     
     $this->Trip->id=$id;
     if($this->request->is('get')):
         
         $this->request->data=$this->Trip->read();
+    //DATOS QUE IRAN AL EXPDIENTE
+   /* $kmi= $this->request->data['Trip']['kilometraje_inicial'];
+    $kmf= $this->request->data['Trip']['kilometraje_final'];
+    $kmr=$kmf-$kmi; //Km recorrido en el viaje
+    $this->Dossier->id=$this->request->data['Trip']['dossier_id'];
+  $this->data= $this->Dossier->read();
+  $kilometraje=$this->Dossier['Dossier']['kilometraje'];
+  $this->data['Dossier']['kilometraje']=$kilometraje + $kmr;
+  $this->Dossier->save($this->data);
+   */
     
     else: //si la peteicion no es get
         
         if($this->Trip->save($this->request->data)):
+            
+             //DATOS QUE IRAN AL EXPDIENTE
+    $kmi= $this->request->data['Trip']['kilometraje_inicial'];
+    $kmf= $this->request->data['Trip']['kilometraje_final'];
+    $kmr=$kmf-$kmi; //Km recorrido en el viaje
+    $this->Dossier->id=$this->request->data['Trip']['dossier_id'];
+  $this->request->data= $this->Dossier->read();
+  $kilometraje=$this->request->data['Dossier']['kilometraje'];
+    $nviajes=$this->request->data['Dossier']['numer_viajes'];
+  $this->request->data['Dossier']['kilometraje']=$kilometraje + $kmr;
+  $this->request->data['Dossier']['numero_viajes']=$nviajes+1;
+  $this->Dossier->save($this->request->data);
+            
             $this->Session->setFlash('Regreso de Camión Registrado ', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:

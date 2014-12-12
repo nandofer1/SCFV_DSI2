@@ -1,7 +1,7 @@
 <div class="fuelvouchers form">
 <?php echo $this->Form->create('Fuelvoucher'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Fuelvoucher'); ?></legend>
+		<legend><?php echo __('Agregar Vale de Combustible'); ?></legend>
 	<?php
 		echo $this->Form->input('monto');
 		echo $this->Form->input('fecha');
@@ -11,7 +11,7 @@
 		echo $this->Form->input('factura');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end('Guardar'); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

@@ -4,10 +4,15 @@
   <table class="list">
       <tr><td>Id: </td><td><?php echo $dossier['Dossier']['id'];?></td></tr>
       <tr><td>Vehiculo: </td><td><?php echo $this->Html->link($dossier['Vehicle']['id'], array('controller' => 'vehicles', 'action' => 'view', $dossier['Vehicle']['id']));?></td></tr>
-      <tr><td>Fecha Ingreso: </td><td><?php echo $dossier['Dossier']['kilometraje_actual']; ?></td></tr>
+      <tr><td>Fecha Ingreso: </td><td><?php echo $dossier['Dossier']['fecha_ingreso']; ?></td></tr>
       <tr><td>Kilometraje Actual: </td><td><?php echo $dossier['Dossier']['kilometraje'];?></td></tr>
       <tr><td>Kilometraje: </td><td><?php echo $dossier['Dossier']['kilometraje']?></td></tr>
-      <tr><td>Numero Viajes: </td><td><?php echo $dossier['Dossier']['numero_viajes']?></td></tr>
+      <tr><td>Numero Viajes: </td><td><?php echo $dossier['Dossier']['numero_viajes'];
+      echo'<br><br>';
+      echo'Ultimo Viaje Realizado:';
+      print_r($Ultimo);
+     // echo $this->Html->link('Ver Detalles',array('action'=>'Trips/details',$Ultimo['Trip']['id']));
+      ?></td></tr>
       <tr><td>Numero Mantenimientos: </td><td><?php echo $dossier['Dossier']['numero_mantenimientos']?></td></tr>
       <tr><td nowrap width="1" >Numero Vales: </td><td><?php echo $dossier['Dossier']['numero_vales']?></td></tr>
       <tr><td>Fecha Ult Mant.</td><td><?php echo $dossier['Dossier']['fecha_ult_mant']?></td></tr>

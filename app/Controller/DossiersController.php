@@ -34,6 +34,15 @@ class DossiersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+            $this->loadModel('Trip'); 
+         $ultimo= $this->Trip->find('all',array(
+    
+    'fields'=>array('Trip.dossier_id','Trip.id'),
+    'conditions'=>array('Trip.dossier_id' =>$id),
+     'order'=>'Trip.id DESC'        
+             
+             ));
+         $this->set('Ultimo',$ultimo);
 		if (!$this->Dossier->exists($id)) {
 			throw new NotFoundException(__('Invalid dossier'));
 		}
