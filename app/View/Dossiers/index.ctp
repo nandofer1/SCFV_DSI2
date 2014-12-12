@@ -1,6 +1,6 @@
-<?php $this->set('title_for_layout', 'Expedientes de vehículos'); ?>
+<?php $this->set('title_for_layout', 'Expedientes de vehÃ­culos'); ?>
 <div class="form">
-<h1 class="list-title">Expedientes de vehículos</h1>
+<h1 class="list-title">Expedientes de vehÃ­culos</h1>
 <div class="list-container">
   <div class="list-search">
     <form action="../dossiers/buscar" id="DossiersForm" method="post" accept-charset="utf-8">
@@ -24,13 +24,13 @@
 			<th><?php echo $this->Paginator->sort('fecha_ingreso'); ?></th>
 <!--			<th><?php echo $this->Paginator->sort('Kilometraje_actual'); ?></th>-->
 			<th><?php echo $this->Paginator->sort('kilometraje'); ?></th>
-			<th><?php echo $this->Paginator->sort('numero_viajes','Número de viajes'); ?></th>
+			<th><?php echo $this->Paginator->sort('numero_viajes','NÃºmero de viajes'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero_mantenimientos', 'Mantenimientos'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero_vales', 'Vales Combustible'); ?></th>
 			<th><?php echo $this->Paginator->sort('fecha_ult_mant','Ultimo Mantenimiento'); ?></th>
-			<th><?php echo $this->Paginator->sort('prestable','Préstable'); ?></th>
+			<th><?php echo $this->Paginator->sort('prestable','PrÃ©stable'); ?></th>
 <!--			<th><?php echo $this->Paginator->sort('observaciones'); ?></th>-->
-			<th class="actions"><?php echo __('Acciones'); ?></th>
+			<th class="actions"><?php echo __(''); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -47,8 +47,8 @@
 		<td><?php echo h($dossier['Dossier']['prestable']); ?>&nbsp;</td>
 <!--		<td><?php echo h($dossier['Dossier']['observaciones']); ?>&nbsp;</td>-->
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver detalles'), array('action' => 'view', $dossier['Dossier']['id'])); ?> | 
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $dossier['Dossier']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $dossier['Dossier']['id'])); ?> | 
+			<?php //echo $this->Html->link(__('Editar'), array('action' => 'edit', $dossier['Dossier']['id'])); ?>
 			
 		</td>
 	</tr>
