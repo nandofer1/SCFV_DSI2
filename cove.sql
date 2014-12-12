@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `crews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `trip_id` int(11) NOT NULL,
   `employee_id` varchar(10) NOT NULL,
-  ` motorista` tinyint(1) NOT NULL,
+  `motorista` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
