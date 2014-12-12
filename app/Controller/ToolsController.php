@@ -1,4 +1,5 @@
 <?php
+App::uses('Logbook', 'Model');
 class ToolsController extends AppController
 {
 public $helpers=array('Html','Form'); // helper para hacer formularios
@@ -20,6 +21,10 @@ public function add()
 if($this->request->is('post')): // si la consulta es de tipo post
     // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
     if($this->Tool->Save($this->request->data)): 
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Herramienta Agregada", serialize($this->request->data));
+
         $this->Session->setFlash('Herramienta  Guardada', 'flash_notification');
     $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
         
@@ -37,8 +42,12 @@ public function edit($id=null)
         $this->request->data=$this->Tool->read();
     
     else: //si la peteicion no es get
-        
+        $data = $this->Tool->findById($id);
         if($this->Tool->save($this->request->data)):
+              //Bitacora
+              $logbook = new Logbook();
+              $logbook->add("Herramienta Modificada", serialize($data));
+
             $this->Session->setFlash('Herramienta Modificada', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
@@ -54,7 +63,11 @@ public function delete($id)
     if($this->request->is('get')):
         throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
+      $data = $this->Tool->findById($id);
         if($this->Tool->delete($id)):
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Herramienta Eliminada", serialize($data));
             $this->Session->setFlash("Herramienta  Eliminada", 'flash_notification');
         $this->redirect(array('action'=>'index'));
         endif;
