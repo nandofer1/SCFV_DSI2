@@ -1,4 +1,5 @@
 <div class="users form">
+    <?php $this->set('title_for_layout', 'Agregar Marca'); ?>
 	<fieldset>
 	<legend><?php echo __('Agregar Marca de Vehículo'); ?></legend>
 	<?php

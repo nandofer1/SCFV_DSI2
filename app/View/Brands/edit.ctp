@@ -1,4 +1,4 @@
-
+<?php $this->set('title_for_layout', 'Editar marca'); ?>
 <div class="users form">
     <fieldset>
 

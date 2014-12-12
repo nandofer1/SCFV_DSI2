@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Modificar modelo'); ?>
 <div class="users form">
 	<fieldset>
 	<legend><?php echo __('Modificar Modelo de Vehículo'); ?></legend>

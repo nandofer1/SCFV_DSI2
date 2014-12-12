@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Repuestos'); ?>
 <div class="parts index">
 	<h2><?php echo __('Parts'); ?></h2>
 	<table cellpadding="0" cellspacing="0">

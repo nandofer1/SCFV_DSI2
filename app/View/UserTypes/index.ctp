@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Tipos de usuario'); ?>
 <h1 class="list-title">Tipos de Usuario</h1>
 <div class="list-container">
   <div class="list-search">

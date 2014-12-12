@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar usuario'); ?>
 <?php //pr($this->validationErrors); ?>
 <div class="users form">
 <?php echo $this->Form->create('User'); ?>

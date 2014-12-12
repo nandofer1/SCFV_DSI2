@@ -1,4 +1,4 @@
-
+<?php $this->set('title_for_layout', 'Búsqueda de expediente'); ?>
 <center><b>Listado de Vehículos</b>
     <br><br>
 <?php 

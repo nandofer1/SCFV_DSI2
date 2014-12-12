@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Viajes de camiones recolectores'); ?>
 <h1 class="list-title">Viajes de Camiones Recolectores</h1>
 <div class="list-container">
     <div class="list-search">

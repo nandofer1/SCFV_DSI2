@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar repuestos'); ?>
 <div class="parts form">
 <?php echo $this->Form->create('Part'); ?>
 	<fieldset>

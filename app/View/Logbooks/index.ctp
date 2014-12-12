@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Bitacora'); ?>
 <div class="form">
 <h1 class="list-title">Bitacora</h1>
 <div class="list-container">

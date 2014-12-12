@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Unidades de alcaldía'); ?>
 <h1 class="list-title">Unidades de Alcaldía</h1>
 <div class="list-container">
 <table class="list">

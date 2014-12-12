@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Herramientas'); ?>
 <h1 class="list-title">Herramientas</h1>
 <div class="list-container">
 <table class="list">

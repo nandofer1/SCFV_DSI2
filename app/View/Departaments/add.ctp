@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar departamento'); ?>
 <div class="users form">
     <fieldset>
 

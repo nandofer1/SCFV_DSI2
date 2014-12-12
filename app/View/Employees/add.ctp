@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar empleado'); ?>
 <div class="users form">
     <fieldset>
     <legend><?php

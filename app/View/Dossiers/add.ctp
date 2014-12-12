@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar expediente'); ?>
 <div class="dossiers form">
 <?php echo $this->Form->create('Dossier'); ?>
 	<fieldset>

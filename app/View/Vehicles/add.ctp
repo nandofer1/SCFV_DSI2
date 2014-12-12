@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar vehículo'); ?>
 <div class="users form">
     <fieldset>
     <legend><?php echo __('Agregar Vehiculo'); ?></legend>

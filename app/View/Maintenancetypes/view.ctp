@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Tipo de mantenimiento'); ?>
 <div class="maintenancetypes view">
 <h2><?php echo __('Maintenancetype'); ?></h2>
 	<dl>

@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Sistema de Control de flota vehicular'); ?>
 <?php $wb = $this->webroot; $imgdir = "{$this->webroot}app/webroot/img"; ?>
         <div class="login-outer" style="background: transparent; height: 550px; color: #333">
             <div class="login-middle">

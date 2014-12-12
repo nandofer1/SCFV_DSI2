@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Departamentos'); ?>
 <div class="form">
 <h1 class="list-title">Departamentos</h1>
 <div class="list-container">

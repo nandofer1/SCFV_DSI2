@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Editar vale de combustible'); ?>
 <div class="fuelvouchers form">
 <?php echo $this->Form->create('Fuelvoucher'); ?>
 	<fieldset>

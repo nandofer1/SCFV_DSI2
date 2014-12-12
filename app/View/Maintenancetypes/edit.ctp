@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Editar tipos de mantenimiento'); ?>
 <div class="maintenancetypes form">
 <?php echo $this->Form->create('Maintenancetype'); ?>
 	<fieldset>

@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar Unidad de Alcaldía'); ?>
 <div class="users form">
     <fieldset>
     <legend><?php echo __('Agregar Unidad de Alcaldía'); ?></legend>

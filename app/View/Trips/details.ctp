@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Detalles viaje'); ?>
 <h1 class="list-title">Viaje</h1>
 
 <div class="list-container">

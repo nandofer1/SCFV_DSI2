@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Tipos de mantenimiento'); ?>
 <div class="maintenancetypes index">
 	<h2><?php echo __('Maintenancetypes'); ?></h2>
 	<table cellpadding="0" cellspacing="0">

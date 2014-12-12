@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Herramienta'); ?>
 <div class="tools view">
 <h2><?php echo __('Tool'); ?></h2>
 	<dl>

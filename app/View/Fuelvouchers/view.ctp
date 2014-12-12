@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Vale de combustible'); ?>
 <div class="fuelvouchers view">
 <h2><?php echo __('Fuelvoucher'); ?></h2>
 	<dl>

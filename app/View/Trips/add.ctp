@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Reportar salida de camión recolector de basura'); ?>
 <div class="users form">
 
    <?php //  print_r ($Expedientes); ?>

@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Agregar tipo de usuario'); ?>
 <div class="users form">
 <?php echo $this->Form->create('UserType'); ?>
     <fieldset>

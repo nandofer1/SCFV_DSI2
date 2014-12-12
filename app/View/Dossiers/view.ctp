@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Expediente de vehículo'); ?>
 <div class="form">.
 <h1 class="list-title">Expediente de Vehiculo</h1>
 <div class="list-container">

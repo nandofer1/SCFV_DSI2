@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Vehículo dado de baja'); ?>
 <h1 class="list-title">Vehiculo dado de baja</h1>
 <div class="list-container">
   <table class="list">

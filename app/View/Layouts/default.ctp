@@ -36,7 +36,6 @@ echo $this->Html->script('jquery.timePicker.min');
 echo $this->Html->script('zebra_datepicker');
 
 ?>
-	<title>Cove - <?php echo $this->fetch('title'); ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/css/cove.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/js/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $webroot ?>/css/jquery-ui-1.9.2.custom.css">	

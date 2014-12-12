@@ -1,3 +1,4 @@
+<?php $this->set('title_for_layout', 'Repuesto'); ?>
 <div class="parts view">
 <h2><?php echo __('Part'); ?></h2>
 	<dl>
