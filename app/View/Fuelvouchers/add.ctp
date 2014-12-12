@@ -17,6 +17,7 @@
 		echo $this->Form->input('galones');
 		echo $this->Form->input('aceite');
 		echo $this->Form->input('factura');
+                echo $this->Form->input('gastado',array('type'=>'hidden','value'=>0));
 	?>
 	</fieldset>
 <?php echo $this->Form->end('Guardar'); ?>

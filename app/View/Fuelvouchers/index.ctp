@@ -19,29 +19,30 @@
     
   <table class="list">
     <tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('factura','N° Factura'); ?></th>
 			<th><?php echo $this->Paginator->sort('monto'); ?></th>
 			<th><?php echo $this->Paginator->sort('fecha'); ?></th>
 			<th><?php echo $this->Paginator->sort('tipo_combustible'); ?></th>
-			<th><?php echo $this->Paginator->sort('galones'); ?></th>
+			<th><?php echo $this->Paginator->sort('galones','N° Galones'); ?></th>
 			<th><?php echo $this->Paginator->sort('aceite'); ?></th>
-			<th><?php echo $this->Paginator->sort('factura'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+		
+			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($fuelvouchers as $fuelvoucher): ?>
 	<tr>
-		<td><?php echo h($fuelvoucher['Fuelvoucher']['id']); ?>&nbsp;</td>
-		<td><?php echo h($fuelvoucher['Fuelvoucher']['monto']); ?>&nbsp;</td>
+		<td><?php echo h($fuelvoucher['Fuelvoucher']['factura']); ?>&nbsp;</td>
+		<td><?php echo '$'.h($fuelvoucher['Fuelvoucher']['monto']); ?>&nbsp;</td>
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['fecha']); ?>&nbsp;</td>
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['tipo_combustible']); ?>&nbsp;</td>
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['galones']); ?>&nbsp;</td>
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['aceite']); ?>&nbsp;</td>
-		<td><?php echo h($fuelvoucher['Fuelvoucher']['factura']); ?>&nbsp;</td>
+		
 		<td class="actions">
 			<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $fuelvoucher['Fuelvoucher']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $fuelvoucher['Fuelvoucher']['id'])); ?>
+                        <?php echo $this->Html->link(__('Usar'), array('action' => 'Assign', $fuelvoucher['Fuelvoucher']['id'])); ?>
 			
 		</td>
 	</tr>

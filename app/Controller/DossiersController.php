@@ -35,11 +35,11 @@ class DossiersController extends AppController {
  */
 	public function view($id = null) {
             $this->loadModel('Trip'); 
-         $ultimo= $this->Trip->find('all',array(
+         $ultimo= $this->Trip->find('list',array(
     
     'fields'=>array('Trip.dossier_id','Trip.id'),
     'conditions'=>array('Trip.dossier_id' =>$id),
-     'order'=>'Trip.id DESC'        
+     'order'=>'Trip.id ASC'        
              
              ));
          $this->set('Ultimo',$ultimo);
@@ -115,4 +115,12 @@ class DossiersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+        
+        public function Trip($id=null) {
+         $this->loadModel('Trip'); 
+		 //$this->redirect('Trips/details/',$id);
+        
+	}
+        
+          
 }

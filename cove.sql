@@ -212,13 +212,14 @@ INSERT INTO `employees` VALUES ('01245678-0', 11, 'Cristoval Macario', 'Pavon La
 --
 
 CREATE TABLE IF NOT EXISTS `fuelvouchers` (
-  `id` varchar(10) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `monto` float NOT NULL,
   `fecha` date NOT NULL,
   `tipo_combustible` varchar(10) NOT NULL,
   `galones` decimal(10,0) NOT NULL,
   `aceite` decimal(10,0) NOT NULL,
   `factura` int(11) NOT NULL,
+  `gastado` int(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -775,8 +776,8 @@ CREATE TABLE IF NOT EXISTS `devehicles` (
 --
 
 CREATE TABLE IF NOT EXISTS `vouchers` (
-  `id` varchar(10) NOT NULL,
-  `trip_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dossier_id` int(11) NOT NULL,
   `fuelvoucher_id` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

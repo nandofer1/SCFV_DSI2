@@ -102,4 +102,38 @@ class FuelvouchersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+        
+        public function Assign($id=null) {
+            $this->Fuelvoucher->id = $id;
+            
+           $this->loadModel('Dossier'); 
+           $exp=$this->Dossier->find('list', array(       
+                  'fields' => array('Dossier.id', 'Dossier.vehicle_id'),
+                  'conditions'=>array('Dossier.activo'=>1),
+                  'order'=>'Dossier.vehicle_id'));
+           $this->set('Expedientes',$exp);
+           $this->set('id',$id);
+           
+             $this->loadModel('Voucher'); 
+             if($this->request->is('post')): 
+            $idexpediente=$this->request->data['Voucher']['dossier_id'];
+      if($this->Voucher->Save($this->request->data)):
+          
+          $this->request->data=$this->Fuelvoucher->read();
+      $this->request->data['Fuelvoucher']['gastado']=1;
+      $this->Fuelvoucher->Save($this->request->data);
+      
+      $this->Dossier->id=$idexpediente;
+      $this->request->data=$this->Dossier->read();
+      $numerovales=$this->request->data['Dossier']['numero_vales'];
+      $this->request->data['Dossier']['numero_vales']=$numerovales+1;
+       $this->Dossier->Save($this->request->data);
+      
+      
+          
+           $this->Session->setFlash('Vale asignado a Vehiculo', 'flash_notification');
+        $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
+        endif;
+      endif;
+	}
 }

@@ -9,9 +9,11 @@
       <tr><td>Kilometraje Actual: </td><td><?php echo $dossier['Dossier']['kilometraje'];?></td></tr>
       <tr><td>Kilometraje: </td><td><?php echo $dossier['Dossier']['kilometraje']?></td></tr>
       <tr><td>Numero Viajes: </td><td><?php echo $dossier['Dossier']['numero_viajes'];
+      $U=end ($Ultimo);
       echo'<br><br>';
       echo'Ultimo Viaje Realizado:';
-      print_r($Ultimo);
+   echo $this->Html->link('Ver Detalles',array('action'=>'Trip',end ($Ultimo))) ;
+      echo end ($Ultimo);
      // echo $this->Html->link('Ver Detalles',array('action'=>'Trips/details',$Ultimo['Trip']['id']));
       ?></td></tr>
       <tr><td>Numero Mantenimientos: </td><td><?php echo $dossier['Dossier']['numero_mantenimientos']?></td></tr>

@@ -297,7 +297,7 @@ $this->set('Herramientas',$this->Tool->find('all'));
     $this->Dossier->id=$this->request->data['Trip']['dossier_id'];
   $this->request->data= $this->Dossier->read();
   $kilometraje=$this->request->data['Dossier']['kilometraje'];
-    $nviajes=$this->request->data['Dossier']['numer_viajes'];
+    $nviajes=$this->request->data['Dossier']['numero_viajes'];
   $this->request->data['Dossier']['kilometraje']=$kilometraje + $kmr;
   $this->request->data['Dossier']['numero_viajes']=$nviajes+1;
   $this->Dossier->save($this->request->data);
