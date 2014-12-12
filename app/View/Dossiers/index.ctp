@@ -1,5 +1,5 @@
 <?php $this->set('title_for_layout', 'Expedientes de vehículos'); ?>
-
+<div class="form">
 <h1 class="list-title">Expedientes de vehículos</h1>
 <div class="list-container">
   <div class="list-search">
@@ -68,4 +68,5 @@
 		echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
+</div>
 </div>
