@@ -740,15 +740,15 @@ INSERT INTO `vehicles` VALUES
 
 -- --------------------------------------------------------
 INSERT INTO `dossiers` VALUES 
-('','N4165','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N4546','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N5241','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N5456','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N5468','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N5687','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N5713','2014-11-30', '0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N5746','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1'),
-('','N7721','2014-11-30','0','0','0','0','0','0',FALSE,'Ingreso en Perfecto estado','1');
+(id, 'N4165','2014-11-30','0','0','0','0','0', '0-0-0', FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N4546','2014-11-30', '0','0','0','0','0', '0-0-0', FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N5241','2014-11-30','0','0','0','0','0', '0-0-0', FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N5456','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N5468','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N5687','2014-11-30', '0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N5713','2014-11-30', '0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N5746','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
+(id, 'N7721','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1');
 
 --
 -- Estructura de tabla para la tabla `devehicles`
