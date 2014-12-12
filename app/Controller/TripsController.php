@@ -26,7 +26,7 @@ public function index()
 public function add()
 {
 $this->loadModel('Dossier'); //cargamos el modelo Expediente
-
+$this->loadModel('Vehicle');
 /*$this->set('Expedientes',$this->Dossier->find('list', array(       
                   'fields' => array('Dossier.id', 'Dossier.vehicle_id')
                  
@@ -35,24 +35,47 @@ $this->loadModel('Dossier'); //cargamos el modelo Expediente
   // AQUI EVITAMOS QUE CUANDO UN VEHICULO HA SALIDO NO SE PUEDA PODER SELECCIONAR HASTA QUE SE REGISTRE ENTRADA DE SU VIAJE
 $exp=$this->Dossier->find('list', array(       
                   'fields' => array('Dossier.id', 'Dossier.vehicle_id'),
-                  'conditions'=>array('Dossier.activo'=>1)));
+                  'conditions'=>array('Dossier.activo'=>1),
+                  'order'=>'Dossier.vehicle_id'
+    
+    ));
+$Veh=$this->Vehicle->find('list', array(       
+                  'fields' => array('Vehicle.id', 'Vehicle.management_id'),
+                  'order'=>'Vehicle.id'));
+//AQUI CREAMOS UN ARREGLO CON EL ID DE EXPEDIENTE Y LAS PLACAS DE LOS VEHICULOS QUE SOLO PERTENECEN A LA  GERENCIA DE SERVICIOS
+$j=0;
+$Exp=array();
+while ($j<count($Veh))
+    {
+    if($Veh[$exp[key($exp)]]==5):
+        
+           $Exp[key($exp)]=key($Veh);
+           
+    endif;
+    next($Veh);
+    next($exp);
+    $j=$j+1;
+    }
+//$this->set('Prueba',$Exp);
+
 $i=0;
-while($i<count($exp)){
-   $viajes= $this->Trip->find('all',array('conditions'=>array('Trip.dossier_id' =>key($exp),'Trip.fuera' =>1)));
+while($i<count($Exp)){
+   $viajes= $this->Trip->find('all',array('conditions'=>array('Trip.dossier_id' =>key($Exp),'Trip.fuera' =>1)));
+   
   
    
             if((empty($viajes))==true):
                
                 else:
-                 unset($exp[key($exp)]);
+                 unset($Exp[key($Exp)]);
             
             endif;
-    next($exp);
+    next($Exp);
     $i=$i+1;
     
 }
          // se asigna el arreglo ya depurado sin los vehiculos que ya estan en viaje
-$this->set('Expedientes',$exp);
+$this->set('Expedientes',$Exp);
 
 
 $this->loadModel('Employee'); //cargamos el modelo Empleado
