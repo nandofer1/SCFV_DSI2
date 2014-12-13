@@ -43,7 +43,7 @@
 		<td><?php echo h($dossier['Dossier']['numero_viajes']); ?>&nbsp;</td>
 		<td><?php echo h($dossier['Dossier']['numero_mantenimientos']); ?>&nbsp;</td>
 		<td><?php echo h($dossier['Dossier']['numero_vales']); ?>&nbsp;</td>
-		<td><?php echo h($dossier['Dossier']['fecha_ult_mant']); ?>&nbsp;</td>
+		<td><?php echo $dossier['Dossier']['fecha_ult_mant']=='0000-00-00'?"Ninguno":$dossier['Dossier']['fecha_ult_mant']?>&nbsp;</td>
 		<td><?php echo $dossier['Dossier']['prestable']==false?"No":"Si"?>&nbsp;</td>
 <!--		<td><?php echo h($dossier['Dossier']['observaciones']); ?>&nbsp;</td>-->
 		<td class="actions">
