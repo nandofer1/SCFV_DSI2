@@ -163,8 +163,7 @@ $(document).ready(function(){
         show24Hours: false,
         separator: ':',
     });
-}
-
+//-------------------------------------------------------------------------------
     var tripulacion = [$("#TripDui1"), $("#TripDui2"), $("#TripDui3"), $("#TripDui3"), $("#TripDui4"), $("#TripDui5")];
     function comp(dis, sid) {
         for(i=0; i<= (tripulacion.length - 1); i++){
@@ -179,8 +178,8 @@ $(document).ready(function(){
     $("#TripDui2").change(function(){comp($(this));});
     $("#TripDui3").change(function(){comp($(this));});
     $("#TripDui4").change(function(){comp($(this));});
-    $("#TripDui5").change(function(){comp($(this));});
-    
-
-);
+    $("#TripDui5").change(function(){comp($(this));});   
+   
+   
+});
 </script>
