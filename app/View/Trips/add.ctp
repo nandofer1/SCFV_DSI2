@@ -163,8 +163,25 @@ $(document).ready(function(){
         show24Hours: false,
         separator: ':',
     });
-    /*
-//-------------------------------------------------------------------------------
+    
+    //-------------------------------------------------------------------------------
+
+    msg = function() {
+        //e.preventDefault();
+        bootbox.dialog({
+        title: "Usuarios",
+        message: "No puede escoger el mismo empleado mas de una vez!",
+        buttons: {
+           aceptar: {
+            label: "Aceptar",
+            className: "btn-success",
+            callback: function() {
+            }
+          }
+        }
+        });
+    }
+
     var tripulacion = [$("#TripDui1"), $("#TripDui2"), $("#TripDui3"), $("#TripDui3"), $("#TripDui4"), $("#TripDui5")];
     function comp(dis, sid) {
         for(i=0; i<= (tripulacion.length - 1); i++){
@@ -180,7 +197,7 @@ $(document).ready(function(){
     $("#TripDui3").change(function(){comp($(this));});
     $("#TripDui4").change(function(){comp($(this));});
     $("#TripDui5").change(function(){comp($(this));});   
-   */
+   
    
 });
 </script>
