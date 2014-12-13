@@ -165,12 +165,11 @@ $(document).ready(function(){
     });
     
     //-------------------------------------------------------------------------------
-
-    msg = function() {
+    msg = function(msg) {
         //e.preventDefault();
         bootbox.dialog({
         title: "Usuarios",
-        message: "No puede escoger el mismo empleado mas de una vez!",
+        message: msg,
         buttons: {
            aceptar: {
             label: "Aceptar",
@@ -186,18 +185,34 @@ $(document).ready(function(){
     function comp(dis, sid) {
         for(i=0; i<= (tripulacion.length - 1); i++){
             if(dis.val()=="") { return; }
+            if($("#TripMotorista").val() == tripulacion[i].val() && tripulacion[i].val() != ""){
+                msg("No se puede escoger ese tripulante porque ya esta designado como motorista.");
+                dis.val("");
+            }
             if(dis.val()==tripulacion[i].val() && tripulacion[i].attr('id') != dis.attr('id')){
-                msg();
+                msg("No puede escoger el mismo empleado mas de una vez!");
                 dis.val("");
             }
         }
     };
+
+
+    function comp2(dis, sid) {
+        for(i=0; i<= (tripulacion.length - 1); i++){
+            if($("#TripMotorista").val() == tripulacion[i].val() && tripulacion[i].val() != ""){
+                msg("No se puede escoger ese motorista porque ya esta designado como tripulante.");
+                $("#TripMotorista").val("");
+            }
+        }
+    };
+
+    $("#TripMotorista").change(function(){comp2($(this));});
     $("#TripDui1").change(function(){comp($(this));});
     $("#TripDui2").change(function(){comp($(this));});
     $("#TripDui3").change(function(){comp($(this));});
     $("#TripDui4").change(function(){comp($(this));});
-    $("#TripDui5").change(function(){comp($(this));});   
-   
+    $("#TripDui5").change(function(){comp($(this));});
+
    
 });
 </script>
