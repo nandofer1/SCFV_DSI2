@@ -1,7 +1,10 @@
 <?php $this->set('title_for_layout', 'Préstamos'); ?>
-<h1 class="list-title">Solicitud de prestamos</h1>
+
+<h1 class="list-title">Solicitudes de prestamos</h1>
 <div class="list-container">
-  <div class="list-search">
+  
+    <!--
+    <div class="list-search">
     <form action="../requests/buscar" id="RequestsForm" method="post" accept-charset="utf-8">
       <div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>
       <input name="data[User][query]" type="text" id="BuscarQuery" placeholder="Palabras clave" value="<?php echo  isset($query)? $query: "" 
@@ -14,7 +17,7 @@
       <input  type="submit" value="Buscar"/>
 
     </form>
-  </div>
+  </div>--><br /><br /><br />
     
     
   <table class="list">
@@ -29,7 +32,7 @@
 		<th><?php echo $this->Paginator->sort('hora_fin'); ?></th>
 -->
 		<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
-		<th><?php echo $this->Paginator->sort('aprobado'); ?></th>
+		<th><?php echo $this->Paginator->sort('aprobación'); ?></th>
 		<th><?php echo $this->Paginator->sort('anulado'); ?></th>
 		<th colspan="3" class="actions"><center><?php echo __('Acciones'); ?></center></th>
     </tr>
@@ -53,15 +56,23 @@
 		<td><?php echo h($request['Request']['hora_fin']); ?>&nbsp;</td>
 -->
 		<td><?php echo h($request['Request']['descripcion']); ?>&nbsp;</td>
-		<td><?php echo h($request['Request']['aprobado']); ?>&nbsp;</td>
-		<td><?php echo h($request['Request']['anulado']); ?>&nbsp;</td>
+		<td><?php 
+            if ($request['Request']['aprobado'] == 1){
+                echo 'Aprobada';
+            }elseif($request['Request']['aprobado'] == 2){
+                echo 'Rechazada';
+            }else{
+                echo 'Pendiente';
+            }
+            ?>&nbsp;</td>
+		<td><?php echo $request['Request']['anulado'] ? 'Anulada': '---'; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver detalles'), array('action' => 'view', $request['Request']['id'])); ?></td>
         <td class="actions">
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $request['Request']['id'])); ?></td>
             
             <td class="actions">
-            <?php echo $this->Html->link(__('Gestionar'), array('action' => 'edit', $request['Request']['id'])); ?>
+            <?php echo $this->Html->link(__('Gestionar'), array('action' => 'manage', $request['Request']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach;
@@ -75,31 +86,19 @@
   </table>
 </div>
 
+     <p id="paginador">
+        <?php  echo $this->Paginator->counter(
+                array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
+                
+                )?> 
+    </p>
+    <div class="paging">
+        <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
+        <?php echo $this->Paginator->numbers(array('separator'=>' ')); ?>
+         <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
+        
+    </div>
 
-
-
-
-
-
-<!--
-<div class="requests index">
-	<h2><?php echo __('Requests'); ?></h2>
-	
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
--->
 <!--
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

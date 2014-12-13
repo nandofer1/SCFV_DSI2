@@ -1,105 +1,92 @@
-<?php //echo $this->Html->css('jquery-ui-1.9.2.custom'); ?>
-<?php //echo $this->Html->script('jquery-ui-1.9.2.custom.min'); ?>
+<?php $this->set('title_for_layout', 'Gestión de solicitudes'); ?>
 <div class="requests form">
-<?php $this->set('title_for_layout', 'Solicitar vehículo'); ?>
 <?php echo $this->Form->create('Request'); ?>
 	<fieldset>
-		<legend><?php echo __('Solicitar vehículo'); ?></legend>
+		<legend><?php echo __('Gestión de solicitud'); ?></legend>
 	<?php
+		echo $this->Form->input('id');
         echo $this->Form->input('fecha_solicitud', array(
             'label' => 'Fecha Solicitud: ',
-            'placeholder'=>'año-mes-dia',
-            'required' => 'true',
-            'allowEmpty' => 'false',
-            'error' => 'Completar este campo', 
+            'placeholder'=>'aaaa-mm-dd',
             'type' => 'text',
-            'default' => date('Y-m-d', time()),
+            'error' => false,
             'id' => 'select_date',
+            'required'=>'true',
+            'disabled' => 'disabled'
         ));
         echo $this->Form->input('dossier_id', array(
-            'label' => 'Placa del vehículo: ',
+            'label' => 'Expediente del vehículo: ',
             'type'    => 'select',
             'required'=>'true',
             'empty'   => ('Seleccione una opción'),
-        ));
-        echo $this->Form->input('employee_id', array(
-            'label' => 'Nombre del solicitante: ',
-            'type'    => 'select',
-            'required'=>'true',
-            'empty'   => ('Seleccione una opción'),
-        ));
-        echo $this->Form->input('driver_id', array(
-            'label' => 'Conductor: ',
-            'type'    => 'select',
-            'required'=>'true',
-            'empty'   => ('Opcional'),
-        ));
-        echo $this->Form->input('unit_id', array(
-            'label' => 'Unidad: ',
-            'type'    => 'select',
-            'required'=>'true',
-            'empty'   => ('Seleccione una opción'),
+            'disabled' => 'disabled'
         ));
         echo $this->Form->input('telefono', array(
             'label' => 'Telefono: ',
-            'required'=>'true',
             'placeholder'=>'Ej: ####-####',
-            'size'=> 9,
+            'disabled' => 'disabled'
         ));
 		echo $this->Form->input('user_id', array(
             'label' => 'Usuario solicitante: ',
             'type'    => 'select',
             'required'=>'true',
             'empty'   => ('Seleccione una opción'),
+            'disabled' => 'disabled'
         ));
 		
 		echo $this->Form->input('fecha_inicio', array(
             'label' => 'Desde el dia: ',
-            'placeholder'=>'año-mes-dia',
-            'required' => 'true',
-            'allowEmpty' => 'false',
-            'default' => date('Y-m-d', time()),
-            'error' => 'Completar este campo', 
+            'placeholder'=>'aaaa-mm-dd',
             'type' => 'text',
+            'error' => false,
             'id' => 'select_date2',
-        )); 
+            'required'=>'true',
+            'disabled' => 'disabled'
+        ));
 		echo $this->Form->input('fecha_fin', array(
             'label' => 'Hasta el dia: ',
-            'placeholder'=>'año-mes-dia',
-            'required' => 'true',
-            'allowEmpty' => 'false',
-            'default' => date('Y-m-d', time()),
-            'error' => 'Completar este campo', 
+            'placeholder'=>'aaaa-mm-dd',
             'type' => 'text',
+            'error' => false,
             'id' => 'select_date3',
+            'required'=>'true',
+            'disabled' => 'disabled'
         ));
 		echo $this->Form->input('hora_inicio', array(
-            'label' => 'Desde las: ',
             'type' => 'text',
-            'required'=>'true',
             'id' => 'hora_inicio',
+            'disabled' => 'disabled'
         ));
 		echo $this->Form->input('hora_fin', array(
-            'label' => 'Hasta las: ',
             'type' => 'text',
-            'required'=>'true',
             'id' => 'hora_fin',
+            'disabled' => 'disabled'
         ));
 		echo $this->Form->input('descripcion', array(
             'label' => 'Descripción: ',
-            'required'=>'true',
             'placeholder'=>'Indique concretamente la misión a realizar',
             'type' => 'textarea',
             'size'=>250,
+            'disabled' => 'disabled'
         ));
-		//echo $this->Form->input('aprobado');
-		//echo $this->Form->input('anulado');
-        echo '<div class="input">';
-        echo $this->Form->end(__('Enviar solicitud'));
+		echo $this->Form->input('aprobado', array(
+            'label' => 'Aprobado',
+            'type' => 'select',
+            'empty' => 'Seleccionar opción',
+            'options' => array(
+                '1'=>'Aprobada', 
+                '2'=>'Rechazada'
+            )));
+		echo '<div style="width: 30px;padding-left: -50px;margin: 0 auto;">';
+        echo $this->Form->input('anulado', array(
+            'label' => 'Anular',
+        ));
         echo '</div>';
-        ?>
+        echo '<div class="input">';
+        echo $this->Form->end(__('Guardar'));
+        echo '</div>';
+	?>
 	</fieldset>
-
 </div>
 
 <script>

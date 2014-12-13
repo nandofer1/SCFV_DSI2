@@ -61,7 +61,8 @@ class RequestsController extends AppController {
         $units = $this->Request->Unit->find('list');
 		$users = $this->Request->User->find('list');
         $employees = $this->Request->Employee->find('list');
-		$this->set(compact('dossiers', 'units', 'users','employees'));
+        $drivers = $this->Request->Employee->find('list');
+		$this->set(compact('dossiers', 'units', 'users','employees', 'drivers'));
 	}
 
 /**
@@ -77,21 +78,57 @@ class RequestsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Request->save($this->request->data)) {
-				$this->Session->setFlash(__('The request has been saved.'));
+				$this->Session->setFlash(__('La solicitud ha sido actualizada.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The request could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('La solititud fallo al actualizar, favor intentar nuevamente.'));
 			}
 		} else {
 			$options = array('conditions' => array('Request.' . $this->Request->primaryKey => $id));
 			$this->request->data = $this->Request->find('first', $options);
 		}
-		$dossiers = $this->Request->Dossier->find('list');
+		$dossiers = $this->Request->Dossier->find('list',array(
+            'conditions' => array('Dossier.prestable' => '1')
+        ));
+        $units = $this->Request->Unit->find('list');
 		$users = $this->Request->User->find('list');
-		$employees = $this->Request->Employee->find('list');
-		$this->set(compact('dossiers', 'users','employees'));
+        $employees = $this->Request->Employee->find('list');
+        $drivers = $this->Request->Employee->find('list');
+		$this->set(compact('dossiers', 'units', 'users','employees', 'drivers'));
 	}
 
+/**
+ * manage method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function manage($id = null) {
+		if (!$this->Request->exists($id)) {
+			throw new NotFoundException(__('Invalid request'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Request->save($this->request->data)) {
+				$this->Session->setFlash(__('Solicitud actualizada.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('La solicitud fallo al actualizarse, favor intentar neuvamente.'));
+			}
+		} else {
+			$options = array('conditions' => array('Request.' . $this->Request->primaryKey => $id));
+			$this->request->data = $this->Request->find('first', $options);
+		}
+		$dossiers = $this->Request->Dossier->find('list',array(
+            'conditions' => array('Dossier.prestable' => '1')
+        ));
+        $units = $this->Request->Unit->find('list');
+		$users = $this->Request->User->find('list');
+        $employees = $this->Request->Employee->find('list');
+        $drivers = $this->Request->Employee->find('list');
+		$this->set(compact('dossiers', 'units', 'users','employees', 'drivers'));
+	}    
+    
 /**
  * delete method
  *
