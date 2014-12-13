@@ -1,4 +1,5 @@
 <?php
+App::uses('Logbook', 'Model');
 class TripsController extends AppController
 {
 public $helpers=array('Html','Form'); // helper para hacer formularios
@@ -126,6 +127,9 @@ if($this->request->is('post')): // si la consulta es de tipo post
     // si se pueden guardar los datos que vienen en el request , y el QUERY ESTA IMPLICITO
     
     if($this->Trip->Save($this->request->data)): 
+    	//Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Salida de Viaje Registrada", serialize($this->request->data));
     
         
         //Ingresamos Motorista con el viaje
