@@ -163,8 +163,8 @@ $(document).ready(function(){
         show24Hours: false,
         separator: ':',
     });
-    /*
-   //-------------------------------------------------------------------------------
+    
+    //-------------------------------------------------------------------------------
 
     msg = function() {
         //e.preventDefault();
@@ -197,7 +197,7 @@ $(document).ready(function(){
     $("#TripDui3").change(function(){comp($(this));});
     $("#TripDui4").change(function(){comp($(this));});
     $("#TripDui5").change(function(){comp($(this));});   
-   */
+   
    
 });
 </script>
