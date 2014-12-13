@@ -95,7 +95,7 @@ echo $this->Form->input('Dui5', array(
 ));
 echo $this->Form->label('Comentario de Salida');echo'<br>';
 echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; height:200px;','pattern'=>'/^[A-Za-z0-9áéíóúÁÉÍÓÚÑñ\s]{1,}$/i'));
-
+echo $this->Form->input('rendimiento',array('type'=>'hidden','value'=>'0','style'=>'width: 100px; height:30px;'));
 ?>
      <table class="list" >
         <tr>
