@@ -559,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `fecha_solicitud` date NOT NULL,
   `employee_id` int(10) NOT NULL,
   `driver_id` int(10),
-  `unidad_id` int(10) NOT NULL,
+  `unit_id` int(10) NOT NULL,
   `telefono` varchar(14) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
