@@ -600,7 +600,11 @@ CREATE TABLE IF NOT EXISTS `tools` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
-
+INSERT INTO `tools` (`herramienta`, `existencia`, `descripcion`, `valor`) VALUES
+('Escoba', 30, 'Escoba para uso de camiones recolectores y viajes de recoleccion de desechos solidos',1.25),
+('Pala', 25, 'Pala para recoger la Basura durante lso viajes de camiones recolectores',2.25),
+('Guantes', 100, 'Pares de guantes para los empleados que realizan los viajes conn camion recolector',0.65),
+('Sacos', 100, 'Sacos para ayuda de recoleccion de basura',0.45);
 --
 -- Estructura de tabla para la tabla `trips`
 --

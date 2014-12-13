@@ -25,6 +25,7 @@
 			<th><?php echo $this->Paginator->sort('tipo_combustible'); ?></th>
 			<th><?php echo $this->Paginator->sort('galones','N° Galones'); ?></th>
 			<th><?php echo $this->Paginator->sort('aceite'); ?></th>
+                        <th><?php echo $this->Paginator->sort('gastadpo','Estado'); ?></th>
 		
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
@@ -38,11 +39,22 @@
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['tipo_combustible']); ?>&nbsp;</td>
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['galones']); ?>&nbsp;</td>
 		<td><?php echo h($fuelvoucher['Fuelvoucher']['aceite']); ?>&nbsp;</td>
+                <td><?php  if ($fuelvoucher['Fuelvoucher']['gastado']==0):
+                    echo '<font color="green"><b>Disponile</font>';
+                else:
+                    echo '<font color="red"><b>Utilizado</font>';
+                    
+                endif;
+         ?>&nbsp;</td>
 		
 		<td class="actions">
 			<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $fuelvoucher['Fuelvoucher']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $fuelvoucher['Fuelvoucher']['id'])); ?>
-                        <?php echo $this->Html->link(__('Usar'), array('action' => 'Assign', $fuelvoucher['Fuelvoucher']['id'])); ?>
+                        <?php if ($fuelvoucher['Fuelvoucher']['gastado']==1):
+                            echo 'Sin Accion';
+                            else:
+                            echo $this->Html->link(__('Usar'), array('action' => 'Assign', $fuelvoucher['Fuelvoucher']['id']));
+                        endif; ?>
 			
 		</td>
 	</tr>
