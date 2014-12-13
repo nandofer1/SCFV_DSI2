@@ -387,6 +387,10 @@ $this->set('Empleados',$this->Employee->find('list', array(
     else: //si la peteicion no es get
         
         if($this->Trip->save($this->request->data)):
+      	//Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Salida de Viaje Registrada", serialize($this->request->data));
+        
             $this->Session->setFlash('Modificación de viaje Realizado ', 'flash_notification');
             $this->redirect(array('action'=>'index'));
             else:
