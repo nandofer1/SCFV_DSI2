@@ -49,16 +49,19 @@ class RequestsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Request->create();
 			if ($this->Request->save($this->request->data)) {
-				$this->Session->setFlash(__('The request has been saved.'));
+				$this->Session->setFlash(__('La solicitud ha sido enviada.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The request could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('La solicitud no fue enviada, intentelo nuevamente.'));
 			}
 		}
-		$dossiers = $this->Request->Dossier->find('list');
+        $dossiers = $this->Request->Dossier->find('list',array(
+            'conditions' => array('Dossier.prestable' => '1')
+        ));
+        $units = $this->Request->Unit->find('list');
 		$users = $this->Request->User->find('list');
         $employees = $this->Request->Employee->find('list');
-		$this->set(compact('dossiers', 'users','employees'));
+		$this->set(compact('dossiers', 'units', 'users','employees'));
 	}
 
 /**

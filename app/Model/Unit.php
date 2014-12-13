@@ -1,6 +1,8 @@
 <?php
 class Unit extends AppModel
 {
+    public $displayField = 'unidad';
+    
      public $validate=array( //INICIO VALIDACION
          
           'unidad' => array(

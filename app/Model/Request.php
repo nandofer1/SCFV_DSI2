@@ -33,6 +33,13 @@ class Request extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+        'Unit' => array(
+			'className' => 'Unit',
+			'foreignKey' => 'unit_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
         'Employee' => array(
 			'className' => 'Employee',
 			'foreignKey' => 'employee_id',

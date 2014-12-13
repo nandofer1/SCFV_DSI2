@@ -4,7 +4,7 @@
 <?php $this->set('title_for_layout', 'Solicitar vehículo'); ?>
 <?php echo $this->Form->create('Request'); ?>
 	<fieldset>
-		<legend><?php echo __('Solicitar vehiculo'); ?></legend>
+		<legend><?php echo __('Solicitar vehículo'); ?></legend>
 	<?php
         echo $this->Form->input('fecha_solicitud', array(
             'label' => 'Fecha Solicitud: ',
@@ -15,7 +15,7 @@
             'required'=>'true',
         ));
         echo $this->Form->input('dossier_id', array(
-            'label' => 'Expediente del vehículo: ',
+            'label' => 'Placa del vehículo: ',
             'type'    => 'select',
             'empty'   => ('Seleccione una opción'),
         ));
@@ -26,6 +26,11 @@
         ));
         echo $this->Form->input('employee_id', array(
             'label' => 'Conductor: ',
+            'type'    => 'select',
+            'empty'   => ('Opcional'),
+        ));
+        echo $this->Form->input('unit_id', array(
+            'label' => 'Unidad: ',
             'type'    => 'select',
             'empty'   => ('Seleccione una opción'),
         ));
@@ -56,10 +61,12 @@
             'required'=>'true',
         ));
 		echo $this->Form->input('hora_inicio', array(
+            'label' => 'Desde las: ',
             'type' => 'text',
             'id' => 'hora_inicio',
         ));
 		echo $this->Form->input('hora_fin', array(
+            'label' => 'Hasta las: ',
             'type' => 'text',
             'id' => 'hora_fin',
         ));
