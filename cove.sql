@@ -205,6 +205,13 @@ INSERT INTO `employees` VALUES ('78945678-3', 11, 'Severo Bonifacio', 'Almaraz C
 INSERT INTO `employees` VALUES ('90145678-1', 11, 'Raimunda Enrica', 'Carrera Prieto', 'Km. 12. Carretera Troncal del Norte #2B, Ciudad Delgado', 'aguas@cove.sv', '8882-7774', 0);
 INSERT INTO `employees` VALUES ('45645678-6', 5,  'Claudio Natalio', 'Contreras Calle', 'Col. Las Rosas #4, Ciudad Delgado', 'calles@cove.sv', '2489-4967', 0);
 INSERT INTO `employees` VALUES ('01245678-0', 11, 'Cristoval Macario', 'Pavon Larin', 'Col. Santa Eduviges #8F, Ciudad Delgado', 'pavon@cove.sv', '8882-7774', 0);
+INSERT INTO `employees` VALUES ('04647698-0', 11, 'Policarpio Juanerges', 'Castro Liban', 'Col. Santa Carlota #7F, Ciudad Delgado', 'liban@cove.sv', '2561-7774', 0);
+INSERT INTO `employees` VALUES ('01567678-1', 11, 'Frank Gilberto', 'Menez Loran', 'Col. Santa Barbara #8F, Ciudad Delgado', 'loran@cove.sv', '7882-7884', 0);
+INSERT INTO `employees` VALUES ('05244878-3', 11, 'Ramiro Ernesto', 'Asturias Guillen', 'Col. la Pedrera , Ciudad Delgado', 'asturias@cove.sv', '6882-7774', 0);
+INSERT INTO `employees` VALUES ('09345789-2', 11, 'Roberto Toto', 'Gamarra Larin', 'Col. Santa Eduviges #8F, Ciudad Delgado', 'toto@cove.sv', '8882-7854', 0);
+INSERT INTO `employees` VALUES ('03295623-9', 11, 'Cristoval Alexander', 'Jimenez Arriaga', 'Col. Santa Fe #8F, Ciudad Delgado', 'jimenez@cove.sv', '2482-7774', 0);
+INSERT INTO `employees` VALUES ('04789678-7', 11, 'Rodrigo Armando', 'Pineda Merino', 'Col. lso platannos #5C, Ciudad Delgado', 'pineda@cove.sv', '7882-6664', 0);
+
 
 
 --
