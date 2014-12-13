@@ -49,14 +49,10 @@ class RequestsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Request->create();
 			if ($this->Request->save($this->request->data)) {
-        //Bitacora
-        $logbook = new Logbook();
-        $logbook->add("Solicitado Enviada", serialize($this->request->data));
-
-				$this->Session->setFlash(__('La solicitud ha sido enviada.'), 'flash_notification');
+				$this->Session->setFlash(__('La solicitud ha sido enviada.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La solicitud no fue enviada, intentelo nuevamente.'), 'flash_notification');
+				$this->Session->setFlash(__('La solicitud no fue enviada, intentelo nuevamente.'));
 			}
 		}
         $dossiers = $this->Request->Dossier->find('list',array(
@@ -82,15 +78,10 @@ class RequestsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Request->save($this->request->data)) {
-        //Bitacora
-        $logbook = new Logbook();
-        $logbook->add("Solicitud Actualizada", serialize($this->request->data));
-
-
-				$this->Session->setFlash(__('La solicitud ha sido actualizada.'), 'flash_notification');
+				$this->Session->setFlash(__('La solicitud ha sido actualizada.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La solititud fallo al actualizar, favor intentar nuevamente.'), 'flash_notification');
+				$this->Session->setFlash(__('La solititud fallo al actualizar, favor intentar nuevamente.'));
 			}
 		} else {
 			$options = array('conditions' => array('Request.' . $this->Request->primaryKey => $id));
@@ -119,14 +110,10 @@ class RequestsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Request->save($this->request->data)) {
-        //Bitacora
-        $logbook = new Logbook();
-        $logbook->add("Solicitud Actualizada", serialize($this->request->data));
-
-				$this->Session->setFlash(__('Solicitud actualizada.'), 'flash_notification');
+				$this->Session->setFlash(__('Solicitud actualizada.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La solicitud fallo al actualizarse, favor intentar nuevamente.'), 'flash_notification');
+				$this->Session->setFlash(__('La solicitud fallo al actualizarse, favor intentar neuvamente.'));
 			}
 		} else {
 			$options = array('conditions' => array('Request.' . $this->Request->primaryKey => $id));
@@ -155,15 +142,10 @@ class RequestsController extends AppController {
 			throw new NotFoundException(__('Invalid request'));
 		}
 		$this->request->allowMethod('post', 'delete');
-    $data = $this->Request->findById($id);		
 		if ($this->Request->delete()) {
-        //Bitacora
-        $logbook = new Logbook();
-        $logbook->add("Solicitud Borrada", serialize($this->request->data));
-
-			$this->Session->setFlash(__('La solicitud ha sido borrada.'), 'flash_notification');
+			$this->Session->setFlash(__('The request has been deleted.'));
 		} else {
-			$this->Session->setFlash(__('The request could not be deleted. Please, try again.'), 'flash_notification');
+			$this->Session->setFlash(__('The request could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

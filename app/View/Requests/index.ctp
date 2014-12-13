@@ -69,10 +69,21 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver detalles'), array('action' => 'view', $request['Request']['id'])); ?></td>
         <td class="actions">
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $request['Request']['id'])); ?></td>
-            
+			<?php
+            if ($request['Request']['anulado'] == 1){
+                
+            }else{
+                echo $this->Html->link(__('Editar'), array('action' => 'edit', $request['Request']['id']));
+            }
+            ?></td>
             <td class="actions">
-            <?php echo $this->Html->link(__('Gestionar'), array('action' => 'manage', $request['Request']['id'])); ?>
+            <?php 
+            if ($request['Request']['anulado'] == 1){
+                
+            }else{
+                echo $this->Html->link(__('Gestionar'), array('action' => 'manage', $request['Request']['id']));
+            }
+            ?>
 		</td>
 	</tr>
 <?php endforeach;
