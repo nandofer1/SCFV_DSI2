@@ -625,9 +625,9 @@ CREATE TABLE IF NOT EXISTS `trips` (
   `hora_inicio` time NOT NULL,
   `hora_fin` time NOT NULL default '00:00:00',
   `kilometraje_inicial` int(11) NOT NULL,
-  `kilometraje_final` int(11) NOT NULL,
+  `kilometraje_final` int(11),
   `comentario_salida` varchar(250) NOT NULL,
-  `comentario_entrada` varchar(250) NOT NULL,
+  `comentario_entrada` varchar(250) NOT NULL default '',
   `rendimiento` decimal(10,0) NOT NULL,
   `fuera` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
