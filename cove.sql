@@ -276,6 +276,17 @@ CREATE TABLE IF NOT EXISTS `maintenancetools` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO `maintenancetools` VALUES (1,'Destornilladores','Extracorto boca estampada');
+INSERT INTO `maintenancetools` VALUES (2,'Aspiradora','Angular pequeña');
+INSERT INTO `maintenancetools` VALUES (3,'Pistola atornillada neumática','1/2"');
+INSERT INTO `maintenancetools` VALUES (4,'Piedra para pulir','Extracorto boca estampada');
+INSERT INTO `maintenancetools` VALUES (5,'Manguera para aire comprimido','Honeywell');
+INSERT INTO `maintenancetools` VALUES (6,'Amoladora numática','1/4"');
+INSERT INTO `maintenancetools` VALUES (7,'Alicates','Universal plano');
+INSERT INTO `maintenancetools` VALUES (8,'Cortafríos','Par');
+INSERT INTO `maintenancetools` VALUES (9,'Galgas de espesores','Estándar');
+INSERT INTO `maintenancetools` VALUES (10,'Arco de sierra','Wentworth');
+
 -- --------------------------------------------------------
 
 --
@@ -300,6 +311,9 @@ CREATE TABLE IF NOT EXISTS `maintenancetypes` (
   `tipo` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+INSERT INTO `maintenancetypes` (`id`, `tipo`) VALUES (1, 'Preventivo'); 
+INSERT INTO `maintenancetypes` (`id`, `tipo`) VALUES (2, 'Correctivo');
 
 -- --------------------------------------------------------
 
@@ -540,6 +554,17 @@ CREATE TABLE IF NOT EXISTS `parts` (
   `descripcion` varchar(250) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+INSERT INTO parts VALUES (1,'Pistones','Kit de 6 pistones');
+INSERT INTO parts VALUES (2,'Batería','Óptima de gel');
+INSERT INTO parts VALUES (3,'Bujías','Par de bujías');
+INSERT INTO parts VALUES (4,'Pastillas de freno','Paquete de 4 bujías');
+INSERT INTO parts VALUES (5,'Bombillo','Kit de 3 Bombillos');
+INSERT INTO parts VALUES (6,'Stop','par de stop');
+INSERT INTO parts VALUES (7,'Amortiguadores','Caja de 5 amortiguadores');
+INSERT INTO parts VALUES (8,'Tambor para frenos','Kit de 6 pistones');
+INSERT INTO parts VALUES (9,'Válvulas','Juego de válvulas');
+INSERT INTO parts VALUES (10,'Radiador','Original');
 
 -- --------------------------------------------------------
 
