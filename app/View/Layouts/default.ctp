@@ -182,8 +182,8 @@ echo $this->Html->script('zebra_datepicker');
 							</li>
 						<li><a href="#"><img src="<?php echo "$imgdir/tools.png"?>">Herramientas <span class="glyphicon glyphicon-play"></span></a>
 							<ul id="second-level">
-								<li><a href="/tools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Herramienta</a></li>
-								<li><a href="/tools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista Herramientas</a></li>
+								<li><a href="/maintenancetools/add"><img src="<?php echo "$imgdir/add.png"?>">Agregar Herramienta</a></li>
+								<li><a href="/maintenancetools/index"><img src="<?php echo "$imgdir/list.png"?>">Lista Herramientas</a></li>
 							</ul>
 						</li>
 						<li><a href="#"><img src="<?php echo "$imgdir/org.png"?>">Tipos de mantenimientos<span class="glyphicon glyphicon-play"></span></a>

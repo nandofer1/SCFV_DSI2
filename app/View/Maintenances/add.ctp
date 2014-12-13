@@ -10,7 +10,7 @@
             'empty'   => ('Seleccione una opción'),
         ));
 		echo $this->Form->input('dossier_id', array(
-            'label' => 'Expediente vehículo: ',
+            'label' => 'Placa de vehículo: ',
             'type' => 'select',
             'empty'   => ('Seleccione una opción'),
         ));

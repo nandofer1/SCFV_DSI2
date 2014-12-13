@@ -1,6 +1,6 @@
 <?php $this->set('title_for_layout', 'Tipos de mantenimiento'); ?>
 <div class="maintenancetypes index">
-	<h2><?php echo __('Maintenancetypes'); ?></h2>
+	<h2><?php echo __('Tipor de mantenimiento'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -23,23 +23,16 @@
 <?php endforeach; ?>
 	</tbody>
 	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Maintenancetype'), array('action' => 'add')); ?></li>
-	</ul>
+	     <p id="paginador">
+        <?php  echo $this->Paginator->counter(
+                array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
+                
+                )?> 
+    </p>
+    <div class="paging">
+        <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
+        <?php echo $this->Paginator->numbers(array('separator'=>' ')); ?>
+         <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
+        
+    </div>
 </div>

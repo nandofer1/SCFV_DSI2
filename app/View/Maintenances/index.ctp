@@ -55,17 +55,16 @@
 <?php endforeach; ?>
 	</tbody>
 	</table>
-    <p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registro de {:count} en total, comenzando en el registro {:start}, y terminando en {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
+     <p id="paginador">
+        <?php  echo $this->Paginator->counter(
+                array('format'=>'Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} ')
+                
+                )?> 
+    </p>
+    <div class="paging">
+        <?php echo $this->Paginator->prev('Anterior',array(),null,array('class'=>'prev disabled')); ?>
+        <?php echo $this->Paginator->numbers(array('separator'=>' ')); ?>
+         <?php echo $this->Paginator->next('Siguiente',array(),null,array('class'=>'next disabled')); ?>
+        
+    </div>
 </div>

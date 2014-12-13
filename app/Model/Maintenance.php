@@ -33,6 +33,13 @@ class Maintenance extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+        'Maintenancetype' => array(
+          'className' => 'Maintenancetype',
+			'foreignKey' => 'maintenancetype_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+        ),
 		'Dossier' => array(
 			'className' => 'Dossier',
 			'foreignKey' => 'dossier_id',

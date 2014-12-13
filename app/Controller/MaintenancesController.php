@@ -56,9 +56,10 @@ class MaintenancesController extends AppController {
 				$this->Session->setFlash(__('The maintenance could not be saved. Please, try again.'), 'flash_notification');
 			}
 		}
+        $maintenancetypes = $this->Maintenance->Maintenancetype->find('list');
 		$users = $this->Maintenance->User->find('list');
 		$dossiers = $this->Maintenance->Dossier->find('list');
-		$this->set(compact('users', 'dossiers'));
+		$this->set(compact('maintenancetypes','users', 'dossiers'));
 	}
 
 /**

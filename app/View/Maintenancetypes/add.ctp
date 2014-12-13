@@ -2,17 +2,11 @@
 <div class="maintenancetypes form">
 <?php echo $this->Form->create('Maintenancetype'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Maintenancetype'); ?></legend>
+		<legend><?php echo __('Agregar tipo de mantenimiento'); ?></legend>
 	<?php
 		echo $this->Form->input('tipo');
 	?>
+        <?php echo $this->Form->end(__('Submit')); ?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Html->link(__('List Maintenancetypes'), array('action' => 'index')); ?></li>
-	</ul>
 </div>
