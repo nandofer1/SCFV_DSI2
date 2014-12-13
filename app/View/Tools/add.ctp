@@ -13,7 +13,7 @@ echo $this->Form->input('existencia',  array('type'=>'number','label'=>'Existenc
 //echo $this->Form->label('Descripción');echo '<br>';
 //echo $this->Form->textarea('descripcion',array('style'=>'width: 300px; height:200px;'));
 	echo $this->Form->input('descripcion', array('label'=>'Descripcion: ', 'type' => 'textarea', 'style'=>'width: 300px; height:200px;','pattern'=>'/^[A-Za-z0-9áéíóúÁÉÍÓÚÑñ\s]{1,}$/i','required'=>'true'));
-echo $this->Form->input('valor',array('type'=>'number','step'=>'0.2','label'=>'Valor: $','type'=>'text','style'=>'width: 100px;','required'=>'true','placeholder'=>''));
+echo $this->Form->input('valor',array('type'=>'number','step'=>'0.2','label'=>'Valor: $','style'=>'width: 100px;','required'=>'true','placeholder'=>''));
 echo '<div class="input"><br>';
 echo $this->Form->end('Guardar Herramienta');
 echo '</div>';

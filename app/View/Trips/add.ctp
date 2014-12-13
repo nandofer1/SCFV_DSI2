@@ -32,7 +32,7 @@ echo $this->Form->input('dossier_id', array(
             'required'=>'true'
         ));
 
-//echo $this->Form->input('fecha_fin',array('label'=>'Fecha de Regreso','value'=>'0000-00-00','style'=>'width: 100px; height:30px;'));
+echo $this->Form->input('fecha_fin',array('type'=>'hidden','value'=>'0000-00-00','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('hora_inicio',array(
     'label'=>'Hora de Salida',
     'id' => 'hora_inicio',
@@ -40,9 +40,9 @@ echo $this->Form->input('hora_inicio',array(
     'style'=>'width: 100px; height:30px;',
     'required'=>'true'
 ));
-//echo $this->Form->input('hora_fin',array('label'=>'Hora de Regreso','value'=>'00:00:00','style'=>'width: 100px; height:30px;'));
+echo $this->Form->input('hora_fin',array('type'=>'hidden','value'=>'00:00:00','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('kilometraje_inicial',array('type'=>'number','label'=>'Kilometraje Inicial','style'=>'width: 100px; height:30px;','maxlength'=>'6','required'=>'true'));
-//echo $this->Form->input('kilometraje_final',array('label'=>'Kilometraje Final','value'=>'00','style'=>'width: 100px; height:30px;'));
+echo $this->Form->input('kilometraje_final',array('type'=>'hidden','value'=>'00','style'=>'width: 100px; height:30px;'));
 echo $this->Form->input('fuera',array('type'=>'hidden','value'=>'1','style'=>'width: 100px; height:30px;'));
 
 echo $this->Form->input('motorista', array(
