@@ -94,7 +94,8 @@ $viajes= $this->Trip->find('list',array(
     'conditions'=>array('Trip.fuera' =>1)));
 
 $Emp=$this->Employee->find('list', array(       
-                  'fields' => array('Employee.id', 'Employee.apellidos')
+                  'fields' => array('Employee.id', 'Employee.apellidos'),
+                  'conditions'=>array('Employee.departament_id'=>11)
             ));
 $i=0;
 $j=0;

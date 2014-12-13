@@ -35,6 +35,7 @@ class DossiersController extends AppController {
  */
 	public function view($id = null) {
             $this->loadModel('Trip'); 
+             $this->loadModel('Voucher'); 
          $ultimo= $this->Trip->find('list',array(
     
     'fields'=>array('Trip.dossier_id','Trip.id'),
@@ -43,6 +44,17 @@ class DossiersController extends AppController {
              
              ));
          $this->set('Ultimo',$ultimo);
+         
+          $ultimovoucher=$this->Voucher->find('list',array(
+    
+    'fields'=>array('Voucher.dossier_id','Voucher.Fuelvoucher_id'),
+    'conditions'=>array('Voucher.dossier_id' =>$id),
+     'order'=>'Voucher.id ASC'    ));
+          
+          //ULTIMO VOUCHER
+          $VU=array();
+          $VU[0]=end($ultimovoucher);
+          $this->set('UltimoV',$VU);
          
 		if (!$this->Dossier->exists($id)) {
 			throw new NotFoundException(__('Invalid dossier'));

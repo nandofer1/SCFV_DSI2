@@ -21,27 +21,30 @@
       <tr><td nowrap width="1" >Numero Vales: </td><td><?php echo $dossier['Dossier']['numero_vales'];
       echo '<br><br>';
        echo'Ultimo Vale Utilizado:';
-   echo $this->Html->link('Ver Detalles',array('controller'=>'Fuelvoucher','action'=>'view',end ($Ultimo))) ;  
+   echo $this->Html->link('Ver Detalles',array('controller'=>'Fuelvouchers','action'=>'view', $UltimoV[0])) ;  
       
       ?></td></tr>
       <tr><td>Fecha Ult Mant.</td><td><?php echo $dossier['Dossier']['fecha_ult_mant']?></td></tr>
       <tr><td>Prestable: </td><td><?php echo $dossier['Dossier']['prestable']==false?"No":"Si"?></td></tr>      
       <tr><td>Observaciones</td><td><?php echo $dossier['Dossier']['observaciones'];?></td></tr>  
        <tr><td>Rendimiento</td><td><?php 
-       echo 'Numero de Galones Consumidos: '.$datos[0];
+      
+       
+       if($datos[0]!=0 && $datos[1]!=0):
+            echo 'Numero de Galones Consumidos: '.$datos[0];
        echo '<br><br>';
        echo 'Total de Kilometros recorridos por Viaje: '.$datos[1];
        echo '<br><br>';
-       
-       if($datos[0]==0):
-           echo 'No hay Galones Consumidos por este Veh{iculo';
-           else :
-               $razon=($datos[1]/$datos[0]);
+             $razon=($datos[1]/$datos[0]);
        $total=number_format((float)$razon, 2, '.', '');
        echo 'Rendimiento (Km / gal): <b> '. $total.' Km por cada galon consumido</b>'; 
       echo '<br><br>';
     $total=number_format((float)$datos[2], 2, '.', '');
      echo 'Inversion Total por Combustible: <b>$'.$total; 
+           
+           else :
+           echo 'No hay Galones  Consumidos o viajes Realizados por este Vehiculo';
+             
       
        
        endif;
