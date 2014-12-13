@@ -623,7 +623,7 @@ CREATE TABLE IF NOT EXISTS `trips` (
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL default '0000-00-00',
   `hora_inicio` time NOT NULL,
-  `hora_fin` time NOT NULL,
+  `hora_fin` time NOT NULL default '00:00:00',
   `kilometraje_inicial` int(11) NOT NULL,
   `kilometraje_final` int(11) NOT NULL,
   `comentario_salida` varchar(250) NOT NULL,
