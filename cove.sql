@@ -755,7 +755,11 @@ INSERT INTO `dossiers` VALUES
 (6, 'N5687','2014-11-30', '0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
 (7, 'N5713','2014-11-30', '0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
 (8, 'N5746','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
-(9, 'N7721','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1');
+(9, 'N7721','2014-11-30','0','0','0','0','0','0-0-0',FALSE,'Ingreso en Perfecto estado','1'),
+(10,'N6265','2014-11-30','0','0','0','0','0','0-0-0',TRUE,'Ingreso en Perfecto estado','1'),
+(11,'N6543','2014-11-30','0','0','0','0','0','0-0-0',TRUE,'Ingreso en Perfecto estado','1'),
+(12,'N6845','2014-11-30','0','0','0','0','0','0-0-0',TRUE,'Ingreso en Perfecto estado','1'),
+(13,'N6125','2014-11-30','0','0','0','0','0','0-0-0',TRUE,'Ingreso en Perfecto estado','1');
 
 --
 -- Estructura de tabla para la tabla `devehicles`
