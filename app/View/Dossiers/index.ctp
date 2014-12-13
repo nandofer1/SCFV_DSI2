@@ -44,7 +44,7 @@
 		<td><?php echo h($dossier['Dossier']['numero_mantenimientos']); ?>&nbsp;</td>
 		<td><?php echo h($dossier['Dossier']['numero_vales']); ?>&nbsp;</td>
 		<td><?php echo h($dossier['Dossier']['fecha_ult_mant']); ?>&nbsp;</td>
-		<td><?php echo h($dossier['Dossier']['prestable']); ?>&nbsp;</td>
+		<td><?php echo $dossier['Dossier']['prestable']==false?"No":"Si"?>&nbsp;</td>
 <!--		<td><?php echo h($dossier['Dossier']['observaciones']); ?>&nbsp;</td>-->
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $dossier['Dossier']['id'])); ?>
