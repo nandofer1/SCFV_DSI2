@@ -163,6 +163,7 @@ $(document).ready(function(){
         show24Hours: false,
         separator: ':',
     });
+    /*
 //-------------------------------------------------------------------------------
     var tripulacion = [$("#TripDui1"), $("#TripDui2"), $("#TripDui3"), $("#TripDui3"), $("#TripDui4"), $("#TripDui5")];
     function comp(dis, sid) {
@@ -179,7 +180,7 @@ $(document).ready(function(){
     $("#TripDui3").change(function(){comp($(this));});
     $("#TripDui4").change(function(){comp($(this));});
     $("#TripDui5").change(function(){comp($(this));});   
-   
+   */
    
 });
 </script>
