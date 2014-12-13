@@ -107,7 +107,7 @@ echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; hei
              
       <?php
    $n=0;
-   $i=0;
+   $i=1;
       foreach ($Herramientas as $Herramienta):?>
     <?php
     // para mostrar 5 por cada fila
@@ -128,7 +128,7 @@ echo $this->Form->textarea('comentario_salida',array('style'=>'width: 300px; hei
     endforeach; 
 
     //NUMERO DE HERRAMIENTAS
-    echo $this->Form->input('num_h',array('type'=>'hidden','value'=>$i+1));
+    echo $this->Form->input('num_h',array('type'=>'hidden','value'=>$i));
     
     ?>
      </table>

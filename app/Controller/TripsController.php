@@ -151,7 +151,8 @@ if($this->request->is('post')): // si la consulta es de tipo post
     }
    
     //Ingresamos las Heramientas que se llevaron en el viaje
-     for($j=0;$j<$this->request->data['Trip']['num_h'];$j++)
+    
+     for($j=1;$j<$this->request->data['Trip']['num_h'];$j++)
     {
     
         
@@ -163,7 +164,7 @@ if($this->request->is('post')): // si la consulta es de tipo post
         endif;
     }
 
-
+    
     
         $this->Session->setFlash('Salida de Vehículo Registrado', 'flash_notification');
     $this->redirect(array('action'=>'index')); // nos regresa a la funcion index
