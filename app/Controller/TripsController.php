@@ -297,7 +297,7 @@ $this->set('Herramientas',$this->Tool->find('all'));
         if($this->Trip->save($this->request->data)):
         //Bitacora
         $logbook = new Logbook();
-        $logbook->add("Salida de Viaje Modificada", serialize($this->request->data));
+        $logbook->add("Salida de Viaje Reportada", serialize($this->request->data));
             
              //DATOS QUE IRAN AL EXPDIENTE
     $kmi= $this->request->data['Trip']['kilometraje_inicial'];
