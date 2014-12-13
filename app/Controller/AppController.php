@@ -48,7 +48,8 @@ class AppController extends Controller {
                     'passwordHasher' => 'Blowfish'
                 ),
 
-            )
+            )//,
+            //'authorize' => array('Controller')
         )
     );
     public function beforeFilter() {
@@ -57,4 +58,16 @@ class AppController extends Controller {
           'action' => 'login'
         );
     }	
+    /*
+    public function isAuthorized($user) {
+    if ($this->action === "display") {
+        return true;
+    }
+    // Default deny
+    $this->Session->setFlash("Ud. no tiene autorizacion para realizar esta accion.", 'flash_notification');
+    return $this->redirect("/");
+    return false;
+    }
+    */
+    
 }
