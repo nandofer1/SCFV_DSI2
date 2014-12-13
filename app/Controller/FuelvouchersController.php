@@ -50,6 +50,10 @@ class FuelvouchersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Fuelvoucher->create();
 			if ($this->Fuelvoucher->save($this->request->data)) {
+				//Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Nuevo Vale de Combustible", serialize($this->request->data));
+
 				$this->Session->setFlash(__('The fuelvoucher has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -71,6 +75,10 @@ class FuelvouchersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Fuelvoucher->save($this->request->data)) {
+				//Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Vale de combustible modificado", serialize($this->request->data));
+
 				$this->Session->setFlash(__('The fuelvoucher has been saved.'), 'flash_notification');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -95,7 +103,12 @@ class FuelvouchersController extends AppController {
 			throw new NotFoundException(__('Invalid fuelvoucher'));
 		}
 		$this->request->allowMethod('post', 'delete');
+		$data = $this->Fuelvoucher->findById($id);
 		if ($this->Fuelvoucher->delete()) {
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Vale de combustible borrado", serialize($data));
+
 			$this->Session->setFlash(__('The fuelvoucher has been deleted.'), 'flash_notification');
 		} else {
 			$this->Session->setFlash(__('The fuelvoucher could not be deleted. Please, try again.'), 'flash_notification');
