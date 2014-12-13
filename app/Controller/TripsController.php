@@ -295,6 +295,9 @@ $this->set('Herramientas',$this->Tool->find('all'));
     else: //si la peteicion no es get
         
         if($this->Trip->save($this->request->data)):
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Salida de Viaje Modificada", serialize($this->request->data));
             
              //DATOS QUE IRAN AL EXPDIENTE
     $kmi= $this->request->data['Trip']['kilometraje_inicial'];
@@ -324,8 +327,13 @@ public function delete($id)
     if($this->request->is('get')):
         throw new MethodNotAllowedException();//para que en la url no le agreguen un dato para borrar por get
     else:
+    	$data = $this->Trip->findById($id);
         if($this->Trip->delete($id)):
-            $this->Session->setFlash("Viaje Eliminado", 'flash_notification');
+        //Bitacora
+        $logbook = new Logbook();
+        $logbook->add("Viaje Eliminado", serialize($data));
+        
+        $this->Session->setFlash("Viaje Eliminado", 'flash_notification');
         $this->redirect(array('action'=>'index'));
         endif;
 
