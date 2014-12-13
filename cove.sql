@@ -645,7 +645,8 @@ CREATE TABLE IF NOT EXISTS `units` (
 
 INSERT INTO `units` (`id`, `unidad`, `descripcion`) VALUES
 (1, 'Social', ''),
-(2, 'Gerencial', '');
+(2, 'Gerencial', ''),
+(3, 'Unidad de proyectos', '');
 
 -- --------------------------------------------------------
 
