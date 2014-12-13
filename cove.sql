@@ -567,7 +567,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `hora_inicio` time NOT NULL,
   `hora_fin` time NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `aprobado` tinyint(1) NOT NULL DEFAULT '0',
+  `aprobado` tinyint(2) NOT NULL DEFAULT '0',
   `anulado` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
