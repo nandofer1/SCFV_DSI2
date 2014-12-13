@@ -621,7 +621,7 @@ CREATE TABLE IF NOT EXISTS `trips` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dossier_id` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL,
+  `fecha_fin` date NOT NULL default '0000-00-00',
   `hora_inicio` time NOT NULL,
   `hora_fin` time NOT NULL,
   `kilometraje_inicial` int(11) NOT NULL,
