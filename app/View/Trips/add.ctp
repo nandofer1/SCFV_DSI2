@@ -168,7 +168,7 @@ $(document).ready(function(){
     msg = function(msg) {
         //e.preventDefault();
         bootbox.dialog({
-        title: "Usuarios",
+        title: "Viajes",
         message: msg,
         buttons: {
            aceptar: {
