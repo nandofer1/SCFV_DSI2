@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `maintenances` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `dossier_id` int(11) NOT NULL,
-  `upkeeptype_id` int(11) NOT NULL,
+  `maintenancetype_id` int(11) NOT NULL,
   `descripcion` int(11) NOT NULL,
   `fecha_mantenimiento` date NOT NULL,
   `fecha_solicitud` date NOT NULL,
