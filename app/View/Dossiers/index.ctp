@@ -36,7 +36,7 @@
 	<tbody>
 	<?php foreach ($dossiers as $dossier): ?>
 	<tr>
-		<td><?php echo h($dossier['Vehicle']['id']); ?>&nbsp;</td>
+		<td><?php echo h($dossier['Dossier']['vehicle_id']); ?>&nbsp;</td>
 		<td><?php echo h($dossier['Dossier']['fecha_ingreso']); ?>&nbsp;</td>
 <!--		<td><?php echo h($dossier['Dossier']['Kilometraje_actual']); ?>&nbsp;</td>-->
 		<td><?php echo h($dossier['Dossier']['kilometraje']); ?>&nbsp;</td>
