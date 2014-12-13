@@ -555,8 +555,12 @@ CREATE TABLE IF NOT EXISTS `partsuseds` (
 CREATE TABLE IF NOT EXISTS `requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dossier_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
   `fecha_solicitud` date NOT NULL,
+  `employee_id` int(10) NOT NULL,
+  `driver_id` int(10),
+  `unidad_id` int(10) NOT NULL,
+  `telefono` varchar(14) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
   `hora_inicio` time NOT NULL,
@@ -564,11 +568,8 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `descripcion` varchar(250) NOT NULL,
   `aprobado` tinyint(1) NOT NULL DEFAULT '0',
   `anulado` tinyint(1) NOT NULL DEFAULT '0',
-  `employee_id` int(10) NOT NULL,
-  `telefono` varchar(14) NOT NULL DEFAULT '--',
-  `driver_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 --
