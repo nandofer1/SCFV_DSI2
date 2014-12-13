@@ -4,6 +4,22 @@ App::uses('AppController', 'Controller');
 class UserTypesController extends AppController {
   public $components = array('Paginator');
 
+  /*
+  public function isAuthorized($user) {
+    $tipo = $this->Session->read("tipo_usuario");
+    if (in_array($this->action, array('index', 'ver', 'buscar', 'agregar', 'eliminar', 'editar'))) {
+      if($tipo == 1){//Cambiar por el id del tipo de usuario que puede realizar estas acciones ↑
+        return true;
+      }
+    }
+     //Si no se autorizo, ahora se niega. (i.e. no somos Administrador del Sistema)
+    $this->Session->setFlash("Ud. no tiene autorizacion para realizar esta accion.", 'flash_notification');
+    return $this->redirect("/");
+    return false;
+  }
+  */
+
+
   public function logout() {
     return $this->redirect($this->Auth->logout());
   }
